@@ -191,6 +191,6 @@ class __TwigTemplate_a4b0eb984f5865f4c7be559d9092308fc4aa3038563498d3e5697929fa4
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\MAMP\\htdocs\\P6_01_projet\\templates\\base.html.twig");
+", "base.html.twig", "C:\\MAMP\\htdocs\\P6ElouanPeurou\\P6ElouanPeurou\\templates\\base.html.twig");
     }
 }

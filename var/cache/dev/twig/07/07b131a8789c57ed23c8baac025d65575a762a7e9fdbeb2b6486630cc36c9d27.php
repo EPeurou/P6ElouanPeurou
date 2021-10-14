@@ -97,6 +97,6 @@ class __TwigTemplate_d32712674cf587b81d57516a40b80c30eae70e793caad03ab3ffc138d78
         </div>
     </div>
 </div>
-", "@WebProfiler/Profiler/header.html.twig", "C:\\MAMP\\htdocs\\P6_01_projet\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\header.html.twig");
+", "@WebProfiler/Profiler/header.html.twig", "C:\\MAMP\\htdocs\\P6ElouanPeurou\\P6ElouanPeurou\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\header.html.twig");
     }
 }

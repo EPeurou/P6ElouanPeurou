@@ -1,3 +1,0 @@
-<?php //homeController
-
-return [PHP_INT_MAX, []];

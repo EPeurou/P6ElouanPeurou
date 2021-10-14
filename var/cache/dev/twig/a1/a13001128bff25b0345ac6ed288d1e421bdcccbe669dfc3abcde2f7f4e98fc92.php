@@ -80,9 +80,11 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
             <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\">
                 <div class=\"d-flex justify-content-center\">
                     <div class=\"text-center\">
-                        <h1 class=\"mx-auto my-0 text-uppercase\">Grayscale</h1>
+                        <h1 class=\"mx-auto my-0 text-uppercase\">SnowTricks</h1>
                         <h2 class=\"text-white-50 mx-auto mt-2 mb-5\">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                        <a class=\"btn btn-primary\" href=\"#about\">Get Started</a>
+                        <div style=\"margin-top:10em;\">
+                            <a class=\"btn btn-primary\" href=\"#about\"><i class=\"fas fa-2x fa-arrow-circle-down\"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -308,9 +310,11 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
             <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\">
                 <div class=\"d-flex justify-content-center\">
                     <div class=\"text-center\">
-                        <h1 class=\"mx-auto my-0 text-uppercase\">Grayscale</h1>
+                        <h1 class=\"mx-auto my-0 text-uppercase\">SnowTricks</h1>
                         <h2 class=\"text-white-50 mx-auto mt-2 mb-5\">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                        <a class=\"btn btn-primary\" href=\"#about\">Get Started</a>
+                        <div style=\"margin-top:10em;\">
+                            <a class=\"btn btn-primary\" href=\"#about\"><i class=\"fas fa-2x fa-arrow-circle-down\"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -475,6 +479,6 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         <script src=\"https://cdn.startbootstrap.com/sb-forms-latest.js\"></script>
     </body>
 </html>
-", "/index.html.twig", "C:\\MAMP\\htdocs\\P6_01_projet\\templates\\index.html.twig");
+", "/index.html.twig", "C:\\MAMP\\htdocs\\P6ElouanPeurou\\P6ElouanPeurou\\templates\\index.html.twig");
     }
 }

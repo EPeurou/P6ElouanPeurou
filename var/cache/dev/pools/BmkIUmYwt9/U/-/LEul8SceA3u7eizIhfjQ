@@ -1,3 +1,0 @@
-<?php //QuestionController
-
-return [PHP_INT_MAX, []];
