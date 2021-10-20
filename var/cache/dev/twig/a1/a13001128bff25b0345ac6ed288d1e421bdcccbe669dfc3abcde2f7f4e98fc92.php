@@ -27,6 +27,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         $this->parent = false;
 
         $this->blocks = [
+            'header' => [$this, 'block_header'],
         ];
     }
 
@@ -42,26 +43,14 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         // line 1
         echo "<!DOCTYPE html>
 <html lang=\"en\">
-    <head>
-        <meta charset=\"utf-8\" />
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
-        <meta name=\"description\" content=\"\" />
-        <meta name=\"author\" content=\"\" />
-        <title>Grayscale - Start Bootstrap Theme</title>
-        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
-        <!-- Font Awesome icons (free version)-->
-        <script src=\"https://use.fontawesome.com/releases/v5.15.3/js/all.js\" crossorigin=\"anonymous\"></script>
-        <!-- Google fonts-->
-        <link href=\"https://fonts.googleapis.com/css?family=Varela+Round\" rel=\"stylesheet\" />
-        <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href=\"css/styles.css\" rel=\"stylesheet\" />
-    </head>
-    <body id=\"page-top\">
+    ";
+        // line 3
+        $this->displayBlock('header', $context, $blocks);
+        // line 6
+        echo "    <body id=\"page-top\">
         <!-- Navigation-->
         <nav class=\"navbar navbar-expand-lg navbar-light fixed-top\" id=\"mainNav\">
             <div class=\"container px-4 px-lg-5\">
-                <a class=\"navbar-brand\" href=\"#page-top\">Start Bootstrap</a>
                 <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                     Menu
                     <i class=\"fas fa-bars\"></i>
@@ -78,46 +67,40 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         <!-- Masthead-->
         <header class=\"masthead\">
             <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\">
-                <div class=\"d-flex justify-content-center\">
-                    <div class=\"text-center\">
+                <div>
+                    <div class=\"text-center mt-5\">
                         <h1 class=\"mx-auto my-0 text-uppercase\">SnowTricks</h1>
                         <h2 class=\"text-white-50 mx-auto mt-2 mb-5\">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                        <div style=\"margin-top:10em;\">
-                            <a class=\"btn btn-primary\" href=\"#about\"><i class=\"fas fa-2x fa-arrow-circle-down\"></i></a>
-                        </div>
+                    </div>
+                    <div class=\"btn-bottom\">
+                        <a class=\"btn\" style=\"color:white;\" href=\"#tricks\"><i class=\"fas fa-3x fa-arrow-circle-down\"></i></a>
                     </div>
                 </div>
             </div>
         </header>
         <!-- About-->
-        <section class=\"about-section text-center\" id=\"about\">
+        <section class=\"text-center mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
-                <div class=\"row gx-4 gx-lg-5 justify-content-center\">
-                    <div class=\"col-lg-8\">
-                        <h2 class=\"text-white mb-4\">Built with Bootstrap 5</h2>
-                        <p class=\"text-white-50\">
-                            Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-                            <a href=\"https://startbootstrap.com/theme/grayscale/\">the preview page.</a>
-                            The theme is open source, and you can use it for any purpose, personal or commercial.
-                        </p>
+                <div class=\"text-center\">
+                    <h3>Tricks</h3>
+                </div>
+                <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
+                    <div class=\"card\" style=\"width: 18rem;\">
+                        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title\">Card title</h5>
+                            <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                        </div>
                     </div>
                 </div>
-                <img class=\"img-fluid\" src=\"assets/img/ipad.png\" alt=\"...\" />
             </div>
         </section>
         <!-- Projects-->
         <section class=\"projects-section bg-light\" id=\"projects\">
             <div class=\"container px-4 px-lg-5\">
                 <!-- Featured Project Row-->
-                <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                    <div class=\"col-xl-8 col-lg-7\"><img class=\"img-fluid mb-3 mb-lg-0\" src=\"assets/img/bg-masthead.jpg\" alt=\"...\" /></div>
-                    <div class=\"col-xl-4 col-lg-5\">
-                        <div class=\"featured-text text-center text-lg-left\">
-                            <h4>Shoreline</h4>
-                            <p class=\"text-black-50 mb-0\">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- Project One Row-->
                 <div class=\"row gx-0 mb-5 mb-lg-0 justify-content-center\">
                     <div class=\"col-lg-6\"><img class=\"img-fluid\" src=\"assets/img/demo-image-01.jpg\" alt=\"...\" /></div>
@@ -258,6 +241,29 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
     }
 
+    // line 3
+    public function block_header($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+
+        // line 4
+        echo "        ";
+        $this->loadTemplate("header.html.twig", "/index.html.twig", 4)->display($context);
+        // line 5
+        echo "    ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "/index.html.twig";
@@ -265,33 +271,20 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  258 => 5,  255 => 4,  245 => 3,  50 => 6,  48 => 3,  44 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
 <html lang=\"en\">
-    <head>
-        <meta charset=\"utf-8\" />
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />
-        <meta name=\"description\" content=\"\" />
-        <meta name=\"author\" content=\"\" />
-        <title>Grayscale - Start Bootstrap Theme</title>
-        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
-        <!-- Font Awesome icons (free version)-->
-        <script src=\"https://use.fontawesome.com/releases/v5.15.3/js/all.js\" crossorigin=\"anonymous\"></script>
-        <!-- Google fonts-->
-        <link href=\"https://fonts.googleapis.com/css?family=Varela+Round\" rel=\"stylesheet\" />
-        <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href=\"css/styles.css\" rel=\"stylesheet\" />
-    </head>
+    {% block header %}
+        {% include \"header.html.twig\" %}
+    {% endblock %}
     <body id=\"page-top\">
         <!-- Navigation-->
         <nav class=\"navbar navbar-expand-lg navbar-light fixed-top\" id=\"mainNav\">
             <div class=\"container px-4 px-lg-5\">
-                <a class=\"navbar-brand\" href=\"#page-top\">Start Bootstrap</a>
                 <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                     Menu
                     <i class=\"fas fa-bars\"></i>
@@ -308,46 +301,40 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         <!-- Masthead-->
         <header class=\"masthead\">
             <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\">
-                <div class=\"d-flex justify-content-center\">
-                    <div class=\"text-center\">
+                <div>
+                    <div class=\"text-center mt-5\">
                         <h1 class=\"mx-auto my-0 text-uppercase\">SnowTricks</h1>
                         <h2 class=\"text-white-50 mx-auto mt-2 mb-5\">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                        <div style=\"margin-top:10em;\">
-                            <a class=\"btn btn-primary\" href=\"#about\"><i class=\"fas fa-2x fa-arrow-circle-down\"></i></a>
-                        </div>
+                    </div>
+                    <div class=\"btn-bottom\">
+                        <a class=\"btn\" style=\"color:white;\" href=\"#tricks\"><i class=\"fas fa-3x fa-arrow-circle-down\"></i></a>
                     </div>
                 </div>
             </div>
         </header>
         <!-- About-->
-        <section class=\"about-section text-center\" id=\"about\">
+        <section class=\"text-center mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
-                <div class=\"row gx-4 gx-lg-5 justify-content-center\">
-                    <div class=\"col-lg-8\">
-                        <h2 class=\"text-white mb-4\">Built with Bootstrap 5</h2>
-                        <p class=\"text-white-50\">
-                            Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-                            <a href=\"https://startbootstrap.com/theme/grayscale/\">the preview page.</a>
-                            The theme is open source, and you can use it for any purpose, personal or commercial.
-                        </p>
+                <div class=\"text-center\">
+                    <h3>Tricks</h3>
+                </div>
+                <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
+                    <div class=\"card\" style=\"width: 18rem;\">
+                        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title\">Card title</h5>
+                            <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                        </div>
                     </div>
                 </div>
-                <img class=\"img-fluid\" src=\"assets/img/ipad.png\" alt=\"...\" />
             </div>
         </section>
         <!-- Projects-->
         <section class=\"projects-section bg-light\" id=\"projects\">
             <div class=\"container px-4 px-lg-5\">
                 <!-- Featured Project Row-->
-                <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                    <div class=\"col-xl-8 col-lg-7\"><img class=\"img-fluid mb-3 mb-lg-0\" src=\"assets/img/bg-masthead.jpg\" alt=\"...\" /></div>
-                    <div class=\"col-xl-4 col-lg-5\">
-                        <div class=\"featured-text text-center text-lg-left\">
-                            <h4>Shoreline</h4>
-                            <p class=\"text-black-50 mb-0\">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- Project One Row-->
                 <div class=\"row gx-0 mb-5 mb-lg-0 justify-content-center\">
                     <div class=\"col-lg-6\"><img class=\"img-fluid\" src=\"assets/img/demo-image-01.jpg\" alt=\"...\" /></div>
