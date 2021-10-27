@@ -597,7 +597,10 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
     );
 
     public static $classMap = array (
+        'App\\Controller\\homeController' => __DIR__ . '/../..' . '/src/Controller/homeController.php',
+        'App\\Entity\\Tricks' => __DIR__ . '/../..' . '/src/Entity/Tricks.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\TricksRepository' => __DIR__ . '/../..' . '/src/Repository/TricksRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',

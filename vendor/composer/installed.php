@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'v5.3.99',
-        'version' => '5.3.99.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
-        'name' => 'symfony/website-skeleton',
+        'reference' => 'ed37113fa696dd6ca8c940852c34e37ff81a2f67',
+        'name' => '__root__',
         'dev' => true,
     ),
     'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'ed37113fa696dd6ca8c940852c34e37ff81a2f67',
+            'dev_requirement' => false,
+        ),
         'composer/package-versions-deprecated' => array(
             'pretty_version' => '1.11.99.4',
             'version' => '1.11.99.4',
@@ -882,12 +891,12 @@
             'dev_requirement' => false,
         ),
         'symfony/maker-bundle' => array(
-            'pretty_version' => 'v1.34.0',
-            'version' => '1.34.0.0',
+            'pretty_version' => 'v1.34.1',
+            'version' => '1.34.1.0',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/maker-bundle',
             'aliases' => array(),
-            'reference' => 'c1ead8581cddeb4b2b9dcc8a3f00910093c4e5e8',
+            'reference' => 'c9ae401f3fa2b42881120d33ad79416630d1f2be',
             'dev_requirement' => true,
         ),
         'symfony/mime' => array(
@@ -1270,15 +1279,6 @@
             'aliases' => array(),
             'reference' => '9ba1e05fdc7a46979047ba6c8949bd35e3a386a5',
             'dev_requirement' => true,
-        ),
-        'symfony/website-skeleton' => array(
-            'pretty_version' => 'v5.3.99',
-            'version' => '5.3.99.0',
-            'type' => 'project',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'reference' => NULL,
-            'dev_requirement' => false,
         ),
         'symfony/yaml' => array(
             'pretty_version' => 'v5.3.6',

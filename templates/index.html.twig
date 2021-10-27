@@ -41,14 +41,18 @@
                     <h3>Tricks</h3>
                 </div>
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                {% for list in tricks %}
+                    <div class="col-sm-12 col-md-2 col-xl-2">
+                        <div class="card" style="width: 18rem;">
+                            <img src="assets/img/frontflip.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ list.name }}</h5>
+                                <p class="card-text">{{ list.description }}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
+                {% endfor %}
                 </div>
             </div>
         </section>

@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* /index.html.twig */
+/* index.html.twig */
 class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c5ba7b extends Template
 {
     private $source;
@@ -35,10 +35,10 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/index.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "index.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "/index.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "index.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -85,15 +85,35 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                     <h3>Tricks</h3>
                 </div>
                 <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                    <div class=\"card\" style=\"width: 18rem;\">
-                        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-                        <div class=\"card-body\">
-                            <h5 class=\"card-title\">Card title</h5>
-                            <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                ";
+        // line 44
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 44, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["list"]) {
+            // line 45
+            echo "                    <div class=\"col-sm-12 col-md-2 col-xl-2\">
+                        <div class=\"card\" style=\"width: 18rem;\">
+                            <img src=\"assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                            <div class=\"card-body\">
+                                <h5 class=\"card-title\">";
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 49), "html", null, true);
+            echo "</h5>
+                                <p class=\"card-text\">";
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "description", [], "any", false, false, false, 50), "html", null, true);
+            echo "</p>
+                                <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['list'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 56
+        echo "                </div>
             </div>
         </section>
         <!-- Projects-->
@@ -253,7 +273,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
         // line 4
         echo "        ";
-        $this->loadTemplate("header.html.twig", "/index.html.twig", 4)->display($context);
+        $this->loadTemplate("header.html.twig", "index.html.twig", 4)->display($context);
         // line 5
         echo "    ";
         
@@ -266,12 +286,17 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
     public function getTemplateName()
     {
-        return "/index.html.twig";
+        return "index.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
     }
 
     public function getDebugInfo()
     {
-        return array (  258 => 5,  255 => 4,  245 => 3,  50 => 6,  48 => 3,  44 => 1,);
+        return array (  278 => 5,  275 => 4,  265 => 3,  116 => 56,  104 => 50,  100 => 49,  94 => 45,  90 => 44,  50 => 6,  48 => 3,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -319,14 +344,18 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                     <h3>Tricks</h3>
                 </div>
                 <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                    <div class=\"card\" style=\"width: 18rem;\">
-                        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-                        <div class=\"card-body\">
-                            <h5 class=\"card-title\">Card title</h5>
-                            <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                {% for list in tricks %}
+                    <div class=\"col-sm-12 col-md-2 col-xl-2\">
+                        <div class=\"card\" style=\"width: 18rem;\">
+                            <img src=\"assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                            <div class=\"card-body\">
+                                <h5 class=\"card-title\">{{ list.name }}</h5>
+                                <p class=\"card-text\">{{ list.description }}</p>
+                                <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
+                {% endfor %}
                 </div>
             </div>
         </section>
@@ -466,6 +495,6 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         <script src=\"https://cdn.startbootstrap.com/sb-forms-latest.js\"></script>
     </body>
 </html>
-", "/index.html.twig", "C:\\MAMP\\htdocs\\P6ElouanPeurou\\P6ElouanPeurou\\templates\\index.html.twig");
+", "index.html.twig", "C:\\MAMP\\htdocs\\P6ElouanPeurou\\P6ElouanPeurou\\templates\\index.html.twig");
     }
 }
