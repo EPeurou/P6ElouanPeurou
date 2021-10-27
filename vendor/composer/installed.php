@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ed37113fa696dd6ca8c940852c34e37ff81a2f67',
+        'reference' => '147fc0362fe1a0d8c9af99f8cd371c19a611585b',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ed37113fa696dd6ca8c940852c34e37ff81a2f67',
+            'reference' => '147fc0362fe1a0d8c9af99f8cd371c19a611585b',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -618,6 +618,15 @@
             'install_path' => __DIR__ . '/../sensio/framework-extra-bundle',
             'aliases' => array(),
             'reference' => '3f5b6490878f8a70ba702e9692007cf979b42f0e',
+            'dev_requirement' => false,
+        ),
+        'symfony/apache-pack' => array(
+            'pretty_version' => 'v1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'symfony-pack',
+            'install_path' => __DIR__ . '/../symfony/apache-pack',
+            'aliases' => array(),
+            'reference' => '3aa5818d73ad2551281fc58a75afd9ca82622e6c',
             'dev_requirement' => false,
         ),
         'symfony/asset' => array(

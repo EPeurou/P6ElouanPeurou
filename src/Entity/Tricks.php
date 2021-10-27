@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TricksRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,11 +30,6 @@ class Tricks
     private $idType;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
-     */
-    private $img;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $name;
@@ -51,6 +48,16 @@ class Tricks
      * @ORM\Column(type="datetime")
      */
     private $creation_date;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Media::class, mappedBy="tricks", orphanRemoval=true)
+     */
+    private $media;
+
+    public function __construct()
+    {
+        $this->media = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -77,18 +84,6 @@ class Tricks
     public function setIdType(?int $idType): self
     {
         $this->idType = $idType;
-
-        return $this;
-    }
-
-    public function getImg()
-    {
-        return $this->img;
-    }
-
-    public function setImg($img): self
-    {
-        $this->img = $img;
 
         return $this;
     }
@@ -137,6 +132,36 @@ class Tricks
     public function setCreationDate(\DateTimeInterface $creation_date): self
     {
         $this->creation_date = $creation_date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Media[]
+     */
+    public function getMedia(): Collection
+    {
+        return $this->media;
+    }
+
+    public function addMedium(Media $medium): self
+    {
+        if (!$this->media->contains($medium)) {
+            $this->media[] = $medium;
+            $medium->setTricks($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMedium(Media $medium): self
+    {
+        if ($this->media->removeElement($medium)) {
+            // set the owning side to null (unless already changed)
+            if ($medium->getTricks() === $this) {
+                $medium->setTricks(null);
+            }
+        }
 
         return $this;
     }

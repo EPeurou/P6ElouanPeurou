@@ -103,7 +103,10 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
             // line 50
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "description", [], "any", false, false, false, 50), "html", null, true);
             echo "</p>
-                                <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                                <a href=\"";
+            // line 51
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_index");
+            echo "\" class=\"btn btn-primary\">Go somewhere</a>
                             </div>
                         </div>
                     </div>
@@ -296,7 +299,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
     public function getDebugInfo()
     {
-        return array (  278 => 5,  275 => 4,  265 => 3,  116 => 56,  104 => 50,  100 => 49,  94 => 45,  90 => 44,  50 => 6,  48 => 3,  44 => 1,);
+        return array (  281 => 5,  278 => 4,  268 => 3,  119 => 56,  108 => 51,  104 => 50,  100 => 49,  94 => 45,  90 => 44,  50 => 6,  48 => 3,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -351,7 +354,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                             <div class=\"card-body\">
                                 <h5 class=\"card-title\">{{ list.name }}</h5>
                                 <p class=\"card-text\">{{ list.description }}</p>
-                                <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                                <a href=\"{{ path('tricks_index') }}\" class=\"btn btn-primary\">Go somewhere</a>
                             </div>
                         </div>
                     </div>

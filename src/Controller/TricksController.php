@@ -2,64 +2,93 @@
 
 namespace App\Controller;
 
+use App\Entity\Tricks;
+use App\Form\TricksType;
+use App\Repository\TricksRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Tricks;
-use App\Repository\TricksRepository;
 
+/**
+ * @Route("/tricks")
+ */
 class TricksController extends AbstractController
 {
-    // /**
-    //  * @Route("/tricks", name="tricks")
-    //  */
-    // public function index(): Response
-    // {
-    //     return $this->render('tricks/index.html.twig', [
-    //         'controller_name' => 'TricksController',
-    //     ]);
-    // }
-
-    // /**
-    //  * @Route("/tricks", name="new")
-    //  */
-    // public function createTricks(): Response
-    // {
-    //     $entityManager = $this->getDoctrine()->getManager();
-
-    //     $tricks = new Tricks();
-    //     $tricks->setIdUser(1);
-    //     $tricks->setIdType(2);
-    //     $tricks->setImg();
-    //     $tricks->setName('tim');
-    //     $tricks->setDescription('une description');
-    //     $tricks->setAuthor('a author');
-    //     // $tricks->setCreation_date(2021-10-20);
-
-    //     // tell Doctrine you want to (eventually) save the Product (no queries yet)
-    //     $entityManager->persist($tricks);
-
-    //     // actually executes the queries (i.e. the INSERT query)
-    //     $entityManager->flush();
-
-    //     return new Response('Saved new product with id '.$tricks->getId());
-    // }
+    /**
+     * @Route("/", name="tricks_index", methods={"GET"})
+     */
+    public function index(TricksRepository $tricksRepository): Response
+    {
+        return $this->render('tricks/index.html.twig', [
+            'tricks' => $tricksRepository->findAll(),
+        ]);
+    }
 
     /**
-     * @Route("/", name="tricks_show")
+     * @Route("/new", name="tricks_new", methods={"GET","POST"})
      */
-    // public function show(int $id): Response
-    // {
-    //     $tricks = $this->getDoctrine()
-    //         ->getRepository(Tricks::class)
-    //         ->findAll();
+    public function new(Request $request): Response
+    {
+        $trick = new Tricks();
+        $form = $this->createForm(TricksType::class, $trick);
+        $form->handleRequest($request);
 
-    //     return new Response('tricks_show/index.html.twig',[
-    //         'tricks' => $tricks
-    //     ]);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($trick);
+            $entityManager->flush();
 
-        // or render a template
-        // in the template, print things with {{ product.name }}
-        // return $this->render('product/show.html.twig', ['product' => $product]);
-    // }
+            return $this->redirectToRoute('tricks_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('tricks/new.html.twig', [
+            'trick' => $trick,
+            'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="tricks_show", methods={"GET"})
+     */
+    public function show(Tricks $trick): Response
+    {
+        return $this->render('tricks/show.html.twig', [
+            'trick' => $trick,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="tricks_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Tricks $trick): Response
+    {
+        $form = $this->createForm(TricksType::class, $trick);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('tricks_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('tricks/edit.html.twig', [
+            'trick' => $trick,
+            'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="tricks_delete", methods={"POST"})
+     */
+    public function delete(Request $request, Tricks $trick): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$trick->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($trick);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('tricks_index', [], Response::HTTP_SEE_OTHER);
+    }
 }

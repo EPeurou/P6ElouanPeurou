@@ -85,15 +85,38 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
                     <h3>Tricks</h3>
                 </div>
                 <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                    <div class=\"card\" style=\"width: 18rem;\">
-                        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-                        <div class=\"card-body\">
-                            <h5 class=\"card-title\">Card title</h5>
-                            <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                ";
+        // line 44
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 44, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["list"]) {
+            // line 45
+            echo "                    <div class=\"col-sm-12 col-md-2 col-xl-2\">
+                        <div class=\"card\" style=\"width: 18rem;\">
+                            <img src=\"assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                            <div class=\"card-body\">
+                                <h5 class=\"card-title\">";
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 49), "html", null, true);
+            echo "</h5>
+                                <p class=\"card-text\">";
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "description", [], "any", false, false, false, 50), "html", null, true);
+            echo "</p>
+                                <a href=\"";
+            // line 51
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_index");
+            echo "\" class=\"btn btn-primary\">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['list'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 56
+        echo "                </div>
             </div>
         </section>
         <!-- Projects-->
@@ -269,9 +292,14 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
         return "index.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  258 => 5,  255 => 4,  245 => 3,  50 => 6,  48 => 3,  44 => 1,);
+        return array (  281 => 5,  278 => 4,  268 => 3,  119 => 56,  108 => 51,  104 => 50,  100 => 49,  94 => 45,  90 => 44,  50 => 6,  48 => 3,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -319,14 +347,18 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
                     <h3>Tricks</h3>
                 </div>
                 <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                    <div class=\"card\" style=\"width: 18rem;\">
-                        <img src=\"...\" class=\"card-img-top\" alt=\"...\">
-                        <div class=\"card-body\">
-                            <h5 class=\"card-title\">Card title</h5>
-                            <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>
+                {% for list in tricks %}
+                    <div class=\"col-sm-12 col-md-2 col-xl-2\">
+                        <div class=\"card\" style=\"width: 18rem;\">
+                            <img src=\"assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                            <div class=\"card-body\">
+                                <h5 class=\"card-title\">{{ list.name }}</h5>
+                                <p class=\"card-text\">{{ list.description }}</p>
+                                <a href=\"{{ path('tricks_index') }}\" class=\"btn btn-primary\">Go somewhere</a>
+                            </div>
                         </div>
                     </div>
+                {% endfor %}
                 </div>
             </div>
         </section>
