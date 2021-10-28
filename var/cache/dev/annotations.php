@@ -692,7 +692,7 @@ return [[
 ], [
 
 0 => [],
-1 => 1635327231,
+1 => 1635405473,
 2 => static function () {
     return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
         $o = [
@@ -702,7 +702,7 @@ return [[
         [
             'Symfony\\Component\\Routing\\Annotation\\Route' => [
                 'path' => [
-                    'public/tricks',
+                    '/tricks',
                 ],
             ],
         ],
@@ -1056,6 +1056,11 @@ return [[
                 ],
                 'targetEntity' => [
                     'App\\Entity\\Media',
+                ],
+                'cascade' => [
+                    [
+                        'persist',
+                    ],
                 ],
                 'orphanRemoval' => [
                     true,

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Media;
 use App\Entity\Tricks;
 use App\Form\TricksType;
 use App\Repository\TricksRepository;
@@ -35,6 +36,19 @@ class TricksController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $medias = $form->get('media')->getData();
+            foreach ($medias as $media){
+                $fichier = md5(uniqid()) . '.' . $media->guessExtension();
+
+                $media->move(
+                    $this->getParameter('media_directory'),
+                    $fichier
+                );
+                
+                $med = new Media();
+                $med->setName($fichier);
+                $trick->setMedia($med);
+            }
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
             $entityManager->flush();

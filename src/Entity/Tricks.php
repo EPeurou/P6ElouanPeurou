@@ -50,7 +50,7 @@ class Tricks
     private $creation_date;
 
     /**
-     * @ORM\OneToMany(targetEntity=Media::class, mappedBy="tricks", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Media::class, mappedBy="tricks", orphanRemoval=true, cascade={"persist"})
      */
     private $media;
 
