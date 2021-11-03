@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\Media;
+use App\Service\FileUploader;
+// use App\Entity\Media;
 use App\Entity\Tricks;
 use App\Form\TricksType;
 use App\Repository\TricksRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,26 +31,20 @@ class TricksController extends AbstractController
     /**
      * @Route("/new", name="tricks_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, FileUploader $fileUploader): Response
     {
         $trick = new Tricks();
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $medias = $form->get('media')->getData();
-            foreach ($medias as $media){
-                $fichier = md5(uniqid()) . '.' . $media->guessExtension();
-
-                $media->move(
-                    $this->getParameter('media_directory'),
-                    $fichier
-                );
-                
-                $med = new Media();
-                $med->setName($fichier);
-                $trick->setMedia($med);
+            /** @var UploadedFile $mediaFile */
+            $mediaFile = $form->get('media')->getData();
+            if ($mediaFile) {
+                $mediaFileName = $fileUploader->upload($mediaFile);
+                $trick->setMedia($mediaFileName);
             }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
             $entityManager->flush();

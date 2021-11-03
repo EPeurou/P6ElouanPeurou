@@ -1,59 +1,59 @@
 <?php
 
-namespace App\Entity;
+// namespace App\Entity;
 
-use App\Repository\MediaRepository;
-use Doctrine\ORM\Mapping as ORM;
+// use App\Repository\MediaRepository;
+// use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=MediaRepository::class)
- */
-class Media
-{
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+// /**
+//  * @ORM\Entity(repositoryClass=MediaRepository::class)
+//  */
+// class Media
+// {
+//     /**
+//      * @ORM\Id
+//      * @ORM\GeneratedValue
+//      * @ORM\Column(type="integer")
+//      */
+//     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
+//     /**
+//      * @ORM\Column(type="string", length=255)
+//      */
+//     private $name;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Tricks::class, inversedBy="media")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $tricks;
+//     /**
+//      * @ORM\ManyToOne(targetEntity=Tricks::class, inversedBy="media")
+//      * @ORM\JoinColumn(nullable=false)
+//      */
+//     private $tricks;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+//     public function getId(): ?int
+//     {
+//         return $this->id;
+//     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
+//     public function getName(): ?string
+//     {
+//         return $this->name;
+//     }
 
-    public function setName(string $name): self
-    {
-        $this->name = $name;
+//     public function setName(string $name): self
+//     {
+//         $this->name = $name;
 
-        return $this;
-    }
+//         return $this;
+//     }
 
-    public function getTricks(): ?Tricks
-    {
-        return $this->tricks;
-    }
+//     public function getTricks(): ?Tricks
+//     {
+//         return $this->tricks;
+//     }
 
-    public function setTricks(?Tricks $tricks): self
-    {
-        $this->tricks = $tricks;
+//     public function setTricks(?Tricks $tricks): self
+//     {
+//         $this->tricks = $tricks;
 
-        return $this;
-    }
-}
+//         return $this;
+//     }
+// }

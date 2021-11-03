@@ -50,9 +50,14 @@ class Tricks
     private $creation_date;
 
     /**
-     * @ORM\OneToMany(targetEntity=Media::class, mappedBy="tricks", orphanRemoval=true, cascade={"persist"})
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $media;
+    private $Media;
+
+    // /**
+    //  * @ORM\OneToMany(targetEntity=Media::class, mappedBy="tricks", orphanRemoval=true, cascade={"persist"})
+    //  */
+    // private $media;
 
     public function __construct()
     {
@@ -136,32 +141,14 @@ class Tricks
         return $this;
     }
 
-    /**
-     * @return Collection|Media[]
-     */
-    public function getMedia(): Collection
+    public function getMedia(): ?string
     {
-        return $this->media;
+        return $this->Media;
     }
 
-    public function addMedium(Media $medium): self
+    public function setMedia(string $Media): self
     {
-        if (!$this->media->contains($medium)) {
-            $this->media[] = $medium;
-            $medium->setTricks($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMedium(Media $medium): self
-    {
-        if ($this->media->removeElement($medium)) {
-            // set the owning side to null (unless already changed)
-            if ($medium->getTricks() === $this) {
-                $medium->setTricks(null);
-            }
-        }
+        $this->Media = $Media;
 
         return $this;
     }

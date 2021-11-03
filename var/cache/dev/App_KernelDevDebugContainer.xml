@@ -69,7 +69,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
-    <parameter key="media_directory">C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou/public/upload</parameter>
+    <parameter key="upload_directory">C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou/public/upload</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -332,6 +332,7 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Service\FileUploader" class="App\Service\FileUploader" autowire="true" autoconfigure="true"/>
     <service id="App\Controller\TricksController" class="App\Controller\TricksController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -5861,18 +5862,25 @@
         <argument key="tricksRepository" type="service_closure" id="App\Repository\TricksRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.xCU4G7n" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="fileUploader" type="service_closure" id="App\Service\FileUploader"/>
+      </argument>
+    </service>
     <service id=".service_locator.hAV0MEA" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="trick" type="service_closure" id=".errored..service_locator.hAV0MEA.App\Entity\Tricks"/>
       </argument>
     </service>
-    <service id=".service_locator.vTuKA9w" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.5u_PbiG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\TricksController::delete" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController::edit" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController::index" type="service_closure" id=".service_locator.4ZU5zm2"/>
+        <argument key="App\Controller\TricksController::new" type="service_closure" id=".service_locator.xCU4G7n"/>
         <argument key="App\Controller\TricksController::show" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -5883,6 +5891,7 @@
         <argument key="App\Controller\TricksController:delete" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController:edit" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController:index" type="service_closure" id=".service_locator.4ZU5zm2"/>
+        <argument key="App\Controller\TricksController:new" type="service_closure" id=".service_locator.xCU4G7n"/>
         <argument key="App\Controller\TricksController:show" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -6398,12 +6407,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.vTuKA9w"/>
+      <argument type="service" id=".service_locator.5u_PbiG"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.vTuKA9w"/>
+      <argument type="service" id=".service_locator.5u_PbiG"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7256,7 +7265,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.vTuKA9w"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.5u_PbiG"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7278,6 +7287,7 @@
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
     <service id=".service_locator.6KyDHhI" alias=".service_locator.4ZU5zm2"/>
+    <service id=".service_locator.9H51YCK" alias=".service_locator.xCU4G7n"/>
     <service id=".service_locator.OzbLfhU" alias=".service_locator.hAV0MEA"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.anofQPJ"/>
     <service id=".service_locator.NK827YO" alias=".service_locator.W9y3dzm"/>
