@@ -2,16 +2,19 @@
 
 namespace App\Controller;
 
-use App\Service\FileUploader;
+// use App\Service\FileUploader;
 // use App\Entity\Media;
 use App\Entity\Tricks;
 use App\Form\TricksType;
 use App\Repository\TricksRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Mime\MimeTypes;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/tricks")
@@ -31,18 +34,35 @@ class TricksController extends AbstractController
     /**
      * @Route("/new", name="tricks_new", methods={"GET","POST"})
      */
-    public function new(Request $request, FileUploader $fileUploader): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $trick = new Tricks();
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $mediaFile */
-            $mediaFile = $form->get('media')->getData();
-            if ($mediaFile) {
-                $mediaFileName = $fileUploader->upload($mediaFile);
-                $trick->setMedia($mediaFileName);
+            /** @var UploadedFile $medias */
+            $medias = $form->get('media')->getData();
+            if ($medias) {
+                foreach ($medias as $media) {    
+                    // $originalFilename = pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME);
+                    // $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = uniqid().'.'.$media->guessExtension();
+                    // $mediaFileName = $fileUploader->upload($mediaFile);
+                    // $trick->setMedia($mediaFileName);
+                    try {
+                        $media->move(
+                            $this->getParameter('upload_directory'),
+                            $newFilename
+                        );
+                        } catch (FileException $e) {
+                            // ... handle exception if something happens during file upload
+                        }
+                    $trick->setMedia($newFilename);
+                }
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                
             }
 
             $entityManager = $this->getDoctrine()->getManager();

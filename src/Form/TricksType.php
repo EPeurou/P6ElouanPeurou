@@ -7,6 +7,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\All;
+use Symfony\Component\Validator\Constraints\File;
+
 
 class TricksType extends AbstractType
 {
@@ -21,7 +24,16 @@ class TricksType extends AbstractType
             ->add('media', FileType::class, [
                 'multiple' => true,
                 'mapped' => false,
-                'required' => false
+                'required' => false,
+                'constraints' => [
+                    new All([
+                        'constraints' => [
+                            new File([
+                                'maxSize' => '20M'
+                            ]),
+                        ],
+                    ]),
+                ]
             ])
             ->add('creation_date')
         ;
