@@ -43,6 +43,7 @@ class TricksController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $medias */
             $medias = $form->get('media')->getData();
+            // dd($medias);
             if ($medias) {
                 foreach ($medias as $media) {    
                     // $originalFilename = pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME);
