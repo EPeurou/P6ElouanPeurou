@@ -11491,7 +11491,7 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
-    background-color: transparent;
+    background-color: rgb(39, 134, 223);
     transition: background-color 0.3s ease-in-out;
   }
   #mainNav .navbar-brand {
@@ -11544,6 +11544,7 @@ body {
 }
 
 .masthead {
+  margin-top: 5em;
   position: relative;
   width: 100%;
   height: auto;

@@ -29,7 +29,8 @@ class TricksType extends AbstractType
                     new All([
                         'constraints' => [
                             new File([
-                                'maxSize' => '20M'
+                                'maxSize' => '1G',
+                               
                             ]),
                         ],
                     ]),
