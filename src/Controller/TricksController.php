@@ -45,9 +45,11 @@ class TricksController extends AbstractController
             $medias = $form->get('media')->getData();
             // dd($medias);
             if ($medias) {
+                $file = [];
                 foreach ($medias as $media) {    
                     // $originalFilename = pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME);
                     // $safeFilename = $slugger->slug($originalFilename);
+                    
                     $newFilename = uniqid().'.'.$media->guessExtension();
                     // $mediaFileName = $fileUploader->upload($mediaFile);
                     // $trick->setMedia($mediaFileName);
@@ -56,10 +58,17 @@ class TricksController extends AbstractController
                             $this->getParameter('upload_directory'),
                             $newFilename
                         );
-                        } catch (FileException $e) {
-                            // ... handle exception if something happens during file upload
-                        }
-                    $trick->setMedia($newFilename);
+                    } catch (FileException $e) {
+                        // ... handle exception if something happens during file upload
+                    }
+                    
+                    $mime_type = mime_content_type('upload/'.$newFilename);
+                    $testType = strtok($mime_type, '/');
+                    $addTypeName = $testType . $newFilename;
+                    rename ("upload/" . $newFilename, "upload/" . $addTypeName );
+                    // dd($addTypeName);
+                    array_push($file, $addTypeName);
+                    $trick->setMedia($file);
                 }
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents

@@ -50,9 +50,9 @@ class Tricks
     private $creation_date;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="simple_array", nullable=true)
      */
-    private $Media;
+    private $Media = [];
 
     // /**
     //  * @ORM\OneToMany(targetEntity=Media::class, mappedBy="tricks", orphanRemoval=true, cascade={"persist"})
@@ -141,15 +141,16 @@ class Tricks
         return $this;
     }
 
-    public function getMedia(): ?string
+    public function getMedia(): ?array
     {
         return $this->Media;
     }
 
-    public function setMedia(string $Media): self
+    public function setMedia(array $Media): self
     {
         $this->Media = $Media;
 
         return $this;
     }
+
 }

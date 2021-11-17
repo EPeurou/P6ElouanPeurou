@@ -37,7 +37,7 @@
                         {% endif %}
                         <div class="col-sm-12 col-md-2 col-xl-2 mr-2">
                             <div class="card" style="width: 12rem;">
-                                <img src="{{ asset('upload/' ~ list.Media)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;">
+                                <img src="{{ asset('upload/' ~ list.Media[0])}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;">
                                 <div class="card-body">
                                     <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a>
                                     <a href="" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a>

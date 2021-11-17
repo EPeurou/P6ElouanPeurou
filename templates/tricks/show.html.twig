@@ -116,7 +116,7 @@
         <!-- Masthead-->
         <header>
             <div class="container-show">
-            <img class="main-img-show" src="{{ asset('upload/' ~ trick.media)}}" class="card-img-top" alt="...">
+            <img class="main-img-show" src="{{ asset('upload/' ~ trick.media[0])}}" class="card-img-top" alt="...">
                 <div>
                     <div class="centered-show">
                         <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
@@ -128,9 +128,21 @@
         <section class="text-center mt-5" id="tricks">
             <div class="container px-4 px-lg-5">
                 <div class="text-center">
-                    {% for media in trick %}
-                        test
-                    {% endfor %}
+                    <div class="row mb-4 mb-lg-5 align-items-center horizontal-scrollable">
+                        {% for key,value in trick.media %}
+                            <div class="col-sm-12 col-md-2 col-xl-2 mr-2">
+                                <div class="card" style="width:12rem;border:none;">
+                                    <div style="margin-right:1em;">
+                                        {% if 'image' in value %}
+                                            <img class="card-img-top" src="{{ asset('upload/' ~ value)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;">
+                                        {% elseif 'video' in value %}
+                                            <video controls class="card-img-top mb-3" style="width:11.9em;height:9.3em;padding:0em;"><source src="{{ asset('upload/' ~ value)}}"></video>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
                 {# <div class="row mb-4 mb-lg-5 align-items-center">
                     <div class="col-md-1"></div>
