@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Tricks{% endblock %}
 
@@ -43,4 +43,134 @@
     <a href="{{ path('tricks_edit', {'id': trick.id}) }}">edit</a>
 
     {{ include('tricks/_delete_form.html.twig') }}
-{% endblock %}
+{% endblock %} #}
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Tricks{% endblock %}
+
+{% block body %}
+    <h1>Tricks</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ trick.id }}</td>
+            </tr>
+            <tr>
+                <th>IdUser</th>
+                <td>{{ trick.idUser }}</td>
+            </tr>
+            <tr>
+                <th>IdType</th>
+                <td>{{ trick.idType }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ trick.name }}</td>
+            </tr>
+            <tr>
+                <th>Media</th>
+                <td><img src="{{ asset('upload/' ~ trick.media)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;"></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ trick.description }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ trick.author }}</td>
+            </tr>
+            <tr>
+                <th>Creation_date</th>
+                <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tricks_index') }}">back to list</a>
+
+    <a href="{{ path('tricks_edit', {'id': trick.id}) }}">edit</a>
+
+    {{ include('tricks/_delete_form.html.twig') }}
+{% endblock %} #}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SnowTricks</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/standard.css" rel="stylesheet" />
+</head>
+    <body id="page-top">
+        {% block navbar %}
+            {% include "navbar.html.twig" %}
+        {% endblock %}
+        <!-- Masthead-->
+        <header>
+            <div class="container-show">
+            <img class="main-img-show" src="{{ asset('upload/' ~ trick.media)}}" class="card-img-top" alt="...">
+                <div>
+                    <div class="centered-show">
+                        <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="text-center mt-5" id="tricks">
+            <div class="container px-4 px-lg-5">
+                <div class="text-center">
+                    {% for media in trick %}
+                        test
+                    {% endfor %}
+                </div>
+                {# <div class="row mb-4 mb-lg-5 align-items-center">
+                    <div class="col-md-1"></div>
+                    {% for list in tricks %}
+                        {% if loop.index0 is divisible by(5) %}
+                            <div class="row mb-4 mb-lg-5 align-items-center">
+                                <div class="col-md-1"></div>
+                        {% endif %}
+                        <div class="col-sm-12 col-md-2 col-xl-2 mr-2">
+                            <div class="card" style="width: 12rem;">
+                                <img src="{{ asset('upload/' ~ list.Media)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;">
+                                <div class="card-body">
+                                    <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a>
+                                    <a href="" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="" style="margin-left:1em;"><i class="fas fa-pencil-alt"></i></a>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% if loop.index is divisible by(5) or loop.last %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="btn-top">
+                        <a class="btn" href="#home"><i class="fas fa-3x fa-arrow-circle-up"></i></a>
+                    </div> #}
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
+

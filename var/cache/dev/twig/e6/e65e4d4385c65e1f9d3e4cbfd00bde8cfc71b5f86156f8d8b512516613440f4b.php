@@ -40,7 +40,7 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "tricks/show.html.twig"));
 
-        // line 51
+        // line 97
         echo "<!DOCTYPE html>
 <html lang=\"en\">
     <head>
@@ -58,21 +58,21 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
 </head>
     <body id=\"page-top\">
         ";
-        // line 67
+        // line 113
         $this->displayBlock('navbar', $context, $blocks);
-        // line 70
+        // line 116
         echo "        <!-- Masthead-->
         <header>
             <div class=\"container-show\">
             <img class=\"main-img-show\" src=\"";
-        // line 73
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 73, $this->source); })()), "media", [], "any", false, false, false, 73))), "html", null, true);
+        // line 119
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 119, $this->source); })()), "media", [], "any", false, false, false, 119))), "html", null, true);
         echo "\" class=\"card-img-top\" alt=\"...\">
                 <div>
                     <div class=\"centered-show\">
-                        <h1 class=\"mx-auto my-0 text-uppercase\">";
-        // line 76
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 76, $this->source); })()), "name", [], "any", false, false, false, 76), "html", null, true);
+                        <h1 class=\"mx-auto my-0 text-uppercase text-switch\">";
+        // line 122
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 122, $this->source); })()), "name", [], "any", false, false, false, 122), "html", null, true);
         echo "</h1>
                     </div>
                 </div>
@@ -82,10 +82,22 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
         <section class=\"text-center mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
                 <div class=\"text-center\">
-                    <h3></h3>
-                </div>
+                    ";
+        // line 131
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 131, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["media"]) {
+            // line 132
+            echo "                        test
+                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['media'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 134
+        echo "                </div>
                 ";
-        // line 112
+        // line 160
         echo "                </div>
             </div>
         </section>
@@ -112,7 +124,7 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
 
     }
 
-    // line 67
+    // line 113
     public function block_navbar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -122,10 +134,10 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
 
-        // line 68
+        // line 114
         echo "            ";
-        $this->loadTemplate("navbar.html.twig", "tricks/show.html.twig", 68)->display($context);
-        // line 69
+        $this->loadTemplate("navbar.html.twig", "tricks/show.html.twig", 114)->display($context);
+        // line 115
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -147,12 +159,58 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
 
     public function getDebugInfo()
     {
-        return array (  129 => 69,  126 => 68,  116 => 67,  89 => 112,  75 => 76,  69 => 73,  64 => 70,  62 => 67,  44 => 51,);
+        return array (  141 => 115,  138 => 114,  128 => 113,  101 => 160,  98 => 134,  91 => 132,  87 => 131,  75 => 122,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
     }
 
     public function getSourceContext()
     {
         return new Source("{# {% extends 'base.html.twig' %}
+
+{% block title %}Tricks{% endblock %}
+
+{% block body %}
+    <h1>Tricks</h1>
+
+    <table class=\"table\">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ trick.id }}</td>
+            </tr>
+            <tr>
+                <th>IdUser</th>
+                <td>{{ trick.idUser }}</td>
+            </tr>
+            <tr>
+                <th>IdType</th>
+                <td>{{ trick.idType }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ trick.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ trick.description }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ trick.author }}</td>
+            </tr>
+            <tr>
+                <th>Creation_date</th>
+                <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href=\"{{ path('tricks_index') }}\">back to list</a>
+
+    <a href=\"{{ path('tricks_edit', {'id': trick.id}) }}\">edit</a>
+
+    {{ include('tricks/_delete_form.html.twig') }}
+{% endblock %} #}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Tricks{% endblock %}
 
@@ -227,7 +285,7 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
             <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ trick.media)}}\" class=\"card-img-top\" alt=\"...\">
                 <div>
                     <div class=\"centered-show\">
-                        <h1 class=\"mx-auto my-0 text-uppercase\">{{ trick.name }}</h1>
+                        <h1 class=\"mx-auto my-0 text-uppercase text-switch\">{{ trick.name }}</h1>
                     </div>
                 </div>
             </div>
@@ -236,7 +294,9 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
         <section class=\"text-center mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
                 <div class=\"text-center\">
-                    <h3></h3>
+                    {% for media in trick %}
+                        test
+                    {% endfor %}
                 </div>
                 {# <div class=\"row mb-4 mb-lg-5 align-items-center\">
                     <div class=\"col-md-1\"></div>
