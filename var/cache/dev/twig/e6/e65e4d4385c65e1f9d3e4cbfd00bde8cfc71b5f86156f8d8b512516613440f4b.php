@@ -64,7 +64,7 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
         echo "        <!-- Masthead-->
         <header>
             <div class=\"container-show\">
-            <img class=\"main-img-show\" src=\"";
+                <img class=\"main-img-show\" src=\"";
         // line 119
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 119, $this->source); })()), "media", [], "any", false, false, false, 119), 0, [], "array", false, false, false, 119))), "html", null, true);
         echo "\" class=\"card-img-top\" alt=\"...\">
@@ -79,17 +79,17 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
             </div>
         </header>
         <!-- About-->
-        <section class=\"text-center mt-5\" id=\"tricks\">
+        <section class=\" mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
-                <div class=\"text-center\">
-                    <div class=\"row mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
+                <div style=\"overflow: auto !important\">
+                    <div class=\"row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
                         ";
         // line 132
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 132, $this->source); })()), "media", [], "any", false, false, false, 132));
         foreach ($context['_seq'] as $context["key"] => $context["value"]) {
             // line 133
-            echo "                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
+            echo "                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
                                         ";
@@ -103,7 +103,7 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
             } elseif (twig_in_filter("video",             // line 138
 $context["value"])) {
                 // line 139
-                echo "                                            <video controls class=\"card-img-top mb-3\" style=\"width:11.9em;height:9.3em;padding:0em;\"><source src=\"";
+                echo "                                            <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\"></video>
                                         ";
@@ -120,9 +120,16 @@ $context["value"])) {
         // line 145
         echo "                    </div>
                 </div>
-                ";
-        // line 172
-        echo "                </div>
+            </div>
+        </section>
+        <section class=\"text-center mt-5\" id=\"tricks\">
+            <div class=\"container des-show px-4 px-lg-5\">
+                <div class=\"text-center\">
+                    <h5>";
+        // line 152
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 152, $this->source); })()), "description", [], "any", false, false, false, 152), "html", null, true);
+        echo "</h5>
+                </div>
             </div>
         </section>
         <!-- Footer-->
@@ -183,7 +190,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  165 => 115,  162 => 114,  152 => 113,  125 => 172,  121 => 145,  112 => 141,  106 => 139,  104 => 138,  99 => 137,  97 => 136,  92 => 133,  88 => 132,  75 => 122,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
+        return array (  172 => 115,  169 => 114,  159 => 113,  130 => 152,  121 => 145,  112 => 141,  106 => 139,  104 => 138,  99 => 137,  97 => 136,  92 => 133,  88 => 132,  75 => 122,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
     }
 
     public function getSourceContext()
@@ -306,7 +313,7 @@ $context["value"])) {
         <!-- Masthead-->
         <header>
             <div class=\"container-show\">
-            <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ trick.media[0])}}\" class=\"card-img-top\" alt=\"...\">
+                <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ trick.media[0])}}\" class=\"card-img-top\" alt=\"...\">
                 <div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">{{ trick.name }}</h1>
@@ -315,18 +322,18 @@ $context["value"])) {
             </div>
         </header>
         <!-- About-->
-        <section class=\"text-center mt-5\" id=\"tricks\">
+        <section class=\" mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
-                <div class=\"text-center\">
-                    <div class=\"row mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
+                <div style=\"overflow: auto !important\">
+                    <div class=\"row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
                         {% for key,value in trick.media %}
-                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
+                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
                                         {% if 'image' in value %}
                                             <img class=\"card-img-top\" src=\"{{ asset('upload/' ~ value)}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
                                         {% elseif 'video' in value %}
-                                            <video controls class=\"card-img-top mb-3\" style=\"width:11.9em;height:9.3em;padding:0em;\"><source src=\"{{ asset('upload/' ~ value)}}\"></video>
+                                            <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"{{ asset('upload/' ~ value)}}\"></video>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -334,31 +341,12 @@ $context["value"])) {
                         {% endfor %}
                     </div>
                 </div>
-                {# <div class=\"row mb-4 mb-lg-5 align-items-center\">
-                    <div class=\"col-md-1\"></div>
-                    {% for list in tricks %}
-                        {% if loop.index0 is divisible by(5) %}
-                            <div class=\"row mb-4 mb-lg-5 align-items-center\">
-                                <div class=\"col-md-1\"></div>
-                        {% endif %}
-                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
-                            <div class=\"card\" style=\"width: 12rem;\">
-                                <img src=\"{{ asset('upload/' ~ list.Media)}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
-                                <div class=\"card-body\">
-                                    <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name }}</a>
-                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>
-                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
-
-                                </div>
-                            </div>
-                        </div>
-                        {% if loop.index is divisible by(5) or loop.last %}
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                    <div class=\"btn-top\">
-                        <a class=\"btn\" href=\"#home\"><i class=\"fas fa-3x fa-arrow-circle-up\"></i></a>
-                    </div> #}
+            </div>
+        </section>
+        <section class=\"text-center mt-5\" id=\"tricks\">
+            <div class=\"container des-show px-4 px-lg-5\">
+                <div class=\"text-center\">
+                    <h5>{{ trick.description }}</h5>
                 </div>
             </div>
         </section>

@@ -40,11 +40,15 @@
 }
 
 .horizontal-scrollable {
-  overflow-x: auto !important;
   white-space: nowrap !important;
 }
 
-.horizontal-scrollable > .col-sm-12 .col-md-2 .col-xl-2{
+.horizontal-scrollable .mycol{
   display: inline-block !important;
   float: none !important;
+}
+
+.des-show{
+  background-color: rgb(245, 245, 245);
+  border-radius: 0.2em;
 }
