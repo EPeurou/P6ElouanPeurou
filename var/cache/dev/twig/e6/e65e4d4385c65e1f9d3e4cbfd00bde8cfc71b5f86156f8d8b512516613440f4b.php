@@ -64,15 +64,48 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
         echo "        <!-- Masthead-->
         <header>
             <div class=\"container-show\">
-                <img class=\"main-img-show\" src=\"";
+                ";
         // line 119
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 119, $this->source); })()), "media", [], "any", false, false, false, 119), 0, [], "array", false, false, false, 119))), "html", null, true);
-        echo "\" class=\"card-img-top\" alt=\"...\">
-                <div>
+        $context["break"] = false;
+        // line 120
+        echo "                ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 120, $this->source); })()), "media", [], "any", false, false, false, 120));
+        foreach ($context['_seq'] as $context["key"] => $context["value"]) {
+            // line 121
+            echo "                    ";
+            if ((0 === twig_compare((isset($context["break"]) || array_key_exists("break", $context) ? $context["break"] : (function () { throw new RuntimeError('Variable "break" does not exist.', 121, $this->source); })()), false))) {
+                // line 122
+                echo "                        ";
+                if (twig_in_filter("image", $context["value"])) {
+                    // line 123
+                    echo "                            <img class=\"main-img-show\" src=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 123, $this->source); })()), "media", [], "any", false, false, false, 123), 0, [], "array", false, false, false, 123))), "html", null, true);
+                    echo "\" class=\"card-img-top\" alt=\"...\">
+                        ";
+                } else {
+                    // line 125
+                    echo "                            <img class=\"main-img-show\" src=\"../../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                        ";
+                }
+                // line 127
+                echo "                    ";
+            }
+            // line 128
+            echo "                    ";
+            $context["break"] = true;
+            // line 129
+            echo "                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 130
+        echo "                <div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">";
-        // line 122
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 122, $this->source); })()), "name", [], "any", false, false, false, 122), "html", null, true);
+        // line 132
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 132, $this->source); })()), "name", [], "any", false, false, false, 132), "html", null, true);
         echo "</h1>
                     </div>
                 </div>
@@ -84,31 +117,31 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
                 <div style=\"overflow: auto !important\">
                     <div class=\"row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
                         ";
-        // line 132
+        // line 142
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 132, $this->source); })()), "media", [], "any", false, false, false, 132));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 142, $this->source); })()), "media", [], "any", false, false, false, 142));
         foreach ($context['_seq'] as $context["key"] => $context["value"]) {
-            // line 133
+            // line 143
             echo "                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
                                         ";
-            // line 136
+            // line 146
             if (twig_in_filter("image", $context["value"])) {
-                // line 137
+                // line 147
                 echo "                                            <img class=\"card-img-top\" src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
                                         ";
-            } elseif (twig_in_filter("video",             // line 138
+            } elseif (twig_in_filter("video",             // line 148
 $context["value"])) {
-                // line 139
+                // line 149
                 echo "                                            <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\"></video>
                                         ";
             }
-            // line 141
+            // line 151
             echo "                                    </div>
                                 </div>
                             </div>
@@ -117,7 +150,7 @@ $context["value"])) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 145
+        // line 155
         echo "                    </div>
                 </div>
             </div>
@@ -126,11 +159,35 @@ $context["value"])) {
             <div class=\"container des-show px-4 px-lg-5\">
                 <div class=\"text-center\">
                     <h5>";
-        // line 152
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 152, $this->source); })()), "description", [], "any", false, false, false, 152), "html", null, true);
+        // line 162
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 162, $this->source); })()), "description", [], "any", false, false, false, 162), "html", null, true);
         echo "</h5>
                 </div>
             </div>
+        </section>
+        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
+            <div class=\"row\" style=\"border-bottom: 2px solid black\">
+                <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                    <h6 class=\"btn \">Date de création: ";
+        // line 169
+        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 169, $this->source); })()), "creationDate", [], "any", false, false, false, 169)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 169, $this->source); })()), "creationDate", [], "any", false, false, false, 169), "d-m-Y H:i:s"), "html", null, true))) : (print ("")));
+        echo "</h6>
+                </div>
+                <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                    <h6 class=\"btn \">Groupe: Flip</h6>
+                </div>
+                <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                    <h6 class=\"btn \">Modifié le: </h6>
+                </div>
+            </div>
+        </section>
+        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
+            <div class=\"row\" style=\"border-bottom: 2px solid black\">
+                ";
+        // line 181
+        $this->loadTemplate("comment/_form.html.twig", "tricks/show.html.twig", 181)->display($context);
+        // line 182
+        echo "            </div>
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
@@ -190,7 +247,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  172 => 115,  169 => 114,  159 => 113,  130 => 152,  121 => 145,  112 => 141,  106 => 139,  104 => 138,  99 => 137,  97 => 136,  92 => 133,  88 => 132,  75 => 122,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
+        return array (  229 => 115,  226 => 114,  216 => 113,  190 => 182,  188 => 181,  173 => 169,  163 => 162,  154 => 155,  145 => 151,  139 => 149,  137 => 148,  132 => 147,  130 => 146,  125 => 143,  121 => 142,  108 => 132,  104 => 130,  98 => 129,  95 => 128,  92 => 127,  88 => 125,  82 => 123,  79 => 122,  76 => 121,  71 => 120,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
     }
 
     public function getSourceContext()
@@ -313,7 +370,17 @@ $context["value"])) {
         <!-- Masthead-->
         <header>
             <div class=\"container-show\">
-                <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ trick.media[0])}}\" class=\"card-img-top\" alt=\"...\">
+                {% set break = false %}
+                {% for key,value in trick.media %}
+                    {% if break == false %}
+                        {% if 'image' in value %}
+                            <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ trick.media[0])}}\" class=\"card-img-top\" alt=\"...\">
+                        {% else %}
+                            <img class=\"main-img-show\" src=\"../../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                        {% endif %}
+                    {% endif %}
+                    {% set break = true %}
+                {% endfor %}
                 <div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">{{ trick.name }}</h1>
@@ -348,6 +415,24 @@ $context["value"])) {
                 <div class=\"text-center\">
                     <h5>{{ trick.description }}</h5>
                 </div>
+            </div>
+        </section>
+        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
+            <div class=\"row\" style=\"border-bottom: 2px solid black\">
+                <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                    <h6 class=\"btn \">Date de création: {{ trick.creationDate ? trick.creationDate|date('d-m-Y H:i:s') : '' }}</h6>
+                </div>
+                <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                    <h6 class=\"btn \">Groupe: Flip</h6>
+                </div>
+                <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                    <h6 class=\"btn \">Modifié le: </h6>
+                </div>
+            </div>
+        </section>
+        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
+            <div class=\"row\" style=\"border-bottom: 2px solid black\">
+                {% include \"comment/_form.html.twig\" %}
             </div>
         </section>
         <!-- Footer-->

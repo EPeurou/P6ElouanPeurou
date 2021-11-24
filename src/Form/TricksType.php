@@ -36,7 +36,6 @@ class TricksType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('creation_date')
         ;
     }
 

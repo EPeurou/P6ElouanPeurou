@@ -116,7 +116,17 @@
         <!-- Masthead-->
         <header>
             <div class="container-show">
-                <img class="main-img-show" src="{{ asset('upload/' ~ trick.media[0])}}" class="card-img-top" alt="...">
+                {% set break = false %}
+                {% for key,value in trick.media %}
+                    {% if break == false %}
+                        {% if 'image' in value %}
+                            <img class="main-img-show" src="{{ asset('upload/' ~ trick.media[0])}}" class="card-img-top" alt="...">
+                        {% else %}
+                            <img class="main-img-show" src="../../public/assets/img/frontflip.jpg" class="card-img-top" alt="...">
+                        {% endif %}
+                    {% endif %}
+                    {% set break = true %}
+                {% endfor %}
                 <div>
                     <div class="centered-show">
                         <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
@@ -151,6 +161,24 @@
                 <div class="text-center">
                     <h5>{{ trick.description }}</h5>
                 </div>
+            </div>
+        </section>
+        <section class="text-center mt-5" style="padding-left:20em;padding-right:20em;">
+            <div class="row" style="border-bottom: 2px solid black">
+                <div class="col-md-4 col-sm-4 col-xl-4">
+                    <h6 class="btn ">Date de création: {{ trick.creationDate ? trick.creationDate|date('d-m-Y H:i:s') : '' }}</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xl-4">
+                    <h6 class="btn ">Groupe: Flip</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xl-4">
+                    <h6 class="btn ">Modifié le: </h6>
+                </div>
+            </div>
+        </section>
+        <section class="text-center mt-5" style="padding-left:20em;padding-right:20em;">
+            <div class="row" style="border-bottom: 2px solid black">
+                {% include "comment/_form.html.twig" %}
             </div>
         </section>
         <!-- Footer-->

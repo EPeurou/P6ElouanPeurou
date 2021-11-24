@@ -28,6 +28,7 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
 
         $this->blocks = [
             'header' => [$this, 'block_header'],
+            'navbar' => [$this, 'block_navbar'],
         ];
     }
 
@@ -49,24 +50,13 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
         // line 6
         echo "    <body id=\"page-top\">
         <!-- Navigation-->
-        <nav class=\"navbar navbar-expand-lg navbar-light fixed-top\" id=\"mainNav\">
-            <div class=\"container px-4 px-lg-5\">
-                <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-                    Menu
-                    <i class=\"fas fa-bars\"></i>
-                </button>
-                <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
-                    <ul class=\"navbar-nav ms-auto\">
-                        <li class=\"nav-item\"><a class=\"nav-link\" href=\"#about\">About</a></li>
-                        <li class=\"nav-item\"><a class=\"nav-link\" href=\"#projects\">Projects</a></li>
-                        <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
+        ";
+        // line 8
+        $this->displayBlock('navbar', $context, $blocks);
+        // line 11
+        echo "        <!-- Masthead-->
         <header class=\"masthead\">
-            <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\">
+            <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\" id=\"home\">
                 <div>
                     <div class=\"text-center mt-5\">
                         <h1 class=\"mx-auto my-0 text-uppercase\">SnowTricks</h1>
@@ -84,161 +74,79 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
                 <div class=\"text-center\">
                     <h3>Tricks</h3>
                 </div>
-                <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                ";
-        // line 44
+                <div class=\"row mb-4 mb-lg-5 align-items-center\">
+                    <div class=\"col-md-1\"></div>
+                    ";
+        // line 33
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 44, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 33, $this->source); })()));
+        $context['loop'] = [
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        ];
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
         foreach ($context['_seq'] as $context["_key"] => $context["list"]) {
-            // line 45
-            echo "                    <div class=\"col-sm-12 col-md-2 col-xl-2\">
-                        <div class=\"card\" style=\"width: 18rem;\">
-                            <img src=\"assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
-                            <div class=\"card-body\">
-                                <h5 class=\"card-title\">";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 49), "html", null, true);
-            echo "</h5>
-                                <p class=\"card-text\">";
-            // line 50
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "description", [], "any", false, false, false, 50), "html", null, true);
-            echo "</p>
-                                <a href=\"";
-            // line 51
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_index");
-            echo "\" class=\"btn btn-primary\">Go somewhere</a>
+            // line 34
+            echo "                        ";
+            if ((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index0", [], "any", false, false, false, 34) % 5)) {
+                // line 35
+                echo "                            <div class=\"row mb-4 mb-lg-5 align-items-center\">
+                                <div class=\"col-md-1\"></div>
+                        ";
+            }
+            // line 38
+            echo "                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
+                            <div class=\"card\" style=\"width: 12rem;\">
+                                <img src=\"";
+            // line 40
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 40), 0, [], "array", false, false, false, 40))), "html", null, true);
+            echo "\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+                                <div class=\"card-body\">
+                                    <a href=\"";
+            // line 42
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_show", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 42)]), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 42), "html", null, true);
+            echo "</a>
+                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>
+                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ";
+                        ";
+            // line 49
+            if (((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 49) % 5) || twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 49))) {
+                // line 50
+                echo "                            </div>
+                        ";
+            }
+            // line 52
+            echo "                    ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['list'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 56
-        echo "                </div>
-            </div>
-        </section>
-        <!-- Projects-->
-        <section class=\"projects-section bg-light\" id=\"projects\">
-            <div class=\"container px-4 px-lg-5\">
-                <!-- Featured Project Row-->
-                
-                <!-- Project One Row-->
-                <div class=\"row gx-0 mb-5 mb-lg-0 justify-content-center\">
-                    <div class=\"col-lg-6\"><img class=\"img-fluid\" src=\"assets/img/demo-image-01.jpg\" alt=\"...\" /></div>
-                    <div class=\"col-lg-6\">
-                        <div class=\"bg-black text-center h-100 project\">
-                            <div class=\"d-flex h-100\">
-                                <div class=\"project-text w-100 my-auto text-center text-lg-left\">
-                                    <h4 class=\"text-white\">Misty</h4>
-                                    <p class=\"mb-0 text-white-50\">An example of where you can put an image of a project, or anything else, along with a description.</p>
-                                    <hr class=\"d-none d-lg-block mb-0 ms-0\" />
-                                </div>
-                            </div>
-                        </div>
+        // line 53
+        echo "                    <div class=\"btn-top\">
+                        <a class=\"btn\" href=\"#home\"><i class=\"fas fa-3x fa-arrow-circle-up\"></i></a>
                     </div>
-                </div>
-                <!-- Project Two Row-->
-                <div class=\"row gx-0 justify-content-center\">
-                    <div class=\"col-lg-6\"><img class=\"img-fluid\" src=\"assets/img/demo-image-02.jpg\" alt=\"...\" /></div>
-                    <div class=\"col-lg-6 order-lg-first\">
-                        <div class=\"bg-black text-center h-100 project\">
-                            <div class=\"d-flex h-100\">
-                                <div class=\"project-text w-100 my-auto text-center text-lg-right\">
-                                    <h4 class=\"text-white\">Mountains</h4>
-                                    <p class=\"mb-0 text-white-50\">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
-                                    <hr class=\"d-none d-lg-block mb-0 me-0\" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Signup-->
-        <section class=\"signup-section\" id=\"signup\">
-            <div class=\"container px-4 px-lg-5\">
-                <div class=\"row gx-4 gx-lg-5\">
-                    <div class=\"col-md-10 col-lg-8 mx-auto text-center\">
-                        <i class=\"far fa-paper-plane fa-2x mb-2 text-white\"></i>
-                        <h2 class=\"text-white mb-5\">Subscribe to receive updates!</h2>
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form class=\"form-signup\" id=\"contactForm\" data-sb-form-api-token=\"API_TOKEN\">
-                            <!-- Email address input-->
-                            <div class=\"row input-group-newsletter\">
-                                <div class=\"col\"><input class=\"form-control\" id=\"emailAddress\" type=\"email\" placeholder=\"Enter email address...\" aria-label=\"Enter email address...\" data-sb-validations=\"required,email\" /></div>
-                                <div class=\"col-auto\"><button class=\"btn btn-primary disabled\" id=\"submitButton\" type=\"submit\">Notify Me!</button></div>
-                            </div>
-                            <div class=\"invalid-feedback mt-2\" data-sb-feedback=\"emailAddress:required\">An email is required.</div>
-                            <div class=\"invalid-feedback mt-2\" data-sb-feedback=\"emailAddress:email\">Email is not valid.</div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class=\"d-none\" id=\"submitSuccessMessage\">
-                                <div class=\"text-center mb-3 mt-2 text-white\">
-                                    <div class=\"fw-bolder\">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href=\"https://startbootstrap.com/solution/contact-forms\">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class=\"d-none\" id=\"submitErrorMessage\"><div class=\"text-center text-danger mb-3 mt-2\">Error sending message!</div></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact-->
-        <section class=\"contact-section bg-black\">
-            <div class=\"container px-4 px-lg-5\">
-                <div class=\"row gx-4 gx-lg-5\">
-                    <div class=\"col-md-4 mb-3 mb-md-0\">
-                        <div class=\"card py-4 h-100\">
-                            <div class=\"card-body text-center\">
-                                <i class=\"fas fa-map-marked-alt text-primary mb-2\"></i>
-                                <h4 class=\"text-uppercase m-0\">Address</h4>
-                                <hr class=\"my-4 mx-auto\" />
-                                <div class=\"small text-black-50\">4923 Market Street, Orlando FL</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=\"col-md-4 mb-3 mb-md-0\">
-                        <div class=\"card py-4 h-100\">
-                            <div class=\"card-body text-center\">
-                                <i class=\"fas fa-envelope text-primary mb-2\"></i>
-                                <h4 class=\"text-uppercase m-0\">Email</h4>
-                                <hr class=\"my-4 mx-auto\" />
-                                <div class=\"small text-black-50\"><a href=\"#!\">hello@yourdomain.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=\"col-md-4 mb-3 mb-md-0\">
-                        <div class=\"card py-4 h-100\">
-                            <div class=\"card-body text-center\">
-                                <i class=\"fas fa-mobile-alt text-primary mb-2\"></i>
-                                <h4 class=\"text-uppercase m-0\">Phone</h4>
-                                <hr class=\"my-4 mx-auto\" />
-                                <div class=\"small text-black-50\">+1 (555) 902-8832</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=\"social d-flex justify-content-center\">
-                    <a class=\"mx-2\" href=\"#!\"><i class=\"fab fa-twitter\"></i></a>
-                    <a class=\"mx-2\" href=\"#!\"><i class=\"fab fa-facebook-f\"></i></a>
-                    <a class=\"mx-2\" href=\"#!\"><i class=\"fab fa-github\"></i></a>
                 </div>
             </div>
         </section>
@@ -287,6 +195,29 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
 
     }
 
+    // line 8
+    public function block_navbar($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
+
+        // line 9
+        echo "            ";
+        $this->loadTemplate("navbar.html.twig", "index.html.twig", 9)->display($context);
+        // line 10
+        echo "        ";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
     public function getTemplateName()
     {
         return "index.html.twig";
@@ -299,7 +230,7 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
 
     public function getDebugInfo()
     {
-        return array (  281 => 5,  278 => 4,  268 => 3,  119 => 56,  108 => 51,  104 => 50,  100 => 49,  94 => 45,  90 => 44,  50 => 6,  48 => 3,  44 => 1,);
+        return array (  212 => 10,  209 => 9,  199 => 8,  189 => 5,  186 => 4,  176 => 3,  147 => 53,  133 => 52,  129 => 50,  127 => 49,  115 => 42,  110 => 40,  106 => 38,  101 => 35,  98 => 34,  81 => 33,  57 => 11,  55 => 8,  51 => 6,  49 => 3,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -311,24 +242,12 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
     {% endblock %}
     <body id=\"page-top\">
         <!-- Navigation-->
-        <nav class=\"navbar navbar-expand-lg navbar-light fixed-top\" id=\"mainNav\">
-            <div class=\"container px-4 px-lg-5\">
-                <button class=\"navbar-toggler navbar-toggler-right\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarResponsive\" aria-controls=\"navbarResponsive\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-                    Menu
-                    <i class=\"fas fa-bars\"></i>
-                </button>
-                <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">
-                    <ul class=\"navbar-nav ms-auto\">
-                        <li class=\"nav-item\"><a class=\"nav-link\" href=\"#about\">About</a></li>
-                        <li class=\"nav-item\"><a class=\"nav-link\" href=\"#projects\">Projects</a></li>
-                        <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% block navbar %}
+            {% include \"navbar.html.twig\" %}
+        {% endblock %}
         <!-- Masthead-->
         <header class=\"masthead\">
-            <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\">
+            <div class=\"container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center\" id=\"home\">
                 <div>
                     <div class=\"text-center mt-5\">
                         <h1 class=\"mx-auto my-0 text-uppercase\">SnowTricks</h1>
@@ -346,142 +265,31 @@ class __TwigTemplate_78a0b84b7358410182e90a4ae0e4873e21106f7c74b7f44b1acd3e00e10
                 <div class=\"text-center\">
                     <h3>Tricks</h3>
                 </div>
-                <div class=\"row gx-0 mb-4 mb-lg-5 align-items-center\">
-                {% for list in tricks %}
-                    <div class=\"col-sm-12 col-md-2 col-xl-2\">
-                        <div class=\"card\" style=\"width: 18rem;\">
-                            <img src=\"assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
-                            <div class=\"card-body\">
-                                <h5 class=\"card-title\">{{ list.name }}</h5>
-                                <p class=\"card-text\">{{ list.description }}</p>
-                                <a href=\"{{ path('tricks_index') }}\" class=\"btn btn-primary\">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-                </div>
-            </div>
-        </section>
-        <!-- Projects-->
-        <section class=\"projects-section bg-light\" id=\"projects\">
-            <div class=\"container px-4 px-lg-5\">
-                <!-- Featured Project Row-->
-                
-                <!-- Project One Row-->
-                <div class=\"row gx-0 mb-5 mb-lg-0 justify-content-center\">
-                    <div class=\"col-lg-6\"><img class=\"img-fluid\" src=\"assets/img/demo-image-01.jpg\" alt=\"...\" /></div>
-                    <div class=\"col-lg-6\">
-                        <div class=\"bg-black text-center h-100 project\">
-                            <div class=\"d-flex h-100\">
-                                <div class=\"project-text w-100 my-auto text-center text-lg-left\">
-                                    <h4 class=\"text-white\">Misty</h4>
-                                    <p class=\"mb-0 text-white-50\">An example of where you can put an image of a project, or anything else, along with a description.</p>
-                                    <hr class=\"d-none d-lg-block mb-0 ms-0\" />
+                <div class=\"row mb-4 mb-lg-5 align-items-center\">
+                    <div class=\"col-md-1\"></div>
+                    {% for list in tricks %}
+                        {% if loop.index0 is divisible by(5) %}
+                            <div class=\"row mb-4 mb-lg-5 align-items-center\">
+                                <div class=\"col-md-1\"></div>
+                        {% endif %}
+                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
+                            <div class=\"card\" style=\"width: 12rem;\">
+                                <img src=\"{{ asset('upload/' ~ list.Media[0])}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+                                <div class=\"card-body\">
+                                    <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name }}</a>
+                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>
+                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Project Two Row-->
-                <div class=\"row gx-0 justify-content-center\">
-                    <div class=\"col-lg-6\"><img class=\"img-fluid\" src=\"assets/img/demo-image-02.jpg\" alt=\"...\" /></div>
-                    <div class=\"col-lg-6 order-lg-first\">
-                        <div class=\"bg-black text-center h-100 project\">
-                            <div class=\"d-flex h-100\">
-                                <div class=\"project-text w-100 my-auto text-center text-lg-right\">
-                                    <h4 class=\"text-white\">Mountains</h4>
-                                    <p class=\"mb-0 text-white-50\">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
-                                    <hr class=\"d-none d-lg-block mb-0 me-0\" />
-                                </div>
+                        {% if loop.index is divisible by(5) or loop.last %}
                             </div>
-                        </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class=\"btn-top\">
+                        <a class=\"btn\" href=\"#home\"><i class=\"fas fa-3x fa-arrow-circle-up\"></i></a>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- Signup-->
-        <section class=\"signup-section\" id=\"signup\">
-            <div class=\"container px-4 px-lg-5\">
-                <div class=\"row gx-4 gx-lg-5\">
-                    <div class=\"col-md-10 col-lg-8 mx-auto text-center\">
-                        <i class=\"far fa-paper-plane fa-2x mb-2 text-white\"></i>
-                        <h2 class=\"text-white mb-5\">Subscribe to receive updates!</h2>
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form class=\"form-signup\" id=\"contactForm\" data-sb-form-api-token=\"API_TOKEN\">
-                            <!-- Email address input-->
-                            <div class=\"row input-group-newsletter\">
-                                <div class=\"col\"><input class=\"form-control\" id=\"emailAddress\" type=\"email\" placeholder=\"Enter email address...\" aria-label=\"Enter email address...\" data-sb-validations=\"required,email\" /></div>
-                                <div class=\"col-auto\"><button class=\"btn btn-primary disabled\" id=\"submitButton\" type=\"submit\">Notify Me!</button></div>
-                            </div>
-                            <div class=\"invalid-feedback mt-2\" data-sb-feedback=\"emailAddress:required\">An email is required.</div>
-                            <div class=\"invalid-feedback mt-2\" data-sb-feedback=\"emailAddress:email\">Email is not valid.</div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class=\"d-none\" id=\"submitSuccessMessage\">
-                                <div class=\"text-center mb-3 mt-2 text-white\">
-                                    <div class=\"fw-bolder\">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href=\"https://startbootstrap.com/solution/contact-forms\">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class=\"d-none\" id=\"submitErrorMessage\"><div class=\"text-center text-danger mb-3 mt-2\">Error sending message!</div></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact-->
-        <section class=\"contact-section bg-black\">
-            <div class=\"container px-4 px-lg-5\">
-                <div class=\"row gx-4 gx-lg-5\">
-                    <div class=\"col-md-4 mb-3 mb-md-0\">
-                        <div class=\"card py-4 h-100\">
-                            <div class=\"card-body text-center\">
-                                <i class=\"fas fa-map-marked-alt text-primary mb-2\"></i>
-                                <h4 class=\"text-uppercase m-0\">Address</h4>
-                                <hr class=\"my-4 mx-auto\" />
-                                <div class=\"small text-black-50\">4923 Market Street, Orlando FL</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=\"col-md-4 mb-3 mb-md-0\">
-                        <div class=\"card py-4 h-100\">
-                            <div class=\"card-body text-center\">
-                                <i class=\"fas fa-envelope text-primary mb-2\"></i>
-                                <h4 class=\"text-uppercase m-0\">Email</h4>
-                                <hr class=\"my-4 mx-auto\" />
-                                <div class=\"small text-black-50\"><a href=\"#!\">hello@yourdomain.com</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=\"col-md-4 mb-3 mb-md-0\">
-                        <div class=\"card py-4 h-100\">
-                            <div class=\"card-body text-center\">
-                                <i class=\"fas fa-mobile-alt text-primary mb-2\"></i>
-                                <h4 class=\"text-uppercase m-0\">Phone</h4>
-                                <hr class=\"my-4 mx-auto\" />
-                                <div class=\"small text-black-50\">+1 (555) 902-8832</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=\"social d-flex justify-content-center\">
-                    <a class=\"mx-2\" href=\"#!\"><i class=\"fab fa-twitter\"></i></a>
-                    <a class=\"mx-2\" href=\"#!\"><i class=\"fab fa-facebook-f\"></i></a>
-                    <a class=\"mx-2\" href=\"#!\"><i class=\"fab fa-github\"></i></a>
                 </div>
             </div>
         </section>
