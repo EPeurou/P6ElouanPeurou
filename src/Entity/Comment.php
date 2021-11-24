@@ -23,7 +23,7 @@ class Comment
     private $content;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $creation_date;
 

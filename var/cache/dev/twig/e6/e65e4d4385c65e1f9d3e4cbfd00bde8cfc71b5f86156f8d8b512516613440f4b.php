@@ -185,9 +185,9 @@ $context["value"])) {
             <div class=\"row\" style=\"border-bottom: 2px solid black\">
                 ";
         // line 181
-        $this->loadTemplate("comment/_form.html.twig", "tricks/show.html.twig", 181)->display($context);
-        // line 182
-        echo "            </div>
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 181, $this->source); })()), 'form');
+        echo "
+            </div>
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
@@ -247,7 +247,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  229 => 115,  226 => 114,  216 => 113,  190 => 182,  188 => 181,  173 => 169,  163 => 162,  154 => 155,  145 => 151,  139 => 149,  137 => 148,  132 => 147,  130 => 146,  125 => 143,  121 => 142,  108 => 132,  104 => 130,  98 => 129,  95 => 128,  92 => 127,  88 => 125,  82 => 123,  79 => 122,  76 => 121,  71 => 120,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
+        return array (  229 => 115,  226 => 114,  216 => 113,  188 => 181,  173 => 169,  163 => 162,  154 => 155,  145 => 151,  139 => 149,  137 => 148,  132 => 147,  130 => 146,  125 => 143,  121 => 142,  108 => 132,  104 => 130,  98 => 129,  95 => 128,  92 => 127,  88 => 125,  82 => 123,  79 => 122,  76 => 121,  71 => 120,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
     }
 
     public function getSourceContext()
@@ -432,7 +432,7 @@ $context["value"])) {
         </section>
         <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
             <div class=\"row\" style=\"border-bottom: 2px solid black\">
-                {% include \"comment/_form.html.twig\" %}
+                {{ form(commentForm)}}
             </div>
         </section>
         <!-- Footer-->

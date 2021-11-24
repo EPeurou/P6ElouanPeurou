@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 // use App\Service\FileUploader;
-// use App\Entity\Media;
+use App\Entity\Comment;
 use App\Entity\Tricks;
+use App\Form\CommentType;
 use App\Form\TricksType;
 use App\Repository\TricksRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Mime\MimeTypes;
@@ -74,7 +76,7 @@ class TricksController extends AbstractController
                 // instead of its contents
                 
             }
-
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
             $entityManager->flush();
@@ -91,10 +93,25 @@ class TricksController extends AbstractController
     /**
      * @Route("/{id}", name="tricks_show", methods={"GET"})
      */
-    public function show(Tricks $trick): Response
+    public function show(Tricks $trick, Request $request): Response
     {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $comment->setTrick($trick);
+            $comment->setCreationDate(new \DateTime('now'));
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+        }
+
+        
         return $this->render('tricks/show.html.twig', [
             'trick' => $trick,
+            'commentForm' => $form->createView()
         ]);
     }
 
