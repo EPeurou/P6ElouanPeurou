@@ -129,6 +129,10 @@
                     {% set break = true %}
                 {% endfor %}
                 <div>
+                    <div class="icon-show text-switch">
+                        <a href="" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
+                        <a href="" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                    </div>
                     <div class="centered-show">
                         <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
                     </div>
@@ -209,7 +213,7 @@
                 </div>
             {% endfor %}
             {% if commentVar == true %}
-                <button class="btn btn-primary ajax-load-more">Charger plus</button>
+                <button class="btn btn-primary ajax-load-more mb-5">Charger plus</button>
             {% endif %}
         </section>
         <!-- Footer-->

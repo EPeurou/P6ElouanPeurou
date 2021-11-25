@@ -28,6 +28,15 @@
     transform: translate(-50%, -50%);
   }
 
+.icon-show {
+  border: 2px solid;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 10%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
 .main-img-show {
     width: 90%;
     height: 35em;
