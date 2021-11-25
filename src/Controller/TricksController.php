@@ -91,9 +91,9 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="tricks_show", methods={"GET"})
+     * @Route("/{id}", name="tricks_show")
      */
-    public function show(Tricks $trick, Request $request): Response
+    public function show(Tricks $trick, Request $request)
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -106,7 +106,10 @@ class TricksController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
-        }
+
+            return $this->redirect($request->getUri());
+        } 
+        
 
         
         return $this->render('tricks/show.html.twig', [

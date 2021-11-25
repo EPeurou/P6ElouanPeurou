@@ -181,13 +181,175 @@ $context["value"])) {
                 </div>
             </div>
         </section>
-        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
-            <div class=\"row\" style=\"border-bottom: 2px solid black\">
-                ";
-        // line 181
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 181, $this->source); })()), 'form');
+        <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
+            ";
+        // line 180
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 180, $this->source); })()), 'form_start');
         echo "
+                <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
+                    <div class=\"col-sm-8 col-md-8 col-xl-8 mb-5\">
+                        ";
+        // line 183
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 183, $this->source); })()), "content", [], "any", false, false, false, 183), 'row');
+        echo "
+                    </div>
+                    <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
+                        ";
+        // line 186
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 186, $this->source); })()), "envoyer", [], "any", false, false, false, 186), 'row');
+        echo "
+                    </div>
+                </div>
+            ";
+        // line 189
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 189, $this->source); })()), 'form_end');
+        echo "
+        </section>
+        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
+            ";
+        // line 192
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 192, $this->source); })()), "comments", [], "any", false, false, false, 192));
+        foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
+            // line 193
+            echo "                <div class=\"row\">
+                    <div class=\"col-md-2 col-sm-2 col-xl-2 mb-3\">
+                        <i class=\"fas fa-3x fa-user-circle\"></i>
+                    </div>
+                    <div class=\"col-md-8 col-sm-8 col-xl-8 mt-3\">
+                        <div class=\"container px-4 px-lg-5\" style=\"background-color: rgb(245, 245, 245);border-radius: 0.2em;\">
+                            <h5>";
+            // line 199
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", [], "any", false, false, false, 199), "html", null, true);
+            echo "</h5>
+                        </div>
+                    </div>
+                </div>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 204
+        echo "            <div class=\"interior container clearfix\">
+   <div class=\"row\"> 
+      <div class=\"col-xs-12 col-sm-6 col-md-12 blogBox\">
+         <div class=\"item featured\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel3.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Business Intelligence</a>
+               </div>
+               <h2>
+                  Eu qui dolore altera, saepe molestie accusamus
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  An erant partem albucius quo, ad graece latine atomorum sea, sit dicant laoreet at. Id has chor...
+               </p>
             </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel5.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Virtual Reality</a>
+               </div>
+               <h2>
+                  Ea delicata deterru isset concluda turque
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Mel ut enim atqui, ne eum tation populo delectus. Vim soluta insolens phaedrum et, lucilius par...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel6.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Internet of Things (IoT)</a>
+               </div>
+               <h2>
+                  No vim quis quodsi, etiam quaestio euripidis
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Sed possim nonumes no, iuvaret similique quo no. Ut sea idque option aliquando. Ei mea choro ap...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel9.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Artifical Intelligence</a>
+               </div>
+               <h2>
+                  Qui an alii magna consectetuer
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Ad populo appareat vulputate vix, ex fastidii signiferumque pro. In sea doming reprehendunt. Na...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel7.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Big Data</a>
+               </div>
+               <h2>
+                  Integre voluptatum cu quo iriure docendi senserit
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Delicata inciderint at per, eu partem principes eum, illud nobis appetere ex his. Ei vix melior...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel8.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Growth Hacking</a>
+               </div>
+               <h2>
+                  Pro brute causae aliquip ad
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  No ipsum invidunt eos, ei ius dicit platonem perpetua. Mea te feugait ocurreret aliquando, ei i...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel2.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Content Marketing</a>
+               </div>
+               <h2>
+                  Lorem ipsum dolor sit amet, consect adipiscing elit
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div id=\"loadMore\" style=\"\">
+         <a href=\"#\">Load More</a>
+      </div>
+   </div>
+</div>
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
@@ -200,6 +362,21 @@ $context["value"])) {
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src=\"https://cdn.startbootstrap.com/sb-forms-latest.js\"></script>
+        <script>
+        \$( document ).ready(function () {
+\t\t\$(\".moreBox\").slice(0, 3).show();
+\t\tif (\$(\".blogBox:hidden\").length != 0) {
+\t\t\t\$(\"#loadMore\").show();
+\t\t}\t\t
+\t\t\$(\"#loadMore\").on('click', function (e) {
+\t\t\te.preventDefault();
+\t\t\t\$(\".moreBox:hidden\").slice(0, 6).slideDown();
+\t\t\tif (\$(\".moreBox:hidden\").length == 0) {
+\t\t\t\t\$(\"#loadMore\").fadeOut('slow');
+\t\t\t}
+\t\t});
+\t});
+        </script>
     </body>
 </html>
 
@@ -247,7 +424,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  229 => 115,  226 => 114,  216 => 113,  188 => 181,  173 => 169,  163 => 162,  154 => 155,  145 => 151,  139 => 149,  137 => 148,  132 => 147,  130 => 146,  125 => 143,  121 => 142,  108 => 132,  104 => 130,  98 => 129,  95 => 128,  92 => 127,  88 => 125,  82 => 123,  79 => 122,  76 => 121,  71 => 120,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
+        return array (  406 => 115,  403 => 114,  393 => 113,  234 => 204,  223 => 199,  215 => 193,  211 => 192,  205 => 189,  199 => 186,  193 => 183,  187 => 180,  173 => 169,  163 => 162,  154 => 155,  145 => 151,  139 => 149,  137 => 148,  132 => 147,  130 => 146,  125 => 143,  121 => 142,  108 => 132,  104 => 130,  98 => 129,  95 => 128,  92 => 127,  88 => 125,  82 => 123,  79 => 122,  76 => 121,  71 => 120,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
     }
 
     public function getSourceContext()
@@ -430,10 +607,150 @@ $context["value"])) {
                 </div>
             </div>
         </section>
+        <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
+            {{ form_start(commentForm) }}
+                <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
+                    <div class=\"col-sm-8 col-md-8 col-xl-8 mb-5\">
+                        {{ form_row(commentForm.content) }}
+                    </div>
+                    <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
+                        {{ form_row(commentForm.envoyer) }}
+                    </div>
+                </div>
+            {{ form_end(commentForm) }}
+        </section>
         <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
-            <div class=\"row\" style=\"border-bottom: 2px solid black\">
-                {{ form(commentForm)}}
+            {% for comment in trick.comments %}
+                <div class=\"row\">
+                    <div class=\"col-md-2 col-sm-2 col-xl-2 mb-3\">
+                        <i class=\"fas fa-3x fa-user-circle\"></i>
+                    </div>
+                    <div class=\"col-md-8 col-sm-8 col-xl-8 mt-3\">
+                        <div class=\"container px-4 px-lg-5\" style=\"background-color: rgb(245, 245, 245);border-radius: 0.2em;\">
+                            <h5>{{ comment.content }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class=\"interior container clearfix\">
+   <div class=\"row\"> 
+      <div class=\"col-xs-12 col-sm-6 col-md-12 blogBox\">
+         <div class=\"item featured\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel3.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Business Intelligence</a>
+               </div>
+               <h2>
+                  Eu qui dolore altera, saepe molestie accusamus
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  An erant partem albucius quo, ad graece latine atomorum sea, sit dicant laoreet at. Id has chor...
+               </p>
             </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel5.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Virtual Reality</a>
+               </div>
+               <h2>
+                  Ea delicata deterru isset concluda turque
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Mel ut enim atqui, ne eum tation populo delectus. Vim soluta insolens phaedrum et, lucilius par...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel6.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Internet of Things (IoT)</a>
+               </div>
+               <h2>
+                  No vim quis quodsi, etiam quaestio euripidis
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Sed possim nonumes no, iuvaret similique quo no. Ut sea idque option aliquando. Ei mea choro ap...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel9.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Artifical Intelligence</a>
+               </div>
+               <h2>
+                  Qui an alii magna consectetuer
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Ad populo appareat vulputate vix, ex fastidii signiferumque pro. In sea doming reprehendunt. Na...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel7.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Big Data</a>
+               </div>
+               <h2>
+                  Integre voluptatum cu quo iriure docendi senserit
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Delicata inciderint at per, eu partem principes eum, illud nobis appetere ex his. Ei vix melior...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel8.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Growth Hacking</a>
+               </div>
+               <h2>
+                  Pro brute causae aliquip ad
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  No ipsum invidunt eos, ei ius dicit platonem perpetua. Mea te feugait ocurreret aliquando, ei i...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
+         <div class=\"item\">
+            <img src=\"https://www.solodev.com/assets/fancy/travel2.jpg\">
+            <div class=\"blogTxt\">
+               <div class=\"blogCategory\">
+                  <a href=\"/\">Content Marketing</a>
+               </div>
+               <h2>
+                  Lorem ipsum dolor sit amet, consect adipiscing elit
+               </h2>
+               <p class=\"post_intro hidden-xs\">
+                  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ...
+               </p>
+            </div>
+         </div>
+      </div>
+      <div id=\"loadMore\" style=\"\">
+         <a href=\"#\">Load More</a>
+      </div>
+   </div>
+</div>
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
@@ -446,6 +763,21 @@ $context["value"])) {
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src=\"https://cdn.startbootstrap.com/sb-forms-latest.js\"></script>
+        <script>
+        \$( document ).ready(function () {
+\t\t\$(\".moreBox\").slice(0, 3).show();
+\t\tif (\$(\".blogBox:hidden\").length != 0) {
+\t\t\t\$(\"#loadMore\").show();
+\t\t}\t\t
+\t\t\$(\"#loadMore\").on('click', function (e) {
+\t\t\te.preventDefault();
+\t\t\t\$(\".moreBox:hidden\").slice(0, 6).slideDown();
+\t\t\tif (\$(\".moreBox:hidden\").length == 0) {
+\t\t\t\t\$(\"#loadMore\").fadeOut('slow');
+\t\t\t}
+\t\t});
+\t});
+        </script>
     </body>
 </html>
 

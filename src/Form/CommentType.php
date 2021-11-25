@@ -16,6 +16,7 @@ class CommentType extends AbstractType
         $builder
             ->add('content', TextareaType::class,[
                 'label'=>'commentaire',
+                'required' => true,
                 'attr'=>[
                     'class'=>'form-control'
                 ]
@@ -24,6 +25,7 @@ class CommentType extends AbstractType
             // ->add('author')
             // ->add('trick')
             ->add('envoyer', SubmitType::class,[
+                'label'=>'Laissé un commentaire!',
                 'attr' => [
                     'class'=>'btn btn-primary'
                 ]
