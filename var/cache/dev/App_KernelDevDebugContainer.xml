@@ -20,6 +20,7 @@
       <parameter key="DoctrineMigrationsBundle">Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="TwigExtraBundle">Twig\Extra\TwigExtraBundle\TwigExtraBundle</parameter>
+      <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -65,6 +66,10 @@
       <parameter key="TwigExtraBundle" type="collection">
         <parameter key="path">C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\twig\extra-bundle</parameter>
         <parameter key="namespace">Twig\Extra\TwigExtraBundle</parameter>
+      </parameter>
+      <parameter key="StofDoctrineExtensionsBundle" type="collection">
+        <parameter key="path">C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\stof\doctrine-extensions-bundle\src</parameter>
+        <parameter key="namespace">Stof\DoctrineExtensionsBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -237,6 +242,20 @@
       <parameter>dev</parameter>
       <parameter>main</parameter>
     </parameter>
+    <parameter key="stof_doctrine_extensions.default_locale">en_US</parameter>
+    <parameter key="stof_doctrine_extensions.translation_fallback">false</parameter>
+    <parameter key="stof_doctrine_extensions.persist_default_translation">false</parameter>
+    <parameter key="stof_doctrine_extensions.skip_translation_on_load">false</parameter>
+    <parameter key="stof_doctrine_extensions.listener.translatable.class">Gedmo\Translatable\TranslatableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.timestampable.class">Gedmo\Timestampable\TimestampableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.blameable.class">Gedmo\Blameable\BlameableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sluggable.class">Gedmo\Sluggable\SluggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.tree.class">Gedmo\Tree\TreeListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.loggable.class">Gedmo\Loggable\LoggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sortable.class">Gedmo\Sortable\SortableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.softdeleteable.class">Gedmo\SoftDeleteable\SoftDeleteableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.uploadable.class">Gedmo\Uploadable\UploadableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.reference_integrity.class">Gedmo\ReferenceIntegrity\ReferenceIntegrityListener</parameter>
     <parameter key="maker.compatible_check.doctrine.supports_attributes">true</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
@@ -332,6 +351,13 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\CommentController" class="App\Controller\CommentController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\CommentController"/>
+      </call>
+    </service>
     <service id="App\Controller\TricksController" class="App\Controller\TricksController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -346,8 +372,15 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\homeController"/>
       </call>
     </service>
+    <service id="App\Form\CommentType" class="App\Form\CommentType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\TricksType" class="App\Form\TricksType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Repository\CommentRepository" class="App\Repository\CommentRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -935,6 +968,7 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\CommentType</argument>
         <argument>App\Form\TricksType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1341,7 +1375,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.yrKoFCe"/>
+      <argument type="service" id=".service_locator.CP1e0bC"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -2056,6 +2090,7 @@
           <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
           <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\symfony\security-bundle/translations</argument>
           <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\twig\extra-bundle/translations</argument>
+          <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\stof\doctrine-extensions-bundle\src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -2074,6 +2109,7 @@
             <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
             <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\symfony\security-bundle/translations</argument>
             <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\twig\extra-bundle/translations</argument>
+            <argument>C:\MAMP\htdocs\P6ElouanPeurou\P6ElouanPeurou\vendor\stof\doctrine-extensions-bundle\src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -4412,7 +4448,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator._N2f..3"/>
+      <argument type="service" id=".service_locator.3IFGoEn"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5529,14 +5565,21 @@
       </call>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommentController" class="App\Controller\CommentController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommentController" class="App\Controller\CommentController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CommentController" class="App\Controller\CommentController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TricksController" class="App\Controller\TricksController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TricksController" class="App\Controller\TricksController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\TricksController" class="App\Controller\TricksController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\homeController" class="App\Controller\homeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\homeController" class="App\Controller\homeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\homeController" class="App\Controller\homeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CommentType" class="App\Form\CommentType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CommentType" class="App\Form\CommentType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TricksType" class="App\Form\TricksType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\TricksType" class="App\Form\TricksType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentRepository" class="App\Repository\CommentRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CommentRepository" class="App\Repository\CommentRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TricksRepository" class="App\Repository\TricksRepository" autowire="true" abstract="true"/>
@@ -5856,6 +5899,18 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
+    <service id=".service_locator.BwLcYXx" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="commentRepository" type="service_closure" id="App\Repository\CommentRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.CbsAoJ." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="comment" type="service_closure" id=".errored..service_locator.CbsAoJ..App\Entity\Comment"/>
+      </argument>
+    </service>
     <service id=".service_locator.4ZU5zm2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5874,9 +5929,13 @@
         <argument key="trick" type="service_closure" id=".errored..service_locator.hAV0MEA.App\Entity\Tricks"/>
       </argument>
     </service>
-    <service id=".service_locator.m5pup2W" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.1xzuKXR" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CommentController::delete" type="service_closure" id=".service_locator.CbsAoJ."/>
+        <argument key="App\Controller\CommentController::edit" type="service_closure" id=".service_locator.CbsAoJ."/>
+        <argument key="App\Controller\CommentController::index" type="service_closure" id=".service_locator.BwLcYXx"/>
+        <argument key="App\Controller\CommentController::show" type="service_closure" id=".service_locator.CbsAoJ."/>
         <argument key="App\Controller\TricksController::delete" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController::edit" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController::index" type="service_closure" id=".service_locator.4ZU5zm2"/>
@@ -5888,6 +5947,10 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
+        <argument key="App\Controller\CommentController:delete" type="service_closure" id=".service_locator.CbsAoJ."/>
+        <argument key="App\Controller\CommentController:edit" type="service_closure" id=".service_locator.CbsAoJ."/>
+        <argument key="App\Controller\CommentController:index" type="service_closure" id=".service_locator.BwLcYXx"/>
+        <argument key="App\Controller\CommentController:show" type="service_closure" id=".service_locator.CbsAoJ."/>
         <argument key="App\Controller\TricksController:delete" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController:edit" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController:index" type="service_closure" id=".service_locator.4ZU5zm2"/>
@@ -5957,9 +6020,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.yrKoFCe" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CP1e0bC" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\CommentType" type="service_closure" id="App\Form\CommentType"/>
         <argument key="App\Form\TricksType" type="service_closure" id="App\Form\TricksType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
@@ -6151,9 +6215,10 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator._N2f..3" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.3IFGoEn" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Repository\CommentRepository" type="service_closure" id="App\Repository\CommentRepository"/>
         <argument key="App\Repository\MediaRepository" type="service_closure" id="App\Repository\MediaRepository"/>
         <argument key="App\Repository\TricksRepository" type="service_closure" id="App\Repository\TricksRepository"/>
       </argument>
@@ -6224,6 +6289,12 @@
         <argument key="session" type="service_closure" id=".session.deprecated" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
+    </service>
+    <service id=".service_locator.W9y3dzm.App\Controller\CommentController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\CommentController"/>
+      <argument>App\Controller\CommentController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.W9y3dzm" method="withContext"/>
     </service>
     <service id=".service_locator.W9y3dzm.App\Controller\TricksController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\TricksController"/>
@@ -6299,6 +6370,7 @@
     </service>
     <service id=".errored..service_locator.KfwZsne.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.CbsAoJ..App\Entity\Comment" class="App\Entity\Comment"/>
     <service id=".errored..service_locator.hAV0MEA.App\Entity\Tricks" class="App\Entity\Tricks"/>
     <service id=".service_locator.XXv1IfR" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -6407,12 +6479,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.m5pup2W"/>
+      <argument type="service" id=".service_locator.1xzuKXR"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.m5pup2W"/>
+      <argument type="service" id=".service_locator.1xzuKXR"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7265,7 +7337,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.m5pup2W"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.1xzuKXR"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7286,6 +7358,8 @@
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
+    <service id=".service_locator.Cde4RFP" alias=".service_locator.BwLcYXx"/>
+    <service id=".service_locator.Q7BJTvI" alias=".service_locator.CbsAoJ."/>
     <service id=".service_locator.6KyDHhI" alias=".service_locator.4ZU5zm2"/>
     <service id=".service_locator.02GTwTf" alias=".service_locator.fZXk27d"/>
     <service id=".service_locator.OzbLfhU" alias=".service_locator.hAV0MEA"/>

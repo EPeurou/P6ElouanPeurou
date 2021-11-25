@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 // use App\Service\FileUploader;
-// use App\Entity\Media;
+use App\Entity\Comment;
 use App\Entity\Tricks;
+use App\Form\CommentType;
 use App\Form\TricksType;
 use App\Repository\TricksRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Mime\MimeTypes;
@@ -45,9 +47,11 @@ class TricksController extends AbstractController
             $medias = $form->get('media')->getData();
             // dd($medias);
             if ($medias) {
+                $file = [];
                 foreach ($medias as $media) {    
                     // $originalFilename = pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME);
                     // $safeFilename = $slugger->slug($originalFilename);
+                    
                     $newFilename = uniqid().'.'.$media->guessExtension();
                     // $mediaFileName = $fileUploader->upload($mediaFile);
                     // $trick->setMedia($mediaFileName);
@@ -56,16 +60,23 @@ class TricksController extends AbstractController
                             $this->getParameter('upload_directory'),
                             $newFilename
                         );
-                        } catch (FileException $e) {
-                            // ... handle exception if something happens during file upload
-                        }
-                    $trick->setMedia($newFilename);
+                    } catch (FileException $e) {
+                        // ... handle exception if something happens during file upload
+                    }
+                    
+                    $mime_type = mime_content_type('upload/'.$newFilename);
+                    $testType = strtok($mime_type, '/');
+                    $addTypeName = $testType . $newFilename;
+                    rename ("upload/" . $newFilename, "upload/" . $addTypeName );
+                    // dd($addTypeName);
+                    array_push($file, $addTypeName);
+                    $trick->setMedia($file);
                 }
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
                 
             }
-
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
             $entityManager->flush();
@@ -80,12 +91,30 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="tricks_show", methods={"GET"})
+     * @Route("/{id}", name="tricks_show")
      */
-    public function show(Tricks $trick): Response
+    public function show(Tricks $trick, Request $request)
     {
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $comment->setTrick($trick);
+            $comment->setCreationDate(new \DateTime('now'));
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirect($request->getUri());
+        } 
+        
+
+        
         return $this->render('tricks/show.html.twig', [
             'trick' => $trick,
+            'commentForm' => $form->createView()
         ]);
     }
 

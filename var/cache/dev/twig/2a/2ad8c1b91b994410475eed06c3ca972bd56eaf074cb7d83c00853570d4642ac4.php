@@ -49,7 +49,10 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
         <i class=\"fas fa-3x fa-snowboarding\" style=\"color:white;margin-left:0em;\"></i>
         <div class=\"collapse navbar-collapse\" style=\"margin-right:1em;\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ms-auto\">
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#about\">About</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+        // line 10
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_index");
+        echo "\">Accueil</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#projects\">Projects</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
             </ul>
@@ -69,9 +72,14 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
         return "navbar.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  54 => 10,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -85,7 +93,7 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
         <i class=\"fas fa-3x fa-snowboarding\" style=\"color:white;margin-left:0em;\"></i>
         <div class=\"collapse navbar-collapse\" style=\"margin-right:1em;\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ms-auto\">
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#about\">About</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('tricks_index')}}\">Accueil</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#projects\">Projects</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
             </ul>

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Tricks{% endblock %}
 
@@ -43,4 +43,213 @@
     <a href="{{ path('tricks_edit', {'id': trick.id}) }}">edit</a>
 
     {{ include('tricks/_delete_form.html.twig') }}
-{% endblock %}
+{% endblock %} #}
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Tricks{% endblock %}
+
+{% block body %}
+    <h1>Tricks</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ trick.id }}</td>
+            </tr>
+            <tr>
+                <th>IdUser</th>
+                <td>{{ trick.idUser }}</td>
+            </tr>
+            <tr>
+                <th>IdType</th>
+                <td>{{ trick.idType }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ trick.name }}</td>
+            </tr>
+            <tr>
+                <th>Media</th>
+                <td><img src="{{ asset('upload/' ~ trick.media)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;"></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ trick.description }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ trick.author }}</td>
+            </tr>
+            <tr>
+                <th>Creation_date</th>
+                <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('tricks_index') }}">back to list</a>
+
+    <a href="{{ path('tricks_edit', {'id': trick.id}) }}">edit</a>
+
+    {{ include('tricks/_delete_form.html.twig') }}
+{% endblock %} #}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SnowTricks</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/standard.css" rel="stylesheet" />
+</head>
+    <body id="page-top">
+        {% block navbar %}
+            {% include "navbar.html.twig" %}
+        {% endblock %}
+        <!-- Masthead-->
+        <header>
+            <div class="container-show">
+                {% set break = false %}
+                {% for key,value in trick.media %}
+                    {% if break == false %}
+                        {% if 'image' in value %}
+                            <img class="main-img-show" src="{{ asset('upload/' ~ trick.media[0])}}" class="card-img-top" alt="...">
+                        {% else %}
+                            <img class="main-img-show" src="../../public/assets/img/frontflip.jpg" class="card-img-top" alt="...">
+                        {% endif %}
+                    {% endif %}
+                    {% set break = true %}
+                {% endfor %}
+                <div>
+                    <div class="icon-show text-switch">
+                        <a href="" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
+                        <a href="" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                    </div>
+                    <div class="centered-show">
+                        <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class=" mt-5" id="tricks">
+            <div class="container px-4 px-lg-5">
+                <div style="overflow: auto !important">
+                    <div class="row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable">
+                        {% for key,value in trick.media %}
+                            <div class="col-sm-12 col-md-2 col-xl-2 mr-2 mycol">
+                                <div class="card" style="width:12rem;border:none;">
+                                    <div style="margin-right:1em;">
+                                        {% if 'image' in value %}
+                                            <img class="card-img-top" src="{{ asset('upload/' ~ value)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;">
+                                        {% elseif 'video' in value %}
+                                            <video controls class="card-img-top" style="width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;"><source src="{{ asset('upload/' ~ value)}}"></video>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="text-center mt-5" id="tricks">
+            <div class="container des-show px-4 px-lg-5">
+                <div class="text-center">
+                    <h5>{{ trick.description }}</h5>
+                </div>
+            </div>
+        </section>
+        <section class="text-center mt-5" style="padding-left:20em;padding-right:20em;">
+            <div class="row" style="border-bottom: 2px solid black">
+                <div class="col-md-4 col-sm-4 col-xl-4">
+                    <h6 class="btn ">Date de création: {{ trick.creationDate ? trick.creationDate|date('d-m-Y H:i:s') : '' }}</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xl-4">
+                    <h6 class="btn ">Groupe: Flip</h6>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xl-4">
+                    <h6 class="btn ">Modifié le: </h6>
+                </div>
+            </div>
+        </section>
+        <section class="text-center mt-3" style="padding-left:20em;padding-right:20em;">
+            {{ form_start(commentForm) }}
+                <div class="row" style="border-bottom: 2px solid black;padding-left:10em;padding-right:20em;">
+                    <div class="col-sm-8 col-md-8 col-xl-8">
+                        {{ form_row(commentForm.content) }}
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-xl-2 mt-4 mb-5">
+                        {{ form_row(commentForm.envoyer) }}
+                    </div>
+                </div>
+            {{ form_end(commentForm) }}
+        </section>
+        <section class="text-center mt-5 grid" style="padding-left:20em;padding-right:20em;">
+            {% set commentVar = false %}
+            {% for comment in trick.comments %}
+                {% if loop.index is divisible by(5) %}
+                    {% set commentVar = true  %}
+                {% endif %}
+                <div class="row-more">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2 col-xl-2 mb-3">
+                            <i class="fas fa-3x fa-user-circle"></i>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xl-8 mt-3">
+                            <div class="container px-4 px-lg-5" style="background-color: rgb(245, 245, 245);border-radius: 0.2em;">
+                                <h5>{{ comment.content }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% if commentVar == true %}
+                <button class="btn btn-primary ajax-load-more mb-5">Charger plus</button>
+            {% endif %}
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
+        <!-- Bootstrap core JS-->
+        <script>
+            $( ".row-more:lt(4)" ).css( "display", "block" );
+            const list = document.querySelector(".grid");
+            const listItems = list.querySelectorAll(".row-more");
+            const ajaxLoadMoreBtn = document.querySelector(".ajax-load-more");
+
+            let k = 4;
+            let j = 10;
+
+            ajaxLoadMoreBtn.addEventListener("click", function () {
+            let range = `.row-more:nth-child(n+${k}):nth-child(-n+${j})`;
+            list
+                .querySelectorAll(range)
+                .forEach((elem) => (elem.style.display = "block"));
+
+            if (listItems.length <= j) {
+                this.remove();
+            } else {
+                k += 5;
+                j += 5;
+            }
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
+

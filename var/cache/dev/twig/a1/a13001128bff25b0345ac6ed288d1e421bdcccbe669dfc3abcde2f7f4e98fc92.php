@@ -107,7 +107,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                             <div class=\"card\" style=\"width: 12rem;\">
                                 <img src=\"";
             // line 40
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 40))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 40), 0, [], "array", false, false, false, 40))), "html", null, true);
             echo "\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
                                 <div class=\"card-body\">
                                     <a href=\"";
@@ -274,7 +274,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                         {% endif %}
                         <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
                             <div class=\"card\" style=\"width: 12rem;\">
-                                <img src=\"{{ asset('upload/' ~ list.Media)}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+                                <img src=\"{{ asset('upload/' ~ list.Media[0])}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
                                 <div class=\"card-body\">
                                     <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name }}</a>
                                     <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>

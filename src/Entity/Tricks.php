@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Tricks
 {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -33,6 +34,10 @@ class Tricks
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+    
+    public function __toString() :string {
+        return $this->name;
+    }
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,9 +55,14 @@ class Tricks
     private $creation_date;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="simple_array", nullable=true)
      */
-    private $Media;
+    private $Media = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="trick")
+     */
+    private $comments;
 
     // /**
     //  * @ORM\OneToMany(targetEntity=Media::class, mappedBy="tricks", orphanRemoval=true, cascade={"persist"})
@@ -62,6 +72,8 @@ class Tricks
     public function __construct()
     {
         $this->media = new ArrayCollection();
+        $this->creation_date = new \DateTime('now');
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -141,15 +153,46 @@ class Tricks
         return $this;
     }
 
-    public function getMedia(): ?string
+    public function getMedia(): ?array
     {
         return $this->Media;
     }
 
-    public function setMedia(string $Media): self
+    public function setMedia(array $Media): self
     {
         $this->Media = $Media;
 
         return $this;
     }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setTrick($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getTrick() === $this) {
+                $comment->setTrick(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
