@@ -50,6 +50,7 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
     <meta name=\"author\" content=\"\" />
     <title>SnowTricks</title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
+    <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script>
     <script src=\"https://use.fontawesome.com/releases/v5.15.3/js/all.js\" crossorigin=\"anonymous\"></script>
     <link href=\"https://fonts.googleapis.com/css?family=Varela+Round\" rel=\"stylesheet\" />
     <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\" />
@@ -58,54 +59,54 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
 </head>
     <body id=\"page-top\">
         ";
-        // line 113
+        // line 114
         $this->displayBlock('navbar', $context, $blocks);
-        // line 116
+        // line 117
         echo "        <!-- Masthead-->
         <header>
             <div class=\"container-show\">
                 ";
-        // line 119
-        $context["break"] = false;
         // line 120
+        $context["break"] = false;
+        // line 121
         echo "                ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 120, $this->source); })()), "media", [], "any", false, false, false, 120));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 121, $this->source); })()), "media", [], "any", false, false, false, 121));
         foreach ($context['_seq'] as $context["key"] => $context["value"]) {
-            // line 121
+            // line 122
             echo "                    ";
-            if ((0 === twig_compare((isset($context["break"]) || array_key_exists("break", $context) ? $context["break"] : (function () { throw new RuntimeError('Variable "break" does not exist.', 121, $this->source); })()), false))) {
-                // line 122
+            if ((0 === twig_compare((isset($context["break"]) || array_key_exists("break", $context) ? $context["break"] : (function () { throw new RuntimeError('Variable "break" does not exist.', 122, $this->source); })()), false))) {
+                // line 123
                 echo "                        ";
                 if (twig_in_filter("image", $context["value"])) {
-                    // line 123
+                    // line 124
                     echo "                            <img class=\"main-img-show\" src=\"";
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 123, $this->source); })()), "media", [], "any", false, false, false, 123), 0, [], "array", false, false, false, 123))), "html", null, true);
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 124, $this->source); })()), "media", [], "any", false, false, false, 124), 0, [], "array", false, false, false, 124))), "html", null, true);
                     echo "\" class=\"card-img-top\" alt=\"...\">
                         ";
                 } else {
-                    // line 125
+                    // line 126
                     echo "                            <img class=\"main-img-show\" src=\"../../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
                         ";
                 }
-                // line 127
+                // line 128
                 echo "                    ";
             }
-            // line 128
+            // line 129
             echo "                    ";
             $context["break"] = true;
-            // line 129
+            // line 130
             echo "                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 130
+        // line 131
         echo "                <div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">";
-        // line 132
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 132, $this->source); })()), "name", [], "any", false, false, false, 132), "html", null, true);
+        // line 133
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 133, $this->source); })()), "name", [], "any", false, false, false, 133), "html", null, true);
         echo "</h1>
                     </div>
                 </div>
@@ -117,31 +118,31 @@ class __TwigTemplate_029a15980f2985121cb4a6280f40a554b9a48da78632659d421e376e375
                 <div style=\"overflow: auto !important\">
                     <div class=\"row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
                         ";
-        // line 142
+        // line 143
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 142, $this->source); })()), "media", [], "any", false, false, false, 142));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 143, $this->source); })()), "media", [], "any", false, false, false, 143));
         foreach ($context['_seq'] as $context["key"] => $context["value"]) {
-            // line 143
+            // line 144
             echo "                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
                                         ";
-            // line 146
+            // line 147
             if (twig_in_filter("image", $context["value"])) {
-                // line 147
+                // line 148
                 echo "                                            <img class=\"card-img-top\" src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
                                         ";
-            } elseif (twig_in_filter("video",             // line 148
+            } elseif (twig_in_filter("video",             // line 149
 $context["value"])) {
-                // line 149
+                // line 150
                 echo "                                            <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\"></video>
                                         ";
             }
-            // line 151
+            // line 152
             echo "                                    </div>
                                 </div>
                             </div>
@@ -150,7 +151,7 @@ $context["value"])) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 155
+        // line 156
         echo "                    </div>
                 </div>
             </div>
@@ -159,8 +160,8 @@ $context["value"])) {
             <div class=\"container des-show px-4 px-lg-5\">
                 <div class=\"text-center\">
                     <h5>";
-        // line 162
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 162, $this->source); })()), "description", [], "any", false, false, false, 162), "html", null, true);
+        // line 163
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 163, $this->source); })()), "description", [], "any", false, false, false, 163), "html", null, true);
         echo "</h5>
                 </div>
             </div>
@@ -169,8 +170,8 @@ $context["value"])) {
             <div class=\"row\" style=\"border-bottom: 2px solid black\">
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
                     <h6 class=\"btn \">Date de création: ";
-        // line 169
-        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 169, $this->source); })()), "creationDate", [], "any", false, false, false, 169)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 169, $this->source); })()), "creationDate", [], "any", false, false, false, 169), "d-m-Y H:i:s"), "html", null, true))) : (print ("")));
+        // line 170
+        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 170, $this->source); })()), "creationDate", [], "any", false, false, false, 170)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 170, $this->source); })()), "creationDate", [], "any", false, false, false, 170), "d-m-Y H:i:s"), "html", null, true))) : (print ("")));
         echo "</h6>
                 </div>
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
@@ -183,177 +184,123 @@ $context["value"])) {
         </section>
         <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
             ";
-        // line 180
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 180, $this->source); })()), 'form_start');
+        // line 181
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 181, $this->source); })()), 'form_start');
         echo "
                 <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
-                    <div class=\"col-sm-8 col-md-8 col-xl-8 mb-5\">
+                    <div class=\"col-sm-8 col-md-8 col-xl-8\">
                         ";
-        // line 183
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 183, $this->source); })()), "content", [], "any", false, false, false, 183), 'row');
+        // line 184
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 184, $this->source); })()), "content", [], "any", false, false, false, 184), 'row');
         echo "
                     </div>
                     <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
                         ";
-        // line 186
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 186, $this->source); })()), "envoyer", [], "any", false, false, false, 186), 'row');
+        // line 187
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 187, $this->source); })()), "envoyer", [], "any", false, false, false, 187), 'row');
         echo "
                     </div>
                 </div>
             ";
-        // line 189
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 189, $this->source); })()), 'form_end');
+        // line 190
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 190, $this->source); })()), 'form_end');
         echo "
         </section>
-        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
+        <section class=\"text-center mt-5 grid\" style=\"padding-left:20em;padding-right:20em;\">
             ";
-        // line 192
+        // line 193
+        $context["commentVar"] = false;
+        // line 194
+        echo "            ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 192, $this->source); })()), "comments", [], "any", false, false, false, 192));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 194, $this->source); })()), "comments", [], "any", false, false, false, 194));
+        $context['loop'] = [
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        ];
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 193
-            echo "                <div class=\"row\">
-                    <div class=\"col-md-2 col-sm-2 col-xl-2 mb-3\">
-                        <i class=\"fas fa-3x fa-user-circle\"></i>
-                    </div>
-                    <div class=\"col-md-8 col-sm-8 col-xl-8 mt-3\">
-                        <div class=\"container px-4 px-lg-5\" style=\"background-color: rgb(245, 245, 245);border-radius: 0.2em;\">
-                            <h5>";
-            // line 199
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", [], "any", false, false, false, 199), "html", null, true);
+            // line 195
+            echo "                ";
+            if ((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 195) % 5)) {
+                // line 196
+                echo "                    ";
+                $context["commentVar"] = true;
+                // line 197
+                echo "                ";
+            }
+            // line 198
+            echo "                <div class=\"row-more\">
+                    <div class=\"row\">
+                        <div class=\"col-md-2 col-sm-2 col-xl-2 mb-3\">
+                            <i class=\"fas fa-3x fa-user-circle\"></i>
+                        </div>
+                        <div class=\"col-md-8 col-sm-8 col-xl-8 mt-3\">
+                            <div class=\"container px-4 px-lg-5\" style=\"background-color: rgb(245, 245, 245);border-radius: 0.2em;\">
+                                <h5>";
+            // line 205
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", [], "any", false, false, false, 205), "html", null, true);
             echo "</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 204
-        echo "            <div class=\"interior container clearfix\">
-   <div class=\"row\"> 
-      <div class=\"col-xs-12 col-sm-6 col-md-12 blogBox\">
-         <div class=\"item featured\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel3.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Business Intelligence</a>
-               </div>
-               <h2>
-                  Eu qui dolore altera, saepe molestie accusamus
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  An erant partem albucius quo, ad graece latine atomorum sea, sit dicant laoreet at. Id has chor...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel5.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Virtual Reality</a>
-               </div>
-               <h2>
-                  Ea delicata deterru isset concluda turque
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Mel ut enim atqui, ne eum tation populo delectus. Vim soluta insolens phaedrum et, lucilius par...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel6.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Internet of Things (IoT)</a>
-               </div>
-               <h2>
-                  No vim quis quodsi, etiam quaestio euripidis
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Sed possim nonumes no, iuvaret similique quo no. Ut sea idque option aliquando. Ei mea choro ap...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel9.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Artifical Intelligence</a>
-               </div>
-               <h2>
-                  Qui an alii magna consectetuer
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Ad populo appareat vulputate vix, ex fastidii signiferumque pro. In sea doming reprehendunt. Na...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel7.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Big Data</a>
-               </div>
-               <h2>
-                  Integre voluptatum cu quo iriure docendi senserit
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Delicata inciderint at per, eu partem principes eum, illud nobis appetere ex his. Ei vix melior...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel8.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Growth Hacking</a>
-               </div>
-               <h2>
-                  Pro brute causae aliquip ad
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  No ipsum invidunt eos, ei ius dicit platonem perpetua. Mea te feugait ocurreret aliquando, ei i...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel2.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Content Marketing</a>
-               </div>
-               <h2>
-                  Lorem ipsum dolor sit amet, consect adipiscing elit
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div id=\"loadMore\" style=\"\">
-         <a href=\"#\">Load More</a>
-      </div>
-   </div>
-</div>
-        </section>
+        // line 211
+        echo "            ";
+        if ((0 === twig_compare((isset($context["commentVar"]) || array_key_exists("commentVar", $context) ? $context["commentVar"] : (function () { throw new RuntimeError('Variable "commentVar" does not exist.', 211, $this->source); })()), true))) {
+            // line 212
+            echo "                <button class=\"btn btn-primary ajax-load-more\">Charger plus</button>
+            ";
+        }
+        // line 214
+        echo "        </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
         <!-- Bootstrap core JS-->
+        <script>
+            \$( \".row-more:lt(4)\" ).css( \"display\", \"block\" );
+            const list = document.querySelector(\".grid\");
+            const listItems = list.querySelectorAll(\".row-more\");
+            const ajaxLoadMoreBtn = document.querySelector(\".ajax-load-more\");
+
+            let k = 4;
+            let j = 10;
+
+            ajaxLoadMoreBtn.addEventListener(\"click\", function () {
+            let range = `.row-more:nth-child(n+\${k}):nth-child(-n+\${j})`;
+            list
+                .querySelectorAll(range)
+                .forEach((elem) => (elem.style.display = \"block\"));
+
+            if (listItems.length <= j) {
+                this.remove();
+            } else {
+                k += 5;
+                j += 5;
+            }
+            });
+        </script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
         <!-- Core theme JS-->
         <script src=\"js/scripts.js\"></script>
@@ -362,21 +309,6 @@ $context["value"])) {
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src=\"https://cdn.startbootstrap.com/sb-forms-latest.js\"></script>
-        <script>
-        \$( document ).ready(function () {
-\t\t\$(\".moreBox\").slice(0, 3).show();
-\t\tif (\$(\".blogBox:hidden\").length != 0) {
-\t\t\t\$(\"#loadMore\").show();
-\t\t}\t\t
-\t\t\$(\"#loadMore\").on('click', function (e) {
-\t\t\te.preventDefault();
-\t\t\t\$(\".moreBox:hidden\").slice(0, 6).slideDown();
-\t\t\tif (\$(\".moreBox:hidden\").length == 0) {
-\t\t\t\t\$(\"#loadMore\").fadeOut('slow');
-\t\t\t}
-\t\t});
-\t});
-        </script>
     </body>
 </html>
 
@@ -389,7 +321,7 @@ $context["value"])) {
 
     }
 
-    // line 113
+    // line 114
     public function block_navbar($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -399,10 +331,10 @@ $context["value"])) {
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navbar"));
 
-        // line 114
-        echo "            ";
-        $this->loadTemplate("navbar.html.twig", "tricks/show.html.twig", 114)->display($context);
         // line 115
+        echo "            ";
+        $this->loadTemplate("navbar.html.twig", "tricks/show.html.twig", 115)->display($context);
+        // line 116
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -424,7 +356,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  406 => 115,  403 => 114,  393 => 113,  234 => 204,  223 => 199,  215 => 193,  211 => 192,  205 => 189,  199 => 186,  193 => 183,  187 => 180,  173 => 169,  163 => 162,  154 => 155,  145 => 151,  139 => 149,  137 => 148,  132 => 147,  130 => 146,  125 => 143,  121 => 142,  108 => 132,  104 => 130,  98 => 129,  95 => 128,  92 => 127,  88 => 125,  82 => 123,  79 => 122,  76 => 121,  71 => 120,  69 => 119,  64 => 116,  62 => 113,  44 => 97,);
+        return array (  338 => 116,  335 => 115,  325 => 114,  277 => 214,  273 => 212,  270 => 211,  250 => 205,  241 => 198,  238 => 197,  235 => 196,  232 => 195,  214 => 194,  212 => 193,  206 => 190,  200 => 187,  194 => 184,  188 => 181,  174 => 170,  164 => 163,  155 => 156,  146 => 152,  140 => 150,  138 => 149,  133 => 148,  131 => 147,  126 => 144,  122 => 143,  109 => 133,  105 => 131,  99 => 130,  96 => 129,  93 => 128,  89 => 126,  83 => 124,  80 => 123,  77 => 122,  72 => 121,  70 => 120,  65 => 117,  63 => 114,  44 => 97,);
     }
 
     public function getSourceContext()
@@ -534,6 +466,7 @@ $context["value"])) {
     <meta name=\"author\" content=\"\" />
     <title>SnowTricks</title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
+    <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script>
     <script src=\"https://use.fontawesome.com/releases/v5.15.3/js/all.js\" crossorigin=\"anonymous\"></script>
     <link href=\"https://fonts.googleapis.com/css?family=Varela+Round\" rel=\"stylesheet\" />
     <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\" />
@@ -610,7 +543,7 @@ $context["value"])) {
         <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
             {{ form_start(commentForm) }}
                 <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
-                    <div class=\"col-sm-8 col-md-8 col-xl-8 mb-5\">
+                    <div class=\"col-sm-8 col-md-8 col-xl-8\">
                         {{ form_row(commentForm.content) }}
                     </div>
                     <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
@@ -619,142 +552,55 @@ $context["value"])) {
                 </div>
             {{ form_end(commentForm) }}
         </section>
-        <section class=\"text-center mt-5\" style=\"padding-left:20em;padding-right:20em;\">
+        <section class=\"text-center mt-5 grid\" style=\"padding-left:20em;padding-right:20em;\">
+            {% set commentVar = false %}
             {% for comment in trick.comments %}
-                <div class=\"row\">
-                    <div class=\"col-md-2 col-sm-2 col-xl-2 mb-3\">
-                        <i class=\"fas fa-3x fa-user-circle\"></i>
-                    </div>
-                    <div class=\"col-md-8 col-sm-8 col-xl-8 mt-3\">
-                        <div class=\"container px-4 px-lg-5\" style=\"background-color: rgb(245, 245, 245);border-radius: 0.2em;\">
-                            <h5>{{ comment.content }}</h5>
+                {% if loop.index is divisible by(5) %}
+                    {% set commentVar = true  %}
+                {% endif %}
+                <div class=\"row-more\">
+                    <div class=\"row\">
+                        <div class=\"col-md-2 col-sm-2 col-xl-2 mb-3\">
+                            <i class=\"fas fa-3x fa-user-circle\"></i>
+                        </div>
+                        <div class=\"col-md-8 col-sm-8 col-xl-8 mt-3\">
+                            <div class=\"container px-4 px-lg-5\" style=\"background-color: rgb(245, 245, 245);border-radius: 0.2em;\">
+                                <h5>{{ comment.content }}</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             {% endfor %}
-            <div class=\"interior container clearfix\">
-   <div class=\"row\"> 
-      <div class=\"col-xs-12 col-sm-6 col-md-12 blogBox\">
-         <div class=\"item featured\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel3.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Business Intelligence</a>
-               </div>
-               <h2>
-                  Eu qui dolore altera, saepe molestie accusamus
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  An erant partem albucius quo, ad graece latine atomorum sea, sit dicant laoreet at. Id has chor...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel5.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Virtual Reality</a>
-               </div>
-               <h2>
-                  Ea delicata deterru isset concluda turque
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Mel ut enim atqui, ne eum tation populo delectus. Vim soluta insolens phaedrum et, lucilius par...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel6.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Internet of Things (IoT)</a>
-               </div>
-               <h2>
-                  No vim quis quodsi, etiam quaestio euripidis
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Sed possim nonumes no, iuvaret similique quo no. Ut sea idque option aliquando. Ei mea choro ap...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" >
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel9.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Artifical Intelligence</a>
-               </div>
-               <h2>
-                  Qui an alii magna consectetuer
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Ad populo appareat vulputate vix, ex fastidii signiferumque pro. In sea doming reprehendunt. Na...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel7.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Big Data</a>
-               </div>
-               <h2>
-                  Integre voluptatum cu quo iriure docendi senserit
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Delicata inciderint at per, eu partem principes eum, illud nobis appetere ex his. Ei vix melior...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel8.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Growth Hacking</a>
-               </div>
-               <h2>
-                  Pro brute causae aliquip ad
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  No ipsum invidunt eos, ei ius dicit platonem perpetua. Mea te feugait ocurreret aliquando, ei i...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div class=\"col-xs-12 col-sm-6 col-md-4 blogBox moreBox\" style=\"display: none;\">
-         <div class=\"item\">
-            <img src=\"https://www.solodev.com/assets/fancy/travel2.jpg\">
-            <div class=\"blogTxt\">
-               <div class=\"blogCategory\">
-                  <a href=\"/\">Content Marketing</a>
-               </div>
-               <h2>
-                  Lorem ipsum dolor sit amet, consect adipiscing elit
-               </h2>
-               <p class=\"post_intro hidden-xs\">
-                  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ...
-               </p>
-            </div>
-         </div>
-      </div>
-      <div id=\"loadMore\" style=\"\">
-         <a href=\"#\">Load More</a>
-      </div>
-   </div>
-</div>
+            {% if commentVar == true %}
+                <button class=\"btn btn-primary ajax-load-more\">Charger plus</button>
+            {% endif %}
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
         <!-- Bootstrap core JS-->
+        <script>
+            \$( \".row-more:lt(4)\" ).css( \"display\", \"block\" );
+            const list = document.querySelector(\".grid\");
+            const listItems = list.querySelectorAll(\".row-more\");
+            const ajaxLoadMoreBtn = document.querySelector(\".ajax-load-more\");
+
+            let k = 4;
+            let j = 10;
+
+            ajaxLoadMoreBtn.addEventListener(\"click\", function () {
+            let range = `.row-more:nth-child(n+\${k}):nth-child(-n+\${j})`;
+            list
+                .querySelectorAll(range)
+                .forEach((elem) => (elem.style.display = \"block\"));
+
+            if (listItems.length <= j) {
+                this.remove();
+            } else {
+                k += 5;
+                j += 5;
+            }
+            });
+        </script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
         <!-- Core theme JS-->
         <script src=\"js/scripts.js\"></script>
@@ -763,21 +609,6 @@ $context["value"])) {
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src=\"https://cdn.startbootstrap.com/sb-forms-latest.js\"></script>
-        <script>
-        \$( document ).ready(function () {
-\t\t\$(\".moreBox\").slice(0, 3).show();
-\t\tif (\$(\".blogBox:hidden\").length != 0) {
-\t\t\t\$(\"#loadMore\").show();
-\t\t}\t\t
-\t\t\$(\"#loadMore\").on('click', function (e) {
-\t\t\te.preventDefault();
-\t\t\t\$(\".moreBox:hidden\").slice(0, 6).slideDown();
-\t\t\tif (\$(\".moreBox:hidden\").length == 0) {
-\t\t\t\t\$(\"#loadMore\").fadeOut('slow');
-\t\t\t}
-\t\t});
-\t});
-        </script>
     </body>
 </html>
 

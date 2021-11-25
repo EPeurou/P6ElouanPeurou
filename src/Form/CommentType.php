@@ -25,7 +25,7 @@ class CommentType extends AbstractType
             // ->add('author')
             // ->add('trick')
             ->add('envoyer', SubmitType::class,[
-                'label'=>'Laissé un commentaire!',
+                'label'=>'Laisser un commentaire!',
                 'attr' => [
                     'class'=>'btn btn-primary'
                 ]
