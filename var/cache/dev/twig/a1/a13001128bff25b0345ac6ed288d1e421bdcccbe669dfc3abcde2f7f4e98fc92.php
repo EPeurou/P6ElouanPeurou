@@ -74,12 +74,15 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                 <div class=\"text-center\">
                     <h3>Tricks</h3>
                 </div>
-                <div class=\"row mb-4 mb-lg-5 align-items-center\">
+                <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
                     <div class=\"col-md-1\"></div>
                     ";
         // line 33
+        $context["commentVar"] = false;
+        // line 34
+        echo "                    ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 33, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["tricks"]) || array_key_exists("tricks", $context) ? $context["tricks"] : (function () { throw new RuntimeError('Variable "tricks" does not exist.', 34, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -94,42 +97,78 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["list"]) {
-            // line 34
+            // line 35
             echo "                        ";
-            if ((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index0", [], "any", false, false, false, 34) % 5)) {
-                // line 35
-                echo "                            <div class=\"row mb-4 mb-lg-5 align-items-center\">
+            if ((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index0", [], "any", false, false, false, 35) % 5)) {
+                // line 36
+                echo "                            ";
+                $context["commentVar"] = true;
+                // line 37
+                echo "                            <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
                                 <div class=\"col-md-1\"></div>
                         ";
             }
-            // line 38
-            echo "                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
-                            <div class=\"card\" style=\"width: 12rem;\">
-                                <img src=\"";
             // line 40
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 40), 0, [], "array", false, false, false, 40))), "html", null, true);
-            echo "\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+            echo "                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 row-more\" style=\"display:none;\">
+                            <div class=\"card\" style=\"width: 12rem;\">
+                                ";
+            // line 42
+            $context["break"] = false;
+            // line 43
+            echo "                                ";
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 43));
+            foreach ($context['_seq'] as $context["key"] => $context["value"]) {
+                // line 44
+                echo "                                    ";
+                if ((0 === twig_compare((isset($context["break"]) || array_key_exists("break", $context) ? $context["break"] : (function () { throw new RuntimeError('Variable "break" does not exist.', 44, $this->source); })()), false))) {
+                    // line 45
+                    echo "                                        ";
+                    if (twig_in_filter("image", $context["value"])) {
+                        // line 46
+                        echo "                                            <img src=\"";
+                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 46), 0, [], "array", false, false, false, 46))), "html", null, true);
+                        echo "\" class=\"card-img-top\" alt=\"...\">
+                                        ";
+                    } else {
+                        // line 48
+                        echo "                                            <img class=\"card-img-top\" src=\"../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                                        ";
+                    }
+                    // line 50
+                    echo "                                    ";
+                }
+                // line 51
+                echo "                                    ";
+                $context["break"] = true;
+                // line 52
+                echo "                                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 53
+            echo "                                
                                 <div class=\"card-body\">
                                     <a href=\"";
-            // line 42
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_show", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 42)]), "html", null, true);
+            // line 55
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_show", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 55)]), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 42), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 55), "html", null, true);
             echo "</a>
                                     <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>
                                     <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
-
                                 </div>
                             </div>
                         </div>
                         ";
-            // line 49
-            if (((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 49) % 5) || twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 49))) {
-                // line 50
+            // line 61
+            if (((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 61) % 5) || twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 61))) {
+                // line 62
                 echo "                            </div>
                         ";
             }
-            // line 52
+            // line 64
             echo "                    ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -143,7 +182,14 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['list'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 53
+        // line 65
+        echo "                    ";
+        if ((0 === twig_compare((isset($context["commentVar"]) || array_key_exists("commentVar", $context) ? $context["commentVar"] : (function () { throw new RuntimeError('Variable "commentVar" does not exist.', 65, $this->source); })()), true))) {
+            // line 66
+            echo "                        <button class=\"btn btn-primary ajax-load-more mb-5\">Charger plus</button>
+                    ";
+        }
+        // line 68
         echo "                    <div class=\"btn-top\">
                         <a class=\"btn\" href=\"#home\"><i class=\"fas fa-3x fa-arrow-circle-up\"></i></a>
                     </div>
@@ -152,6 +198,29 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
+        <script>
+            \$( \".row-more:lt(10)\" ).css( \"display\", \"block\" );
+            const list = document.querySelector(\".grid\");
+            const listItems = list.querySelectorAll(\".row-more\");
+            const ajaxLoadMoreBtn = document.querySelector(\".ajax-load-more\");
+
+            let k = 4;
+            let j = 10;
+
+            ajaxLoadMoreBtn.addEventListener(\"click\", function () {
+            let range = `.row-more:nth-child(n+\${k}):nth-child(-n+\${j})`;
+            list
+                .querySelectorAll(range)
+                .forEach((elem) => (elem.style.display = \"block\"));
+
+            if (listItems.length <= j) {
+                this.remove();
+            } else {
+                k += 5;
+                j += 5;
+            }
+            });
+        </script>
         <!-- Bootstrap core JS-->
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
         <!-- Core theme JS-->
@@ -230,7 +299,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
     public function getDebugInfo()
     {
-        return array (  212 => 10,  209 => 9,  199 => 8,  189 => 5,  186 => 4,  176 => 3,  147 => 53,  133 => 52,  129 => 50,  127 => 49,  115 => 42,  110 => 40,  106 => 38,  101 => 35,  98 => 34,  81 => 33,  57 => 11,  55 => 8,  51 => 6,  49 => 3,  45 => 1,);
+        return array (  281 => 10,  278 => 9,  268 => 8,  258 => 5,  255 => 4,  245 => 3,  193 => 68,  189 => 66,  186 => 65,  172 => 64,  168 => 62,  166 => 61,  155 => 55,  151 => 53,  145 => 52,  142 => 51,  139 => 50,  135 => 48,  129 => 46,  126 => 45,  123 => 44,  118 => 43,  116 => 42,  112 => 40,  107 => 37,  104 => 36,  101 => 35,  83 => 34,  81 => 33,  57 => 11,  55 => 8,  51 => 6,  49 => 3,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -265,21 +334,33 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                 <div class=\"text-center\">
                     <h3>Tricks</h3>
                 </div>
-                <div class=\"row mb-4 mb-lg-5 align-items-center\">
+                <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
                     <div class=\"col-md-1\"></div>
+                    {% set commentVar = false %}
                     {% for list in tricks %}
                         {% if loop.index0 is divisible by(5) %}
-                            <div class=\"row mb-4 mb-lg-5 align-items-center\">
+                            {% set commentVar = true  %}
+                            <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
                                 <div class=\"col-md-1\"></div>
                         {% endif %}
-                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
+                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 row-more\" style=\"display:none;\">
                             <div class=\"card\" style=\"width: 12rem;\">
-                                <img src=\"{{ asset('upload/' ~ list.Media[0])}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+                                {% set break = false %}
+                                {% for key,value in list.Media %}
+                                    {% if break == false %}
+                                        {% if 'image' in value %}
+                                            <img src=\"{{ asset('upload/' ~ list.Media[0])}}\" class=\"card-img-top\" alt=\"...\">
+                                        {% else %}
+                                            <img class=\"card-img-top\" src=\"../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+                                        {% endif %}
+                                    {% endif %}
+                                    {% set break = true %}
+                                {% endfor %}
+                                
                                 <div class=\"card-body\">
                                     <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name }}</a>
                                     <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>
                                     <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
-
                                 </div>
                             </div>
                         </div>
@@ -287,6 +368,9 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                             </div>
                         {% endif %}
                     {% endfor %}
+                    {% if commentVar == true %}
+                        <button class=\"btn btn-primary ajax-load-more mb-5\">Charger plus</button>
+                    {% endif %}
                     <div class=\"btn-top\">
                         <a class=\"btn\" href=\"#home\"><i class=\"fas fa-3x fa-arrow-circle-up\"></i></a>
                     </div>
@@ -295,6 +379,29 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
+        <script>
+            \$( \".row-more:lt(10)\" ).css( \"display\", \"block\" );
+            const list = document.querySelector(\".grid\");
+            const listItems = list.querySelectorAll(\".row-more\");
+            const ajaxLoadMoreBtn = document.querySelector(\".ajax-load-more\");
+
+            let k = 4;
+            let j = 10;
+
+            ajaxLoadMoreBtn.addEventListener(\"click\", function () {
+            let range = `.row-more:nth-child(n+\${k}):nth-child(-n+\${j})`;
+            list
+                .querySelectorAll(range)
+                .forEach((elem) => (elem.style.display = \"block\"));
+
+            if (listItems.length <= j) {
+                this.remove();
+            } else {
+                k += 5;
+                j += 5;
+            }
+            });
+        </script>
         <!-- Bootstrap core JS-->
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
         <!-- Core theme JS-->
