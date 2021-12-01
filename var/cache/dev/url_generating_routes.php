@@ -24,7 +24,7 @@ return [
     'tricks_show' => [['id'], ['_controller' => 'App\\Controller\\TricksController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
     'tricks_edit' => [['id'], ['_controller' => 'App\\Controller\\TricksController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
     'tricks_delete' => [['id'], ['_controller' => 'App\\Controller\\TricksController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
-    'app_home_homepage' => [[], ['_controller' => 'App\\Controller\\homeController::homepage'], [], [['text', '/']], [], []],
+    'main' => [[], ['_controller' => 'App\\Controller\\homeController::homepage'], [], [['text', '/']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\homeController::homepage'], [], [['text', '/']], [], []],
 ];

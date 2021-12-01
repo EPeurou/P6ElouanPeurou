@@ -6,6 +6,7 @@ use App\Entity\Tricks;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,17 +21,28 @@ class TricksType extends AbstractType
     {
         $builder
             // ->add('idUser')
-            // ->add('Categorie', ChoiceType::class,[
-            //     'attr'=>[
-            //         'class'=>'form-control'
-            //     ]
-            // ])
+            ->add('category', ChoiceType::class,[
+                'label'=>'Categorie',
+                'attr'=>[
+                    'class'=>'form-select'
+                ],
+                'choices'  => [
+                    'flip' => 'flip',
+                    'slides' => 'slides',
+                    'grabs' => 'garbs',
+                    'old school' => 'old school',
+                    'rotation' => 'rotation',
+                    'rotations désaxées'=> 'rotations désaxées'
+                ],
+            ])
             ->add('name', TextType::class,[
+                'label'=>'Nom du trick',
                 'attr'=>[
                     'class'=>'form-control'
                 ]
             ])
             ->add('description', TextAreaType::class,[
+                'label'=>'Description',
                 'attr'=>[
                     'class'=>'form-control'
                 ]
@@ -38,10 +50,11 @@ class TricksType extends AbstractType
             // ->add('author', )
             ->add('media', FileType::class, [
                 'multiple' => true,
+                'label'=>'rechercher un fichier:',
                 'mapped' => false,
                 'required' => false,
                 'attr'=>[
-                    'class'=>'btn btn-primary'
+                    'class'=>'btn'
                 ],
                 'constraints' => [
                     new All([
@@ -52,6 +65,11 @@ class TricksType extends AbstractType
                             ]),
                         ],
                     ]),
+                ]
+            ])
+            ->add('valider', SubmitType::class,[
+                'attr'=>[
+                    'class'=>'btn btn-primary mb-3'
                 ]
             ])
         ;

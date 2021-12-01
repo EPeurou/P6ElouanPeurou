@@ -51,7 +51,7 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
             <ul class=\"navbar-nav ms-auto\">
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("main");
         echo "\">Accueil</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
         // line 11
@@ -96,7 +96,7 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
         <i class=\"fas fa-3x fa-snowboarding\" style=\"color:white;margin-left:0em;\"></i>
         <div class=\"collapse navbar-collapse\" style=\"margin-right:1em;\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ms-auto\">
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('tricks_index')}}\">Accueil</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('main')}}\">Accueil</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('tricks_new') }}\">Ajouter un trick</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
             </ul>

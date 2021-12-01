@@ -74,7 +74,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                 <div class=\"text-center\">
                     <h3>Tricks</h3>
                 </div>
-                <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
+                <div class=\"row mb-4 mb-lg-5 align-items-center\">
                     <div class=\"col-md-1\"></div>
                     ";
         // line 33
@@ -104,12 +104,12 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                 echo "                            ";
                 $context["commentVar"] = true;
                 // line 37
-                echo "                            <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
+                echo "                            <div class=\"row mb-4 mb-lg-5 align-items-center\">
                                 <div class=\"col-md-1\"></div>
                         ";
             }
             // line 40
-            echo "                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 row-more\" style=\"display:none;\">
+            echo "                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
                             <div class=\"card\" style=\"width: 12rem;\">
                                 ";
             // line 42
@@ -334,16 +334,16 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                 <div class=\"text-center\">
                     <h3>Tricks</h3>
                 </div>
-                <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
+                <div class=\"row mb-4 mb-lg-5 align-items-center\">
                     <div class=\"col-md-1\"></div>
                     {% set commentVar = false %}
                     {% for list in tricks %}
                         {% if loop.index0 is divisible by(5) %}
                             {% set commentVar = true  %}
-                            <div class=\"row mb-4 mb-lg-5 align-items-center grid\">
+                            <div class=\"row mb-4 mb-lg-5 align-items-center\">
                                 <div class=\"col-md-1\"></div>
                         {% endif %}
-                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 row-more\" style=\"display:none;\">
+                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
                             <div class=\"card\" style=\"width: 12rem;\">
                                 {% set break = false %}
                                 {% for key,value in list.Media %}
