@@ -9,7 +9,7 @@ use App\Entity\Tricks;
 class homeController extends AbstractController
 {
     /**
-     * @Route("/"), name="main"
+     * @Route("/", name="main")
      */
     public function homepage(): Response
     {

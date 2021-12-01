@@ -179,7 +179,10 @@ $context["value"])) {
         echo "</h6>
                 </div>
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
-                    <h6 class=\"btn \">Groupe: Flip</h6>
+                    <h6 class=\"btn \">Categorie: ";
+        // line 177
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 177, $this->source); })()), "category", [], "any", false, false, false, 177), "html", null, true);
+        echo "</h6>
                 </div>
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
                     <h6 class=\"btn \">Modifié le: </h6>
@@ -360,7 +363,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  342 => 116,  339 => 115,  329 => 114,  281 => 218,  277 => 216,  274 => 215,  254 => 209,  245 => 202,  242 => 201,  239 => 200,  236 => 199,  218 => 198,  216 => 197,  210 => 194,  204 => 191,  198 => 188,  192 => 185,  178 => 174,  168 => 167,  159 => 160,  150 => 156,  144 => 154,  142 => 153,  137 => 152,  135 => 151,  130 => 148,  126 => 147,  113 => 137,  105 => 131,  99 => 130,  96 => 129,  93 => 128,  89 => 126,  83 => 124,  80 => 123,  77 => 122,  72 => 121,  70 => 120,  65 => 117,  63 => 114,  44 => 97,);
+        return array (  345 => 116,  342 => 115,  332 => 114,  284 => 218,  280 => 216,  277 => 215,  257 => 209,  248 => 202,  245 => 201,  242 => 200,  239 => 199,  221 => 198,  219 => 197,  213 => 194,  207 => 191,  201 => 188,  195 => 185,  184 => 177,  178 => 174,  168 => 167,  159 => 160,  150 => 156,  144 => 154,  142 => 153,  137 => 152,  135 => 151,  130 => 148,  126 => 147,  113 => 137,  105 => 131,  99 => 130,  96 => 129,  93 => 128,  89 => 126,  83 => 124,  80 => 123,  77 => 122,  72 => 121,  70 => 120,  65 => 117,  63 => 114,  44 => 97,);
     }
 
     public function getSourceContext()
@@ -541,7 +544,7 @@ $context["value"])) {
                     <h6 class=\"btn \">Date de création: {{ trick.creationDate ? trick.creationDate|date('d-m-Y H:i:s') : '' }}</h6>
                 </div>
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
-                    <h6 class=\"btn \">Groupe: Flip</h6>
+                    <h6 class=\"btn \">Categorie: {{ trick.category }}</h6>
                 </div>
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
                     <h6 class=\"btn \">Modifié le: </h6>

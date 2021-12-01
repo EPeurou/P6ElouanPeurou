@@ -18,7 +18,7 @@ return [
         '/tricks' => [[['_route' => 'tricks_index', '_controller' => 'App\\Controller\\TricksController::index'], null, ['GET' => 0], null, true, false, null]],
         '/tricks/new' => [[['_route' => 'tricks_new', '_controller' => 'App\\Controller\\TricksController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [
-            [['_route' => 'app_home_homepage', '_controller' => 'App\\Controller\\homeController::homepage'], null, null, null, false, false, null],
+            [['_route' => 'main', '_controller' => 'App\\Controller\\homeController::homepage'], null, null, null, false, false, null],
             [['_route' => 'index', '_controller' => 'App\\Controller\\homeController::homepage'], null, null, null, false, false, null],
         ],
     ],
