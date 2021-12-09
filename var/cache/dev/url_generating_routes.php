@@ -25,6 +25,7 @@ return [
     'tricks_edit' => [['id'], ['_controller' => 'App\\Controller\\TricksController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
     'tricks_delete' => [['id'], ['_controller' => 'App\\Controller\\TricksController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
     'main' => [[], ['_controller' => 'App\\Controller\\homeController::homepage'], [], [['text', '/']], [], []],
+    'fos_js_routing_js' => [['_format'], ['_controller' => 'fos_js_routing.controller::indexAction', '_format' => 'js'], ['_format' => 'js|json'], [['variable', '.', 'js|json', '_format', true], ['text', '/js/routing']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\homeController::homepage'], [], [['text', '/']], [], []],
 ];

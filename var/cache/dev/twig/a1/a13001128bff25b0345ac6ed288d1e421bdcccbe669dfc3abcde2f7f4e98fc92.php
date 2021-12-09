@@ -157,7 +157,10 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 55), "html", null, true);
             echo "</a>
                                     <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>
-                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                    <a href=\"";
+            // line 57
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 57)]), "html", null, true);
+            echo "\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -299,7 +302,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
     public function getDebugInfo()
     {
-        return array (  281 => 10,  278 => 9,  268 => 8,  258 => 5,  255 => 4,  245 => 3,  193 => 68,  189 => 66,  186 => 65,  172 => 64,  168 => 62,  166 => 61,  155 => 55,  151 => 53,  145 => 52,  142 => 51,  139 => 50,  135 => 48,  129 => 46,  126 => 45,  123 => 44,  118 => 43,  116 => 42,  112 => 40,  107 => 37,  104 => 36,  101 => 35,  83 => 34,  81 => 33,  57 => 11,  55 => 8,  51 => 6,  49 => 3,  45 => 1,);
+        return array (  284 => 10,  281 => 9,  271 => 8,  261 => 5,  258 => 4,  248 => 3,  196 => 68,  192 => 66,  189 => 65,  175 => 64,  171 => 62,  169 => 61,  162 => 57,  155 => 55,  151 => 53,  145 => 52,  142 => 51,  139 => 50,  135 => 48,  129 => 46,  126 => 45,  123 => 44,  118 => 43,  116 => 42,  112 => 40,  107 => 37,  104 => 36,  101 => 35,  83 => 34,  81 => 33,  57 => 11,  55 => 8,  51 => 6,  49 => 3,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -360,7 +363,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                                 <div class=\"card-body\">
                                     <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name }}</a>
                                     <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a>
-                                    <a href=\"\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                    <a href=\"{{ path('tricks_edit', {id: list.id}) }}\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
                                 </div>
                             </div>
                         </div>

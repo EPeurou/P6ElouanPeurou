@@ -49,6 +49,7 @@ return [
                     .'|/edit(*:250)'
                     .'|(*:258)'
                 .')'
+                .'|/js/routing(?:\\.(js|json))?(*:294)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -64,8 +65,9 @@ return [
         209 => [[['_route' => 'comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
         237 => [[['_route' => 'tricks_show', '_controller' => 'App\\Controller\\TricksController::show'], ['id'], null, null, false, true, null]],
         250 => [[['_route' => 'tricks_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        258 => [
-            [['_route' => 'tricks_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['POST' => 0], null, false, true, null],
+        258 => [[['_route' => 'tricks_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        294 => [
+            [['_route' => 'fos_js_routing_js', '_controller' => 'fos_js_routing.controller::indexAction', '_format' => 'js'], ['_format'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

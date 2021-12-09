@@ -69,6 +69,11 @@ class Tricks
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="simple_array", nullable=true)
+     */
+    private $mediaName = [];
+
 
     public function __construct()
     {
@@ -204,6 +209,18 @@ class Tricks
     public function setCategory(?string $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getMediaName(): ?array
+    {
+        return $this->mediaName;
+    }
+
+    public function setMediaName(?array $mediaName): self
+    {
+        $this->mediaName = $mediaName;
 
         return $this;
     }

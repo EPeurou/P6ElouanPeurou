@@ -81,7 +81,7 @@ class TricksController extends AbstractController
             $entityManager->persist($trick);
             $entityManager->flush();
 
-            return $this->redirectToRoute('tricks_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('tricks/new.html.twig', [
@@ -123,13 +123,49 @@ class TricksController extends AbstractController
      */
     public function edit(Request $request, Tricks $trick): Response
     {
+        $currentMedia = $request->request->get('formData');
+        dd($currentMedia);
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('tricks_index', [], Response::HTTP_SEE_OTHER);
+            // $currentMedia = get('currentMedia')->getData();
+            $medias = $form->get('media')->getData();
+            // dd($medias);
+            if ($medias) {
+                $file = [];
+                foreach ($medias as $media) {    
+                    // $originalFilename = pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME);
+                    // $safeFilename = $slugger->slug($originalFilename);
+                    
+                    $newFilename = uniqid().'.'.$media->guessExtension();
+                    // $mediaFileName = $fileUploader->upload($mediaFile);
+                    // $trick->setMedia($mediaFileName);
+                    try {
+                        $media->move(
+                            $this->getParameter('upload_directory'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        // ... handle exception if something happens during file upload
+                    }
+                    
+                    $mime_type = mime_content_type('upload/'.$newFilename);
+                    $testType = strtok($mime_type, '/');
+                    $addTypeName = $testType . $newFilename;
+                    rename ("upload/" . $newFilename, "upload/" . $addTypeName );
+                    // dd($addTypeName);
+                    array_push($file, $addTypeName);
+                    $trick->setMedia($file);
+                    // dd($trick);
+                }
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($trick);
+                $entityManager->flush();
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+            }
+            return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('tricks/edit.html.twig', [
