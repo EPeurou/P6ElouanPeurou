@@ -152,12 +152,13 @@
         }); #}
         $( document ).ready(function() {
             {# var maval = 0; #}
+            console.log($(".edit-media-btn" ));
             $( ".edit-media-btn" ).each(function( index ) {
 
-                let testId = $('.edit-media-btn').attr('id');
+                let testId = $(this).attr('id');
                 if(testId == 0){
                     {# const newId = ++testId; #}
-                    $('.edit-media-btn').first().attr('id', index);
+                    $(this).attr('id', index);
                     console.log("ok", index);
                 } else {
                     console.log("cassé:", index);

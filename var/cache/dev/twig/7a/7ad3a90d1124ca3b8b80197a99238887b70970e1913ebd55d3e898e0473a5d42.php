@@ -265,40 +265,39 @@ $context["value"])) {
         echo "        \$( document ).ready(function() {
             ";
         // line 155
-        echo "            \$( \".edit-media-btn\" ).each(function( index ) {
+        echo "            console.log(\$(\".edit-media-btn\" ));
+            \$( \".edit-media-btn\" ).each(function( index ) {
 
-                let testId = \$('.edit-media-btn').attr('id');
+                let testId = \$(this).attr('id');
                 if(testId == 0){
                     ";
-        // line 160
-        echo "                    \$('.edit-media-btn').first().attr('id', index);
+        // line 161
+        echo "                    \$(this).attr('id', index);
                     console.log(\"ok\", index);
                 } else {
                     console.log(\"cassé:\", index);
                 }
                 ";
-        // line 166
-        echo "                ";
         // line 167
+        echo "                ";
+        // line 168
         echo "            });    
         });  
         \$('.edit-media-btn').click(function(){
             var currentName = document.getElementsByClassName(\"currentName\");
             var currentBtn = \$('.edit-media-btn');
 
-                                            ";
-        // line 174
-        echo "                                            ";
+                ";
         // line 175
-        echo "                                            
-                                            ";
-        // line 177
         echo "                ";
+        // line 176
+        echo "                
+                ";
         // line 178
+        echo "                ";
+        // line 179
         echo "                    
                     ";
-        // line 180
-        echo "                ";
         // line 181
         echo "                ";
         // line 182
@@ -386,7 +385,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  368 => 34,  365 => 33,  355 => 32,  320 => 194,  317 => 193,  314 => 187,  312 => 186,  310 => 185,  308 => 184,  305 => 182,  303 => 181,  301 => 180,  298 => 178,  296 => 177,  293 => 175,  291 => 174,  283 => 167,  281 => 166,  274 => 160,  268 => 155,  265 => 153,  255 => 143,  247 => 138,  243 => 137,  237 => 134,  233 => 132,  227 => 124,  219 => 119,  211 => 114,  200 => 105,  194 => 104,  192 => 103,  187 => 101,  185 => 100,  176 => 91,  170 => 89,  168 => 88,  163 => 87,  161 => 86,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
+        return array (  367 => 34,  364 => 33,  354 => 32,  319 => 194,  316 => 193,  313 => 187,  311 => 186,  309 => 185,  307 => 184,  304 => 182,  302 => 181,  299 => 179,  297 => 178,  294 => 176,  292 => 175,  284 => 168,  282 => 167,  275 => 161,  268 => 155,  265 => 153,  255 => 143,  247 => 138,  243 => 137,  237 => 134,  233 => 132,  227 => 124,  219 => 119,  211 => 114,  200 => 105,  194 => 104,  192 => 103,  187 => 101,  185 => 100,  176 => 91,  170 => 89,  168 => 88,  163 => 87,  161 => 86,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
     }
 
     public function getSourceContext()
@@ -545,12 +544,13 @@ $context["value"])) {
         }); #}
         \$( document ).ready(function() {
             {# var maval = 0; #}
+            console.log(\$(\".edit-media-btn\" ));
             \$( \".edit-media-btn\" ).each(function( index ) {
 
-                let testId = \$('.edit-media-btn').attr('id');
+                let testId = \$(this).attr('id');
                 if(testId == 0){
                     {# const newId = ++testId; #}
-                    \$('.edit-media-btn').first().attr('id', index);
+                    \$(this).attr('id', index);
                     console.log(\"ok\", index);
                 } else {
                     console.log(\"cassé:\", index);
@@ -563,15 +563,14 @@ $context["value"])) {
             var currentName = document.getElementsByClassName(\"currentName\");
             var currentBtn = \$('.edit-media-btn');
 
-                                            {# console.log( index + \": \" + \$( this ).val() ); #}
-                                            {# var newId = \$(this).attr('id') + index; #}
-                                            
-                                            {# if(index > testId){ #}
+                {# console.log( index + \": \" + \$( this ).val() ); #}
+                {# var newId = \$(this).attr('id') + index; #}
+                
+                {# if(index > testId){ #}
                 {# for(i in index ){  #}
                     
                     {# console.log(i); #}
                 {# } #}
-                {# index.each(function(i){                       const mavar = \$('.edit-media-btn'); #}
                 
                 {# }); #}
                 {# console.log(mavar); #}
