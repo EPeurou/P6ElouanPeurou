@@ -176,7 +176,7 @@ $context["value"])) {
             echo "                                    </div>
                                     <div class=\"icon-show text-switch\">
                                         <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                                        <a href=\"\" id=\"edit-media-btn\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                        <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +184,7 @@ $context["value"])) {
             // line 100
             echo "                                ";
             // line 101
-            echo "                                <input type=\"text\" id=\"currentName\" value=\"";
+            echo "                                <input type=\"text\" class=\"currentName\" value=\"";
             echo twig_escape_filter($this->env, $context["value"], "html", null, true);
             echo "\">
                                 ";
@@ -262,12 +262,62 @@ $context["value"])) {
         <script>
         ";
         // line 153
-        echo "        \$('#edit-media-btn').click(function(){
-            var formData = \$('#currentName').val();
-            \$.ajax({
+        echo "        \$( document ).ready(function() {
+            ";
+        // line 155
+        echo "            \$( \".edit-media-btn\" ).each(function( index ) {
+
+                let testId = \$('.edit-media-btn').attr('id');
+                if(testId == 0){
+                    ";
+        // line 160
+        echo "                    \$('.edit-media-btn').first().attr('id', index);
+                    console.log(\"ok\", index);
+                } else {
+                    console.log(\"cassé:\", index);
+                }
+                ";
+        // line 166
+        echo "                ";
+        // line 167
+        echo "            });    
+        });  
+        \$('.edit-media-btn').click(function(){
+            var currentName = document.getElementsByClassName(\"currentName\");
+            var currentBtn = \$('.edit-media-btn');
+
+                                            ";
+        // line 174
+        echo "                                            ";
+        // line 175
+        echo "                                            
+                                            ";
+        // line 177
+        echo "                ";
+        // line 178
+        echo "                    
+                    ";
+        // line 180
+        echo "                ";
+        // line 181
+        echo "                ";
+        // line 182
+        echo "                
+                ";
+        // line 184
+        echo "                ";
+        // line 185
+        echo "                ";
+        // line 186
+        echo "                ";
+        // line 187
+        echo "            });
+            ";
+        // line 193
+        echo "            \$.ajax({
                     url: \"";
-        // line 156
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 156, $this->source); })()), "id", [], "any", false, false, false, 156)]), "html", null, true);
+        // line 194
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 194, $this->source); })()), "id", [], "any", false, false, false, 194)]), "html", null, true);
         echo "\",
                     type: 'POST',
                     data: formData, 
@@ -277,8 +327,7 @@ $context["value"])) {
                     error: function(){
                     console.log('Ajax crashed');
                     }
-                });  
-        })
+                });
              
         </script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
@@ -337,7 +386,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  319 => 34,  316 => 33,  306 => 32,  270 => 156,  265 => 153,  255 => 143,  247 => 138,  243 => 137,  237 => 134,  233 => 132,  227 => 124,  219 => 119,  211 => 114,  200 => 105,  194 => 104,  192 => 103,  187 => 101,  185 => 100,  176 => 91,  170 => 89,  168 => 88,  163 => 87,  161 => 86,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
+        return array (  368 => 34,  365 => 33,  355 => 32,  320 => 194,  317 => 193,  314 => 187,  312 => 186,  310 => 185,  308 => 184,  305 => 182,  303 => 181,  301 => 180,  298 => 178,  296 => 177,  293 => 175,  291 => 174,  283 => 167,  281 => 166,  274 => 160,  268 => 155,  265 => 153,  255 => 143,  247 => 138,  243 => 137,  237 => 134,  233 => 132,  227 => 124,  219 => 119,  211 => 114,  200 => 105,  194 => 104,  192 => 103,  187 => 101,  185 => 100,  176 => 91,  170 => 89,  168 => 88,  163 => 87,  161 => 86,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
     }
 
     public function getSourceContext()
@@ -435,14 +484,14 @@ $context["value"])) {
                                     </div>
                                     <div class=\"icon-show text-switch\">
                                         <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                                        <a href=\"\" id=\"edit-media-btn\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                        <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
                                     </div>
                                 </div>
                             </div>
                             {# {% set testclick = false %}
                             {% if testclick == false %} #}
                                 {# {% set currentMedia = value %} #}
-                                <input type=\"text\" id=\"currentName\" value=\"{{value}}\">
+                                <input type=\"text\" class=\"currentName\" value=\"{{value}}\">
                                 {# {{ form_row(form.mediaName,{value: value }) }} #}
                             {# {% endif %} #}
                         {% endfor %}
@@ -494,8 +543,46 @@ $context["value"])) {
         {# \$( \"#edit-media-btn\" ).click(function() {
             {% set testclick = true %}
         }); #}
-        \$('#edit-media-btn').click(function(){
-            var formData = \$('#currentName').val();
+        \$( document ).ready(function() {
+            {# var maval = 0; #}
+            \$( \".edit-media-btn\" ).each(function( index ) {
+
+                let testId = \$('.edit-media-btn').attr('id');
+                if(testId == 0){
+                    {# const newId = ++testId; #}
+                    \$('.edit-media-btn').first().attr('id', index);
+                    console.log(\"ok\", index);
+                } else {
+                    console.log(\"cassé:\", index);
+                }
+                {# const newval = ++maval; #}
+                {# console.log(maval); #}
+            });    
+        });  
+        \$('.edit-media-btn').click(function(){
+            var currentName = document.getElementsByClassName(\"currentName\");
+            var currentBtn = \$('.edit-media-btn');
+
+                                            {# console.log( index + \": \" + \$( this ).val() ); #}
+                                            {# var newId = \$(this).attr('id') + index; #}
+                                            
+                                            {# if(index > testId){ #}
+                {# for(i in index ){  #}
+                    
+                    {# console.log(i); #}
+                {# } #}
+                {# index.each(function(i){                       const mavar = \$('.edit-media-btn'); #}
+                
+                {# }); #}
+                {# console.log(mavar); #}
+                {# console.log(currentBtn); #}
+                {# } #}
+            });
+            {# for(var i = 0; i < currentName.length; i++)
+            {
+                console.log(currentName[i]);
+                var formData = currentName[i];
+            } #}
             \$.ajax({
                     url: \"{{ path('tricks_edit', {'id': trick.id}) }}\",
                     type: 'POST',
@@ -506,8 +593,7 @@ $context["value"])) {
                     error: function(){
                     console.log('Ajax crashed');
                     }
-                });  
-        })
+                });
              
         </script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>

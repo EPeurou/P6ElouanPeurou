@@ -124,7 +124,7 @@ class TricksController extends AbstractController
     public function edit(Request $request, Tricks $trick): Response
     {
         $currentMedia = $request->request->get('formData');
-        dd($currentMedia);
+        // dd($currentMedia);
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
 
