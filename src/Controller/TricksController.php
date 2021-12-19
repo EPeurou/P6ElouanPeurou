@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -123,12 +124,15 @@ class TricksController extends AbstractController
      */
     public function edit(Request $request, Tricks $trick): Response
     {
-        $currentMedia = $request->request->get('formData');
-        // dd($currentMedia);
+        $currentMedia = $request->request->get('currentVal');
+        $testMediaSubmit = $request->request->get('media');
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
-
+        if($currentMedia != null) {
+            dd($currentMedia);
+        }
         if ($form->isSubmitted() && $form->isValid()) {
+            
             // $currentMedia = get('currentMedia')->getData();
             $medias = $form->get('media')->getData();
             // dd($medias);
@@ -172,6 +176,23 @@ class TricksController extends AbstractController
             'trick' => $trick,
             'form' => $form,
         ]);
+    }
+
+    /**
+     * @Route("/{id}/ajaxsupprmedia", name="ajax")
+     */
+    public function ajaxSupprMedia(Request $request)
+    {
+        $data = [];
+        $currentMedia = $request->get('currentVal');
+        $trickId = $request->request->get('trickId');
+        // if($currentMedia != null) {
+        //     dd($currentMedia);
+        // }
+        $data['currentMedia'] = $currentMedia;
+        $resp = new JsonResponse();
+        $resp->setData($data);
+        return $resp;
     }
 
     /**

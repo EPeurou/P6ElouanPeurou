@@ -23,6 +23,7 @@ return [
     'tricks_new' => [[], ['_controller' => 'App\\Controller\\TricksController::new'], [], [['text', '/tricks/new']], [], []],
     'tricks_show' => [['id'], ['_controller' => 'App\\Controller\\TricksController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
     'tricks_edit' => [['id'], ['_controller' => 'App\\Controller\\TricksController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
+    'ajax' => [['id'], ['_controller' => 'App\\Controller\\TricksController::ajaxSupprMedia'], [], [['text', '/ajaxsupprmedia'], ['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
     'tricks_delete' => [['id'], ['_controller' => 'App\\Controller\\TricksController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tricks']], [], []],
     'main' => [[], ['_controller' => 'App\\Controller\\homeController::homepage'], [], [['text', '/']], [], []],
     'fos_js_routing_js' => [['_format'], ['_controller' => 'fos_js_routing.controller::indexAction', '_format' => 'js'], ['_format' => 'js|json'], [['variable', '.', 'js|json', '_format', true], ['text', '/js/routing']], [], []],

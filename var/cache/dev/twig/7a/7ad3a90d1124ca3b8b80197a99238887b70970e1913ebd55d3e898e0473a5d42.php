@@ -176,7 +176,12 @@ $context["value"])) {
             echo "                                    </div>
                                     <div class=\"icon-show text-switch\">
                                         <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                                        <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                        <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-trick-id=\"";
+            // line 94
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 94, $this->source); })()), "id", [], "any", false, false, false, 94), "html", null, true);
+            echo "\" data-img-val=\"";
+            echo twig_escape_filter($this->env, $context["value"], "html", null, true);
+            echo "\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -184,10 +189,9 @@ $context["value"])) {
             // line 100
             echo "                                ";
             // line 101
-            echo "                                <input type=\"text\" class=\"currentName\" value=\"";
-            echo twig_escape_filter($this->env, $context["value"], "html", null, true);
-            echo "\">
-                                ";
+            echo "                                ";
+            // line 102
+            echo "                                ";
             // line 103
             echo "                            ";
             // line 104
@@ -265,16 +269,18 @@ $context["value"])) {
         echo "        \$( document ).ready(function() {
             ";
         // line 155
-        echo "            console.log(\$(\".edit-media-btn\" ));
-            \$( \".edit-media-btn\" ).each(function( index ) {
+        echo "            ";
+        // line 156
+        echo "            \$( \".edit-media-btn\" ).each(function( index ) {
 
                 let testId = \$(this).attr('id');
                 if(testId == 0){
                     ";
         // line 161
         echo "                    \$(this).attr('id', index);
-                    console.log(\"ok\", index);
-                } else {
+                    ";
+        // line 163
+        echo "                } else {
                     console.log(\"cassé:\", index);
                 }
                 ";
@@ -284,49 +290,28 @@ $context["value"])) {
         echo "            });    
         });  
         \$('.edit-media-btn').click(function(){
-            var currentName = document.getElementsByClassName(\"currentName\");
-            var currentBtn = \$('.edit-media-btn');
-
-                ";
-        // line 175
-        echo "                ";
-        // line 176
-        echo "                
-                ";
-        // line 178
-        echo "                ";
-        // line 179
-        echo "                    
-                    ";
-        // line 181
-        echo "                ";
-        // line 182
-        echo "                
-                ";
-        // line 184
-        echo "                ";
-        // line 185
-        echo "                ";
-        // line 186
-        echo "                ";
-        // line 187
-        echo "            });
+            var currentVal = \$(this).attr('data-img-val');
+            var trickId = \$(this).attr('data-trick-id');
             ";
-        // line 193
+        // line 174
         echo "            \$.ajax({
                     url: \"";
-        // line 194
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 194, $this->source); })()), "id", [], "any", false, false, false, 194)]), "html", null, true);
+        // line 175
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ajax", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 175, $this->source); })()), "id", [], "any", false, false, false, 175)]), "html", null, true);
         echo "\",
                     type: 'POST',
-                    data: formData, 
-                    success: function(){
-                        console.log(formData);
-                    },
+                    data: {'currentVal':currentVal, 'trickId':trickId}, 
+                    success: function(r){
+                        console.log(r);
+                        ";
+        // line 181
+        echo "                    },
                     error: function(){
-                    console.log('Ajax crashed');
+                        console.log('Ajax crashed');
                     }
                 });
+            });
+            
              
         </script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
@@ -385,7 +370,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  367 => 34,  364 => 33,  354 => 32,  319 => 194,  316 => 193,  313 => 187,  311 => 186,  309 => 185,  307 => 184,  304 => 182,  302 => 181,  299 => 179,  297 => 178,  294 => 176,  292 => 175,  284 => 168,  282 => 167,  275 => 161,  268 => 155,  265 => 153,  255 => 143,  247 => 138,  243 => 137,  237 => 134,  233 => 132,  227 => 124,  219 => 119,  211 => 114,  200 => 105,  194 => 104,  192 => 103,  187 => 101,  185 => 100,  176 => 91,  170 => 89,  168 => 88,  163 => 87,  161 => 86,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
+        return array (  352 => 34,  349 => 33,  339 => 32,  308 => 181,  300 => 175,  297 => 174,  290 => 168,  288 => 167,  283 => 163,  280 => 161,  274 => 156,  272 => 155,  269 => 153,  259 => 143,  251 => 138,  247 => 137,  241 => 134,  237 => 132,  231 => 124,  223 => 119,  215 => 114,  204 => 105,  198 => 104,  196 => 103,  194 => 102,  192 => 101,  190 => 100,  181 => 94,  176 => 91,  170 => 89,  168 => 88,  163 => 87,  161 => 86,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
     }
 
     public function getSourceContext()
@@ -483,14 +468,14 @@ $context["value"])) {
                                     </div>
                                     <div class=\"icon-show text-switch\">
                                         <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                                        <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                        <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-trick-id=\"{{ trick.id }}\" data-img-val=\"{{value}}\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
                                     </div>
                                 </div>
                             </div>
                             {# {% set testclick = false %}
                             {% if testclick == false %} #}
                                 {# {% set currentMedia = value %} #}
-                                <input type=\"text\" class=\"currentName\" value=\"{{value}}\">
+                                {# <input type=\"text\" class=\"currentName\" value=\"{{value}}\"> #}
                                 {# {{ form_row(form.mediaName,{value: value }) }} #}
                             {# {% endif %} #}
                         {% endfor %}
@@ -544,14 +529,14 @@ $context["value"])) {
         }); #}
         \$( document ).ready(function() {
             {# var maval = 0; #}
-            console.log(\$(\".edit-media-btn\" ));
+            {# console.log(\$(\".edit-media-btn\" )); #}
             \$( \".edit-media-btn\" ).each(function( index ) {
 
                 let testId = \$(this).attr('id');
                 if(testId == 0){
                     {# const newId = ++testId; #}
                     \$(this).attr('id', index);
-                    console.log(\"ok\", index);
+                    {# console.log(\"ok\", index); #}
                 } else {
                     console.log(\"cassé:\", index);
                 }
@@ -560,39 +545,23 @@ $context["value"])) {
             });    
         });  
         \$('.edit-media-btn').click(function(){
-            var currentName = document.getElementsByClassName(\"currentName\");
-            var currentBtn = \$('.edit-media-btn');
-
-                {# console.log( index + \": \" + \$( this ).val() ); #}
-                {# var newId = \$(this).attr('id') + index; #}
-                
-                {# if(index > testId){ #}
-                {# for(i in index ){  #}
-                    
-                    {# console.log(i); #}
-                {# } #}
-                
-                {# }); #}
-                {# console.log(mavar); #}
-                {# console.log(currentBtn); #}
-                {# } #}
-            });
-            {# for(var i = 0; i < currentName.length; i++)
-            {
-                console.log(currentName[i]);
-                var formData = currentName[i];
-            } #}
+            var currentVal = \$(this).attr('data-img-val');
+            var trickId = \$(this).attr('data-trick-id');
+            {# console.log(currentVal); #}
             \$.ajax({
-                    url: \"{{ path('tricks_edit', {'id': trick.id}) }}\",
+                    url: \"{{ path('ajax', {'id': trick.id}) }}\",
                     type: 'POST',
-                    data: formData, 
-                    success: function(){
-                        console.log(formData);
+                    data: {'currentVal':currentVal, 'trickId':trickId}, 
+                    success: function(r){
+                        console.log(r);
+                        {# console.log(currentVal); #}
                     },
                     error: function(){
-                    console.log('Ajax crashed');
+                        console.log('Ajax crashed');
                     }
                 });
+            });
+            
              
         </script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>

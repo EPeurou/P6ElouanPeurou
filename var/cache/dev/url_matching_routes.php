@@ -46,10 +46,13 @@ return [
                 .')'
                 .'|/tricks/([^/]++)(?'
                     .'|(*:237)'
-                    .'|/edit(*:250)'
-                    .'|(*:258)'
+                    .'|/(?'
+                        .'|edit(*:253)'
+                        .'|ajaxsupprmedia(*:275)'
+                    .')'
+                    .'|(*:284)'
                 .')'
-                .'|/js/routing(?:\\.(js|json))?(*:294)'
+                .'|/js/routing(?:\\.(js|json))?(*:320)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -64,9 +67,10 @@ return [
         201 => [[['_route' => 'comment_edit', '_controller' => 'App\\Controller\\CommentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         209 => [[['_route' => 'comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
         237 => [[['_route' => 'tricks_show', '_controller' => 'App\\Controller\\TricksController::show'], ['id'], null, null, false, true, null]],
-        250 => [[['_route' => 'tricks_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        258 => [[['_route' => 'tricks_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        294 => [
+        253 => [[['_route' => 'tricks_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        275 => [[['_route' => 'ajax', '_controller' => 'App\\Controller\\TricksController::ajaxSupprMedia'], ['id'], null, null, false, false, null]],
+        284 => [[['_route' => 'tricks_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        320 => [
             [['_route' => 'fos_js_routing_js', '_controller' => 'fos_js_routing.controller::indexAction', '_format' => 'js'], ['_format'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
