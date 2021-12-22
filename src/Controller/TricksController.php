@@ -120,31 +120,55 @@ class TricksController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/ajaxsupprmedia", name="ajax")
+     */
+    public function ajaxSupprMedia(Request $request, Tricks $trick)
+    {
+        
+        $data = [];
+        $currentMedia = $request->get('currentVal');
+        $trickId = $request->request->get('trickId');
+        // if($currentMedia != null) {
+        //     dd($currentMedia);
+        // }
+        $data['currentMedia'] = $currentMedia;
+        $resp = new JsonResponse();
+        $resp->setData($data);
+        
+        
+        return $resp;
+    }
+
+    /**
      * @Route("/{id}/edit", name="tricks_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Tricks $trick): Response
     {
-        $currentMedia = $request->request->get('currentVal');
+        global $resp;
         $testMediaSubmit = $request->request->get('media');
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
-        if($currentMedia != null) {
-            dd($currentMedia);
-        }
+        // if($currentMedia != null) {
+        //     dd($currentMedia);
+        // }
         if ($form->isSubmitted() && $form->isValid()) {
-            
+            // $mediaArray = $trick->getMedia();
+            // dd($getMedia);
+            dd($resp);
             // $currentMedia = get('currentMedia')->getData();
             $medias = $form->get('media')->getData();
             // dd($medias);
             if ($medias) {
-                $file = [];
-                foreach ($medias as $media) {    
-                    // $originalFilename = pathinfo($media->getClientOriginalName(), PATHINFO_FILENAME);
-                    // $safeFilename = $slugger->slug($originalFilename);
-                    
+                $getMedia = $trick->getMedia();
+                $key = array_search($resp, $getMedia);
+                // dd($getMedia[$key]);
+                unset($getMedia[$key]);
+                // $getMediaAfter = $trick->getMedia();
+                $trick->setMedia($getMedia);
+                // dd($getMedia);
+                $file = $getMedia;
+                foreach ($medias as $media) {               
                     $newFilename = uniqid().'.'.$media->guessExtension();
-                    // $mediaFileName = $fileUploader->upload($mediaFile);
-                    // $trick->setMedia($mediaFileName);
                     try {
                         $media->move(
                             $this->getParameter('upload_directory'),
@@ -158,17 +182,13 @@ class TricksController extends AbstractController
                     $testType = strtok($mime_type, '/');
                     $addTypeName = $testType . $newFilename;
                     rename ("upload/" . $newFilename, "upload/" . $addTypeName );
-                    // dd($addTypeName);
                     array_push($file, $addTypeName);
                     $trick->setMedia($file);
-                    // dd($trick);
                 }
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($trick);
-                $entityManager->flush();
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
             }
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($trick);
+            $entityManager->flush();
             return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -178,22 +198,6 @@ class TricksController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/ajaxsupprmedia", name="ajax")
-     */
-    public function ajaxSupprMedia(Request $request)
-    {
-        $data = [];
-        $currentMedia = $request->get('currentVal');
-        $trickId = $request->request->get('trickId');
-        // if($currentMedia != null) {
-        //     dd($currentMedia);
-        // }
-        $data['currentMedia'] = $currentMedia;
-        $resp = new JsonResponse();
-        $resp->setData($data);
-        return $resp;
-    }
 
     /**
      * @Route("/{id}", name="tricks_delete", methods={"POST"})

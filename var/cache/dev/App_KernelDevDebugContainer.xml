@@ -5991,13 +5991,14 @@
         <argument key="trick" type="service_closure" id=".errored..service_locator.hAV0MEA.App\Entity\Tricks"/>
       </argument>
     </service>
-    <service id=".service_locator.1xzuKXR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.Ek15Urn" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CommentController::delete" type="service_closure" id=".service_locator.CbsAoJ."/>
         <argument key="App\Controller\CommentController::edit" type="service_closure" id=".service_locator.CbsAoJ."/>
         <argument key="App\Controller\CommentController::index" type="service_closure" id=".service_locator.BwLcYXx"/>
         <argument key="App\Controller\CommentController::show" type="service_closure" id=".service_locator.CbsAoJ."/>
+        <argument key="App\Controller\TricksController::ajaxSupprMedia" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController::delete" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController::edit" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController::index" type="service_closure" id=".service_locator.4ZU5zm2"/>
@@ -6013,6 +6014,7 @@
         <argument key="App\Controller\CommentController:edit" type="service_closure" id=".service_locator.CbsAoJ."/>
         <argument key="App\Controller\CommentController:index" type="service_closure" id=".service_locator.BwLcYXx"/>
         <argument key="App\Controller\CommentController:show" type="service_closure" id=".service_locator.CbsAoJ."/>
+        <argument key="App\Controller\TricksController:ajaxSupprMedia" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController:delete" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController:edit" type="service_closure" id=".service_locator.hAV0MEA"/>
         <argument key="App\Controller\TricksController:index" type="service_closure" id=".service_locator.4ZU5zm2"/>
@@ -6541,12 +6543,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.1xzuKXR"/>
+      <argument type="service" id=".service_locator.Ek15Urn"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.1xzuKXR"/>
+      <argument type="service" id=".service_locator.Ek15Urn"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7404,7 +7406,7 @@
     <service id="fos_js_routing.router" alias="router.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.1xzuKXR"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Ek15Urn"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
