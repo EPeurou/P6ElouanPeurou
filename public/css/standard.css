@@ -125,3 +125,9 @@
 #mainNav {
   background-color: #1fc4f7 !important;
 }
+
+.btn-del{
+  color: #64a19d;
+  background-color: transparent;
+  border:none;
+}

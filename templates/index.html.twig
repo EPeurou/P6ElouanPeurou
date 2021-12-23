@@ -52,9 +52,22 @@
                                 {% endfor %}
                                 
                                 <div class="card-body">
-                                    <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a>
-                                    <a href="" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a>
-                                    <a href="{{ path('tricks_edit', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-pencil-alt"></i></a>
+                                    {# <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a> #}
+                                    <div class="row">
+                                        <div class="col-xl-6 col-md-6">
+                                            <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a>
+                                        </div>
+                                        <div class="col-xl-1 col-md-1">
+                                            <form method="post" action="{{ path('tricks_delete', {'id': list.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ list.id) }}">
+                                                <button class="btn-del" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        </div>
+                                        <div class="col-xl-1 col-md-1">
+                                            {# <a href="{{ path('tricks_delete', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a> #}
+                                            <a href="{{ path('tricks_edit', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-pencil-alt"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
