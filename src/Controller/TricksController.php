@@ -92,7 +92,7 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="tricks_show")
+     * @Route("/{id}", name="tricks_show", methods={"GET"})
      */
     public function show(Tricks $trick, Request $request)
     {
@@ -122,20 +122,31 @@ class TricksController extends AbstractController
     /**
      * @Route("/{id}/ajaxsupprmedia", name="ajax")
      */
-    public function ajaxSupprMedia(Request $request, Tricks $trick)
+    public function ajaxSupprMedia(Request $request, Tricks $trick, $id, TricksRepository $tricksRepository)
     {
-        
+        $trickTest = $tricksRepository->findOneBy(['id'=>$id]);
         $data = [];
         $currentMedia = $request->get('currentVal');
-        $trickId = $request->request->get('trickId');
+        $currentMediaDel = $request->get('currentValDel');
+        // $trickId = $request->request->get('trickId');
         // if($currentMedia != null) {
         //     dd($currentMedia);
         // }
+        $data['currentMediaDel'] = $currentMediaDel;
         $data['currentMedia'] = $currentMedia;
         $resp = new JsonResponse();
         $resp->setData($data);
-        
-        
+
+        $getMedia = $trickTest->getMedia();
+        $key = array_search($currentMedia, $getMedia);
+        // dd($getMedia[$key]);
+        unset($getMedia[$key]);
+        // $getMediaAfter = $trick->getMedia();
+        $trickTest->setMedia($getMedia);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($trickTest);
+        $entityManager->flush();
+        // $this->edit($request,$trick);
         return $resp;
     }
 
@@ -144,7 +155,9 @@ class TricksController extends AbstractController
      */
     public function edit(Request $request, Tricks $trick): Response
     {
-        global $resp;
+        // global $resp;
+        // $resp = new TricksController();
+        // $resp->ajaxSupprMedia($request);
         $testMediaSubmit = $request->request->get('media');
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
@@ -154,19 +167,19 @@ class TricksController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // $mediaArray = $trick->getMedia();
             // dd($getMedia);
-            dd($resp);
+            // dd($resp);
             // $currentMedia = get('currentMedia')->getData();
             $medias = $form->get('media')->getData();
             // dd($medias);
             if ($medias) {
-                $getMedia = $trick->getMedia();
-                $key = array_search($resp, $getMedia);
-                // dd($getMedia[$key]);
-                unset($getMedia[$key]);
-                // $getMediaAfter = $trick->getMedia();
-                $trick->setMedia($getMedia);
+                // $getMedia = $trick->getMedia();
+                // $key = array_search($resp, $getMedia);
+                // // dd($getMedia[$key]);
+                // unset($getMedia[$key]);
+                // // $getMediaAfter = $trick->getMedia();
+                // $trick->setMedia($getMedia);
                 // dd($getMedia);
-                $file = $getMedia;
+                $file = [];
                 foreach ($medias as $media) {               
                     $newFilename = uniqid().'.'.$media->guessExtension();
                     try {
@@ -203,13 +216,14 @@ class TricksController extends AbstractController
      * @Route("/{id}", name="tricks_delete", methods={"POST"})
      */
     public function delete(Request $request, Tricks $trick): Response
-    {
+    {   
+        // dd('testdelete');
         if ($this->isCsrfTokenValid('delete'.$trick->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($trick);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('tricks_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
     }
 }

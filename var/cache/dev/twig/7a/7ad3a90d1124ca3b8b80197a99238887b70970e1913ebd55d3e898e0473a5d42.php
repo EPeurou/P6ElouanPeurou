@@ -112,7 +112,7 @@ class __TwigTemplate_5ed793339fa4206ef1bc0d09d8ec584ea3386d0b90bc7f1379cde3870d5
         echo "                <div>
                     <div class=\"icon-show text-switch\">
                         <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                        <a href=\"\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a href=\"\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
                     </div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">";
@@ -153,32 +153,51 @@ class __TwigTemplate_5ed793339fa4206ef1bc0d09d8ec584ea3386d0b90bc7f1379cde3870d5
         $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 82, $this->source); })()), "media", [], "any", false, false, false, 82));
         foreach ($context['_seq'] as $context["key"] => $context["value"]) {
             // line 83
-            echo "                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
+            echo "                            <div class=\"modal fade\" id=\"secondModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+                                <div class=\"modal-dialog\">
+                                    <div class=\"modal-content\">
+                                        <div class=\"modal-header\">
+                                            <h5 class=\"modal-title\" id=\"exampleModalLabel\">Supprimer un media</h5>
+                                            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+                                        </div>
+                                        <div class=\"modal-body\">
+                                            <h5 class=\"modal-title\" id=\"exampleModalLabel\">Souhaitez vous vraiment supprimer ce media?</h5>
+                                        </div>
+                                        <div class=\"modal-footer\">
+                                            <button type=\"button\" class=\"delete-media-btn btn btn-secondary\" data-img-val=\"";
+            // line 94
+            echo twig_escape_filter($this->env, $context["value"], "html", null, true);
+            echo "\" data-bs-dismiss=\"modal\">Oui</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
                                         ";
-            // line 86
+            // line 102
             if (twig_in_filter("image", $context["value"])) {
-                // line 87
+                // line 103
                 echo "                                            <img class=\"card-img-top\" src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
                                         ";
-            } elseif (twig_in_filter("video",             // line 88
+            } elseif (twig_in_filter("video",             // line 104
 $context["value"])) {
-                // line 89
+                // line 105
                 echo "                                            <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\"></video>
                                         ";
             }
-            // line 91
+            // line 107
             echo "                                    </div>
-                                    <div class=\"icon-show text-switch\">
-                                        <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
+                                    <div class=\"icon-media text-switch mt-2\">
+                                        <a href=\"\" style=\"margin-left:1em;color:white;\" data-bs-toggle=\"modal\" data-bs-target=\"#secondModal\"><i class=\"fas fa-trash-alt\"></i></a>
                                         <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-trick-id=\"";
-            // line 94
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 94, $this->source); })()), "id", [], "any", false, false, false, 94), "html", null, true);
+            // line 110
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 110, $this->source); })()), "id", [], "any", false, false, false, 110), "html", null, true);
             echo "\" data-img-val=\"";
             echo twig_escape_filter($this->env, $context["value"], "html", null, true);
             echo "\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
@@ -186,78 +205,83 @@ $context["value"])) {
                                 </div>
                             </div>
                             ";
-            // line 100
+            // line 116
             echo "                                ";
-            // line 101
+            // line 117
             echo "                                ";
-            // line 102
+            // line 118
             echo "                                ";
-            // line 103
+            // line 119
             echo "                            ";
-            // line 104
+            // line 120
             echo "                        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 105
+        // line 121
         echo "                    </div>
                 </div>
             </div>
         </section>
         <section class=\"text-center form-edit\">
             <h2 class=\"mb-4 mt-1\" style=\"font-family:Varela Round;\">Modification d'un trick</h2>
-            
-                <div class=\"row mb-3\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"col-sm-6 col-md-6 col-xl-6\">
-                        ";
-        // line 114
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 114, $this->source); })()), "name", [], "any", false, false, false, 114), 'row');
+            <div class=\"row mb-3\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"col-sm-6 col-md-6 col-xl-6\">
+                    ";
+        // line 129
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 129, $this->source); })()), "name", [], "any", false, false, false, 129), 'row');
         echo "
-                    </div>
                 </div>
-                <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"col-sm-12 col-md-12 col-xl-12\">
-                        ";
-        // line 119
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 119, $this->source); })()), "description", [], "any", false, false, false, 119), 'row');
+            </div>
+            <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"col-sm-12 col-md-12 col-xl-12\">
+                    ";
+        // line 134
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 134, $this->source); })()), "description", [], "any", false, false, false, 134), 'row');
         echo "
-                    </div>
                 </div>
-                <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"col-sm-4 col-md-4 col-xl-4\">
-                        ";
-        // line 124
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 124, $this->source); })()), "category", [], "any", false, false, false, 124), 'row');
+            </div>
+            <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"col-sm-4 col-md-4 col-xl-4\">
+                    ";
+        // line 139
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 139, $this->source); })()), "category", [], "any", false, false, false, 139), 'row');
         echo "
-                    </div>
+                </div>
+            </div>
+            ";
+        // line 147
+        echo "            <div class=\"row mt-5\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"offset-sm-6 offset-xl-6 offset-md-6 col-sm-3 col-md-3 col-xl-3\">
+                    ";
+        // line 149
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 149, $this->source); })()), "valider", [], "any", false, false, false, 149), 'row');
+        echo "
                 </div>
                 ";
-        // line 132
-        echo "                <div class=\"row mt-5\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"offset-sm-6 offset-xl-6 offset-md-6 col-sm-3 col-md-3 col-xl-3\">
-                        ";
-        // line 134
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 134, $this->source); })()), "valider", [], "any", false, false, false, 134), 'row');
+        // line 151
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 151, $this->source); })()), 'form_end');
         echo "
-                    </div>
-                    <div class=\"col-sm-2 col-md-2 col-xl-2\">
-                        <form method=\"post\" action=\"";
-        // line 137
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 137, $this->source); })()), "id", [], "any", false, false, false, 137)]), "html", null, true);
-        echo "\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
-                            <input type=\"hidden\" name=\"_token\" value=\"";
-        // line 138
-        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 138, $this->source); })()), "id", [], "any", false, false, false, 138))), "html", null, true);
+                <div class=\"col-sm-2 col-md-2 col-xl-2\">
+                    <form method=\"post\" action=\"";
+        // line 153
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 153, $this->source); })()), "id", [], "any", false, false, false, 153)]), "html", null, true);
+        echo "\" onsubmit=\"return confirm('Le trick va être supprimé');\">
+                        <input type=\"hidden\" name=\"_token\" value=\"";
+        // line 154
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 154, $this->source); })()), "id", [], "any", false, false, false, 154))), "html", null, true);
         echo "\">
-                            <button class=\"btn btn-danger\">Delete</button>
-                        </form>
-                    </div>
-                </div>
-            ";
-        // line 143
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 143, $this->source); })()), 'form_end');
-        echo "
+                        <button class=\"btn btn-danger\">Delete</button>
+                    </form>
+                    ";
+        // line 158
+        echo "                        ";
+        // line 159
+        echo "                    ";
+        // line 160
+        echo "                </div>
+            </div>
         </section>
 
         <!-- Footer-->
@@ -265,52 +289,60 @@ $context["value"])) {
         <!-- Bootstrap core JS-->
         <script>
         ";
-        // line 153
+        // line 171
         echo "        \$( document ).ready(function() {
-            ";
-        // line 155
-        echo "            ";
-        // line 156
-        echo "            \$( \".edit-media-btn\" ).each(function( index ) {
-
+            \$( \".edit-media-btn\" ).each(function( index ) {
                 let testId = \$(this).attr('id');
                 if(testId == 0){
-                    ";
-        // line 161
-        echo "                    \$(this).attr('id', index);
-                    ";
-        // line 163
-        echo "                } else {
+                    \$(this).attr('id', index);
+                } else {
                     console.log(\"cassé:\", index);
                 }
-                ";
-        // line 167
-        echo "                ";
-        // line 168
-        echo "            });    
+            });    
         });  
         \$('.edit-media-btn').click(function(){
             var currentVal = \$(this).attr('data-img-val');
             var trickId = \$(this).attr('data-trick-id');
-            ";
-        // line 174
-        echo "            \$.ajax({
-                    url: \"";
-        // line 175
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ajax", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 175, $this->source); })()), "id", [], "any", false, false, false, 175)]), "html", null, true);
+
+            \$.ajax({
+                url: \"";
+        // line 186
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ajax", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 186, $this->source); })()), "id", [], "any", false, false, false, 186)]), "html", null, true);
         echo "\",
-                    type: 'POST',
-                    data: {'currentVal':currentVal, 'trickId':trickId}, 
-                    success: function(r){
-                        console.log(r);
-                        ";
-        // line 181
-        echo "                    },
-                    error: function(){
-                        console.log('Ajax crashed');
-                    }
-                });
+                type: 'POST',
+                data: {'currentVal':currentVal}, 
+                success: function(r){
+                    console.log(r);
+                    ";
+        // line 192
+        echo "                },
+                error: function(){
+                    console.log('Ajax crashed');
+                }
             });
+        });
+        \$('.delete-media-btn').click(function(){
+            var currentValDel = \$(this).attr('data-img-val');
+            var trickId = \$(this).attr('data-trick-id');
+            ";
+        // line 202
+        echo "            \$.ajax({
+                url: \"";
+        // line 203
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ajax", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 203, $this->source); })()), "id", [], "any", false, false, false, 203)]), "html", null, true);
+        echo "\",
+                type: 'POST',
+                data: {'currentValDel':currentValDel}, 
+                success: function(r){
+                    console.log(r);
+                    ";
+        // line 209
+        echo "                },
+                error: function(){
+                    console.log('Ajax crashed');
+                }
+            });
+        });
             
              
         </script>
@@ -370,7 +402,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  352 => 34,  349 => 33,  339 => 32,  308 => 181,  300 => 175,  297 => 174,  290 => 168,  288 => 167,  283 => 163,  280 => 161,  274 => 156,  272 => 155,  269 => 153,  259 => 143,  251 => 138,  247 => 137,  241 => 134,  237 => 132,  231 => 124,  223 => 119,  215 => 114,  204 => 105,  198 => 104,  196 => 103,  194 => 102,  192 => 101,  190 => 100,  181 => 94,  176 => 91,  170 => 89,  168 => 88,  163 => 87,  161 => 86,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
+        return array (  384 => 34,  381 => 33,  371 => 32,  340 => 209,  332 => 203,  329 => 202,  318 => 192,  310 => 186,  293 => 171,  283 => 160,  281 => 159,  279 => 158,  273 => 154,  269 => 153,  264 => 151,  259 => 149,  255 => 147,  249 => 139,  241 => 134,  233 => 129,  223 => 121,  217 => 120,  215 => 119,  213 => 118,  211 => 117,  209 => 116,  200 => 110,  195 => 107,  189 => 105,  187 => 104,  182 => 103,  180 => 102,  169 => 94,  156 => 83,  152 => 82,  136 => 69,  120 => 56,  112 => 50,  106 => 49,  103 => 48,  100 => 47,  94 => 45,  88 => 43,  85 => 42,  82 => 41,  77 => 40,  75 => 39,  69 => 36,  66 => 35,  64 => 32,  44 => 14,);
     }
 
     public function getSourceContext()
@@ -427,7 +459,7 @@ $context["value"])) {
                 <div>
                     <div class=\"icon-show text-switch\">
                         <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                        <a href=\"\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        <a href=\"\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
                     </div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">{{ trick.name }}</h1>
@@ -457,6 +489,22 @@ $context["value"])) {
                 <div style=\"overflow: auto !important\">
                     <div class=\"row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
                         {% for key,value in trick.media %}
+                            <div class=\"modal fade\" id=\"secondModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+                                <div class=\"modal-dialog\">
+                                    <div class=\"modal-content\">
+                                        <div class=\"modal-header\">
+                                            <h5 class=\"modal-title\" id=\"exampleModalLabel\">Supprimer un media</h5>
+                                            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+                                        </div>
+                                        <div class=\"modal-body\">
+                                            <h5 class=\"modal-title\" id=\"exampleModalLabel\">Souhaitez vous vraiment supprimer ce media?</h5>
+                                        </div>
+                                        <div class=\"modal-footer\">
+                                            <button type=\"button\" class=\"delete-media-btn btn btn-secondary\" data-img-val=\"{{value}}\" data-bs-dismiss=\"modal\">Oui</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
@@ -466,8 +514,8 @@ $context["value"])) {
                                             <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"{{ asset('upload/' ~ value)}}\"></video>
                                         {% endif %}
                                     </div>
-                                    <div class=\"icon-show text-switch\">
-                                        <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
+                                    <div class=\"icon-media text-switch mt-2\">
+                                        <a href=\"\" style=\"margin-left:1em;color:white;\" data-bs-toggle=\"modal\" data-bs-target=\"#secondModal\"><i class=\"fas fa-trash-alt\"></i></a>
                                         <a href=\"\" id=\"0\" class=\"edit-media-btn\" data-trick-id=\"{{ trick.id }}\" data-img-val=\"{{value}}\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
                                     </div>
                                 </div>
@@ -485,39 +533,41 @@ $context["value"])) {
         </section>
         <section class=\"text-center form-edit\">
             <h2 class=\"mb-4 mt-1\" style=\"font-family:Varela Round;\">Modification d'un trick</h2>
-            
-                <div class=\"row mb-3\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"col-sm-6 col-md-6 col-xl-6\">
-                        {{ form_row(form.name) }}
-                    </div>
+            <div class=\"row mb-3\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"col-sm-6 col-md-6 col-xl-6\">
+                    {{ form_row(form.name) }}
                 </div>
-                <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"col-sm-12 col-md-12 col-xl-12\">
-                        {{ form_row(form.description) }}
-                    </div>
+            </div>
+            <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"col-sm-12 col-md-12 col-xl-12\">
+                    {{ form_row(form.description) }}
                 </div>
-                <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"col-sm-4 col-md-4 col-xl-4\">
-                        {{ form_row(form.category) }}
-                    </div>
+            </div>
+            <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"col-sm-4 col-md-4 col-xl-4\">
+                    {{ form_row(form.category) }}
                 </div>
-                {# <div class=\"row mt-3 mb-5\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"col-sm-12 col-md-12 col-xl-12\">
-                        {{ form_row(form.media) }}
-                    </div>
-                </div> #}
-                <div class=\"row mt-5\" style=\"padding-left:5em;padding-right:5em;\">
-                    <div class=\"offset-sm-6 offset-xl-6 offset-md-6 col-sm-3 col-md-3 col-xl-3\">
-                        {{ form_row(form.valider) }}
-                    </div>
-                    <div class=\"col-sm-2 col-md-2 col-xl-2\">
-                        <form method=\"post\" action=\"{{ path('tricks_delete', {'id': trick.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
-                            <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ trick.id) }}\">
-                            <button class=\"btn btn-danger\">Delete</button>
-                        </form>
-                    </div>
+            </div>
+            {# <div class=\"row mt-3 mb-5\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"col-sm-12 col-md-12 col-xl-12\">
+                    {{ form_row(form.media) }}
                 </div>
-            {{ form_end(form) }}
+            </div> #}
+            <div class=\"row mt-5\" style=\"padding-left:5em;padding-right:5em;\">
+                <div class=\"offset-sm-6 offset-xl-6 offset-md-6 col-sm-3 col-md-3 col-xl-3\">
+                    {{ form_row(form.valider) }}
+                </div>
+                {{ form_end(form) }}
+                <div class=\"col-sm-2 col-md-2 col-xl-2\">
+                    <form method=\"post\" action=\"{{ path('tricks_delete', {'id': trick.id}) }}\" onsubmit=\"return confirm('Le trick va être supprimé');\">
+                        <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ trick.id) }}\">
+                        <button class=\"btn btn-danger\">Delete</button>
+                    </form>
+                    {# {% block delete %} #}
+                        {# {% include \"_delete_form.html.twig\" %} #}
+                    {# {% endblock %} #}
+                </div>
+            </div>
         </section>
 
         <!-- Footer-->
@@ -528,39 +578,49 @@ $context["value"])) {
             {% set testclick = true %}
         }); #}
         \$( document ).ready(function() {
-            {# var maval = 0; #}
-            {# console.log(\$(\".edit-media-btn\" )); #}
             \$( \".edit-media-btn\" ).each(function( index ) {
-
                 let testId = \$(this).attr('id');
                 if(testId == 0){
-                    {# const newId = ++testId; #}
                     \$(this).attr('id', index);
-                    {# console.log(\"ok\", index); #}
                 } else {
                     console.log(\"cassé:\", index);
                 }
-                {# const newval = ++maval; #}
-                {# console.log(maval); #}
             });    
         });  
         \$('.edit-media-btn').click(function(){
             var currentVal = \$(this).attr('data-img-val');
             var trickId = \$(this).attr('data-trick-id');
-            {# console.log(currentVal); #}
+
             \$.ajax({
-                    url: \"{{ path('ajax', {'id': trick.id}) }}\",
-                    type: 'POST',
-                    data: {'currentVal':currentVal, 'trickId':trickId}, 
-                    success: function(r){
-                        console.log(r);
-                        {# console.log(currentVal); #}
-                    },
-                    error: function(){
-                        console.log('Ajax crashed');
-                    }
-                });
+                url: \"{{ path('ajax', {'id': trick.id}) }}\",
+                type: 'POST',
+                data: {'currentVal':currentVal}, 
+                success: function(r){
+                    console.log(r);
+                    {# console.log(currentVal); #}
+                },
+                error: function(){
+                    console.log('Ajax crashed');
+                }
             });
+        });
+        \$('.delete-media-btn').click(function(){
+            var currentValDel = \$(this).attr('data-img-val');
+            var trickId = \$(this).attr('data-trick-id');
+            {# console.log(currentValDel); #}
+            \$.ajax({
+                url: \"{{ path('ajax', {'id': trick.id}) }}\",
+                type: 'POST',
+                data: {'currentValDel':currentValDel}, 
+                success: function(r){
+                    console.log(r);
+                    {# console.log(currentValDel); #}
+                },
+                error: function(){
+                    console.log('Ajax crashed');
+                }
+            });
+        });
             
              
         </script>

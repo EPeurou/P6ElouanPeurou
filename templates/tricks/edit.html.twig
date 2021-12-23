@@ -50,7 +50,7 @@
                 <div>
                     <div class="icon-show text-switch">
                         <a href="" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
-                        <a href="" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
                     </div>
                     <div class="centered-show">
                         <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
@@ -80,6 +80,22 @@
                 <div style="overflow: auto !important">
                     <div class="row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable">
                         {% for key,value in trick.media %}
+                            <div class="modal fade" id="secondModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Supprimer un media</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 class="modal-title" id="exampleModalLabel">Souhaitez vous vraiment supprimer ce media?</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="delete-media-btn btn btn-secondary" data-img-val="{{value}}" data-bs-dismiss="modal">Oui</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-sm-12 col-md-2 col-xl-2 mr-2 mycol">
                                 <div class="card" style="width:12rem;border:none;">
                                     <div style="margin-right:1em;">
@@ -89,8 +105,8 @@
                                             <video controls class="card-img-top" style="width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;"><source src="{{ asset('upload/' ~ value)}}"></video>
                                         {% endif %}
                                     </div>
-                                    <div class="icon-show text-switch">
-                                        <a href="" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
+                                    <div class="icon-media text-switch mt-2">
+                                        <a href="" style="margin-left:1em;color:white;" data-bs-toggle="modal" data-bs-target="#secondModal"><i class="fas fa-trash-alt"></i></a>
                                         <a href="" id="0" class="edit-media-btn" data-trick-id="{{ trick.id }}" data-img-val="{{value}}" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
                                     </div>
                                 </div>
@@ -108,39 +124,41 @@
         </section>
         <section class="text-center form-edit">
             <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Modification d'un trick</h2>
-            
-                <div class="row mb-3" style="padding-left:5em;padding-right:5em;">
-                    <div class="col-sm-6 col-md-6 col-xl-6">
-                        {{ form_row(form.name) }}
-                    </div>
+            <div class="row mb-3" style="padding-left:5em;padding-right:5em;">
+                <div class="col-sm-6 col-md-6 col-xl-6">
+                    {{ form_row(form.name) }}
                 </div>
-                <div class="row" style="padding-left:5em;padding-right:5em;">
-                    <div class="col-sm-12 col-md-12 col-xl-12">
-                        {{ form_row(form.description) }}
-                    </div>
+            </div>
+            <div class="row" style="padding-left:5em;padding-right:5em;">
+                <div class="col-sm-12 col-md-12 col-xl-12">
+                    {{ form_row(form.description) }}
                 </div>
-                <div class="row" style="padding-left:5em;padding-right:5em;">
-                    <div class="col-sm-4 col-md-4 col-xl-4">
-                        {{ form_row(form.category) }}
-                    </div>
+            </div>
+            <div class="row" style="padding-left:5em;padding-right:5em;">
+                <div class="col-sm-4 col-md-4 col-xl-4">
+                    {{ form_row(form.category) }}
                 </div>
-                {# <div class="row mt-3 mb-5" style="padding-left:5em;padding-right:5em;">
-                    <div class="col-sm-12 col-md-12 col-xl-12">
-                        {{ form_row(form.media) }}
-                    </div>
-                </div> #}
-                <div class="row mt-5" style="padding-left:5em;padding-right:5em;">
-                    <div class="offset-sm-6 offset-xl-6 offset-md-6 col-sm-3 col-md-3 col-xl-3">
-                        {{ form_row(form.valider) }}
-                    </div>
-                    <div class="col-sm-2 col-md-2 col-xl-2">
-                        <form method="post" action="{{ path('tricks_delete', {'id': trick.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
+            </div>
+            {# <div class="row mt-3 mb-5" style="padding-left:5em;padding-right:5em;">
+                <div class="col-sm-12 col-md-12 col-xl-12">
+                    {{ form_row(form.media) }}
                 </div>
-            {{ form_end(form) }}
+            </div> #}
+            <div class="row mt-5" style="padding-left:5em;padding-right:5em;">
+                <div class="offset-sm-6 offset-xl-6 offset-md-6 col-sm-3 col-md-3 col-xl-3">
+                    {{ form_row(form.valider) }}
+                </div>
+                {{ form_end(form) }}
+                <div class="col-sm-2 col-md-2 col-xl-2">
+                    <form method="post" action="{{ path('tricks_delete', {'id': trick.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    {# {% block delete %} #}
+                        {# {% include "_delete_form.html.twig" %} #}
+                    {# {% endblock %} #}
+                </div>
+            </div>
         </section>
 
         <!-- Footer-->
@@ -151,39 +169,49 @@
             {% set testclick = true %}
         }); #}
         $( document ).ready(function() {
-            {# var maval = 0; #}
-            {# console.log($(".edit-media-btn" )); #}
             $( ".edit-media-btn" ).each(function( index ) {
-
                 let testId = $(this).attr('id');
                 if(testId == 0){
-                    {# const newId = ++testId; #}
                     $(this).attr('id', index);
-                    {# console.log("ok", index); #}
                 } else {
                     console.log("cassé:", index);
                 }
-                {# const newval = ++maval; #}
-                {# console.log(maval); #}
             });    
         });  
         $('.edit-media-btn').click(function(){
             var currentVal = $(this).attr('data-img-val');
             var trickId = $(this).attr('data-trick-id');
-            {# console.log(currentVal); #}
+
             $.ajax({
-                    url: "{{ path('ajax', {'id': trick.id}) }}",
-                    type: 'POST',
-                    data: {'currentVal':currentVal, 'trickId':trickId}, 
-                    success: function(r){
-                        console.log(r);
-                        {# console.log(currentVal); #}
-                    },
-                    error: function(){
-                        console.log('Ajax crashed');
-                    }
-                });
+                url: "{{ path('ajax', {'id': trick.id}) }}",
+                type: 'POST',
+                data: {'currentVal':currentVal}, 
+                success: function(r){
+                    console.log(r);
+                    {# console.log(currentVal); #}
+                },
+                error: function(){
+                    console.log('Ajax crashed');
+                }
             });
+        });
+        $('.delete-media-btn').click(function(){
+            var currentValDel = $(this).attr('data-img-val');
+            var trickId = $(this).attr('data-trick-id');
+            {# console.log(currentValDel); #}
+            $.ajax({
+                url: "{{ path('ajax', {'id': trick.id}) }}",
+                type: 'POST',
+                data: {'currentValDel':currentValDel}, 
+                success: function(r){
+                    console.log(r);
+                    {# console.log(currentValDel); #}
+                },
+                error: function(){
+                    console.log('Ajax crashed');
+                }
+            });
+        });
             
              
         </script>

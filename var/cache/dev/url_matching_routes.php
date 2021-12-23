@@ -66,7 +66,7 @@ return [
         188 => [[['_route' => 'comment_show', '_controller' => 'App\\Controller\\CommentController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         201 => [[['_route' => 'comment_edit', '_controller' => 'App\\Controller\\CommentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         209 => [[['_route' => 'comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        237 => [[['_route' => 'tricks_show', '_controller' => 'App\\Controller\\TricksController::show'], ['id'], null, null, false, true, null]],
+        237 => [[['_route' => 'tricks_show', '_controller' => 'App\\Controller\\TricksController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         263 => [[['_route' => 'ajax', '_controller' => 'App\\Controller\\TricksController::ajaxSupprMedia'], ['id'], null, null, false, false, null]],
         275 => [[['_route' => 'tricks_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         284 => [[['_route' => 'tricks_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['POST' => 0], null, false, true, null]],

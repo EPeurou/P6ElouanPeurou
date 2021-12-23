@@ -139,6 +139,18 @@
                 </div>
             </div>
         </header>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:650px !important;max-width:none !important;">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img class="card-img-top inModal" src="" class="card-img-top" alt="..." style="width:100%">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- About-->
         <section class=" mt-5" id="tricks">
             <div class="container px-4 px-lg-5">
@@ -149,7 +161,9 @@
                                 <div class="card" style="width:12rem;border:none;">
                                     <div style="margin-right:1em;">
                                         {% if 'image' in value %}
-                                            <img class="card-img-top" src="{{ asset('upload/' ~ value)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;">
+                                            <a href="" class="a-img" id="0" data-bs-toggle="modal" data-bs-target="#exampleModal" data-img="{{ value }}">
+                                                <img class="card-img-top" src="{{ asset('upload/' ~ value)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;">
+                                            </a>
                                         {% elseif 'video' in value %}
                                             <video controls class="card-img-top" style="width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;"><source src="{{ asset('upload/' ~ value)}}"></video>
                                         {% endif %}
@@ -220,6 +234,29 @@
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
         <!-- Bootstrap core JS-->
         <script>
+            $( document ).ready(function() {
+                {# $( ".a-img" ).each(function( index ) {
+                    let testId = $(this).attr('id');
+                    if(testId == 0){
+                        $(this).attr('id', index);
+                    } else {
+                        console.log("cassé:", index);
+                    }
+                });
+                $( ".modal" ).each(function( index ) {
+                    let testId = $(this).attr('id');
+                    if(testId == 0){
+                        $(this).attr('id', index);
+                    } else {
+                        console.log("cassé:", index);
+                    }
+                }); #}
+            });
+            $(".a-img").click(function(){
+                console.log("yep");
+                let valImg = $(this).attr('data-img');
+                $(".inModal").attr('src','/P6ElouanPeurou/P6ElouanPeurou/public/upload/'+ valImg);
+            });   
             $( ".row-more:lt(4)" ).css( "display", "block" );
             const list = document.querySelector(".grid");
             const listItems = list.querySelectorAll(".row-more");

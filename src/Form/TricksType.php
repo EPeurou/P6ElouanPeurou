@@ -22,9 +22,6 @@ class TricksType extends AbstractType
     {
         $builder
             // ->add('idUser')
-            ->add('mediaName', TextType::class, [
-                'required' => false
-                ])
             ->add('category', ChoiceType::class,[
                 'label'=>'Categorie',
                 'attr'=>[

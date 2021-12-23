@@ -37,6 +37,15 @@
   transform: translate(-50%, -50%);
 }
 
+.icon-media {
+  border: 2px solid;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 100%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+}
+
 .main-img-show {
     width: 90%;
     height: 35em;
