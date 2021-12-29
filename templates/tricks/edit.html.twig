@@ -50,7 +50,8 @@
                 <div>
                     <div class="icon-show text-switch">
                         <a href="" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
-                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                        <a href=""  style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="" data-bs-toggle="modal" class="test-edit">TEST</a>
                     </div>
                     <div class="centered-show">
                         <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
@@ -69,7 +70,7 @@
                         {{ form_row(form.media) }}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                        <button type="button" class="ok-btn btn btn-secondary" data-bs-dismiss="modal">Ok</button>
                     </div>
                 </div>
             </div>
@@ -91,7 +92,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Souhaitez vous vraiment supprimer ce media?</h5>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="delete-media-btn btn btn-secondary" data-img-val="{{value}}" data-bs-dismiss="modal">Oui</button>
+                                            <button type="button" id="yes" class="yes-btn btn btn-secondary" data-bs-dismiss="modal">Oui</button>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +107,7 @@
                                         {% endif %}
                                     </div>
                                     <div class="icon-media text-switch mt-2">
-                                        <a href="" style="margin-left:1em;color:white;" data-bs-toggle="modal" data-bs-target="#secondModal"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="" id="del" class="delete-media-btn" style="margin-left:1em;color:white;" data-img-val="{{value}}" data-bs-toggle="modal" data-bs-target="#secondModal"><i class="fas fa-trash-alt"></i></a>
                                         <a href="" id="0" class="edit-media-btn" data-trick-id="{{ trick.id }}" data-img-val="{{value}}" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
                                     </div>
                                 </div>
@@ -176,39 +177,82 @@
                 } else {
                     console.log("cassé:", index);
                 }
+            });  
+            $( ".delete-media-btn" ).each(function( index ) {
+                let testIdDel = $(this).attr('id');
+                if(testIdDel == "del"){
+                    $(this).attr('id', "del"+index);
+                } else {
+                    console.log("cassé:", index);
+                }
+            });
+            $( ".yes-btn" ).each(function( index ) {
+                let testIdyes = $(this).attr('id');
+                if(testIdyes == "yes"){
+                    $(this).attr('id', "yes"+index);
+                } else {
+                    console.log("cassé:", index);
+                }
             });    
-        });  
+        });
+        var testAjaxEdit = false;
         $('.edit-media-btn').click(function(){
+            currentVal = undefined;
+            console.log(currentVal+"first");
             var currentVal = $(this).attr('data-img-val');
             var trickId = $(this).attr('data-trick-id');
-
-            $.ajax({
-                url: "{{ path('ajax', {'id': trick.id}) }}",
-                type: 'POST',
-                data: {'currentVal':currentVal}, 
-                success: function(r){
-                    console.log(r);
-                    {# console.log(currentVal); #}
-                },
-                error: function(){
-                    console.log('Ajax crashed');
+            $('.test-edit').click(function(){
+                console.log(currentVal);
+                fileVal = $('#tricks_media').val();
+                if(fileVal != null){
+                    console.log("input rempli");
+                    if(!testAjax){
+                        testAjax = true;
+                        $.ajax({
+                            url: "{{ path('ajax', {'id': trick.id}) }}",
+                            type: 'POST',
+                            data: {'currentVal':currentVal}, 
+                            success: function(r){
+                                console.log(r);
+                                {# console.log(currentVal); #}
+                                testAjax = false;
+                            },
+                            error: function(){
+                                console.log('Ajax crashed');
+                            }
+                        });
+                    }
+                } else {
+                    console.log("vide");
                 }
             });
         });
+        var testAjax = false;
         $('.delete-media-btn').click(function(){
-            var currentValDel = $(this).attr('data-img-val');
-            var trickId = $(this).attr('data-trick-id');
-            {# console.log(currentValDel); #}
-            $.ajax({
-                url: "{{ path('ajax', {'id': trick.id}) }}",
-                type: 'POST',
-                data: {'currentValDel':currentValDel}, 
-                success: function(r){
-                    console.log(r);
-                    {# console.log(currentValDel); #}
-                },
-                error: function(){
-                    console.log('Ajax crashed');
+            currentValDel = undefined;
+            currentValDel = $(this).attr('data-img-val');
+            console.log("delete click");
+            $('.yes-btn').click(function(){
+                {# console.log(testAjax+"first"); #}
+                console.log("yes click");
+                if(!testAjax){
+                    testAjax = true;
+                    $.ajax({
+                        url: "{{ path('ajax', {'id': trick.id}) }}",
+                        type: 'POST',
+                        data: {'currentValDel':currentValDel}, 
+                        success: function(r){
+                            console.log(r);
+                            console.log(currentValDel);
+                            {# $('.row-show').load(window.location.href+ " .row-show" ); #}
+                            location.reload();
+                            testAjax = false;
+                            {# console.log(testAjax); #}
+                        },
+                        error: function(){
+                            console.log('Ajax crashed');
+                        }
+                    });
                 }
             });
         });

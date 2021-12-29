@@ -128,24 +128,27 @@ class TricksController extends AbstractController
         $data = [];
         $currentMedia = $request->get('currentVal');
         $currentMediaDel = $request->get('currentValDel');
-        // $trickId = $request->request->get('trickId');
-        // if($currentMedia != null) {
-        //     dd($currentMedia);
-        // }
-        $data['currentMediaDel'] = $currentMediaDel;
-        $data['currentMedia'] = $currentMedia;
+        $getMedia = $trickTest->getMedia();
+        if($currentMedia != null){
+            $data['currentMedia'] = $currentMedia;
+            $key = array_search($currentMedia, $getMedia);
+            unset($getMedia[$key]);
+        }
+        if($currentMediaDel != null){
+            $data['currentMediaDel'] = $currentMediaDel;
+            $keyDel = array_search($currentMediaDel, $getMedia);
+           unset($getMedia[$keyDel]);
+        }
+        
         $resp = new JsonResponse();
         $resp->setData($data);
-
-        $getMedia = $trickTest->getMedia();
-        $key = array_search($currentMedia, $getMedia);
         // dd($getMedia[$key]);
-        unset($getMedia[$key]);
         // $getMediaAfter = $trick->getMedia();
         $trickTest->setMedia($getMedia);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($trickTest);
         $entityManager->flush();
+        
         // $this->edit($request,$trick);
         return $resp;
     }
@@ -161,6 +164,7 @@ class TricksController extends AbstractController
         $testMediaSubmit = $request->request->get('media');
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
+        $getMedia = $trick->getMedia();
         // if($currentMedia != null) {
         //     dd($currentMedia);
         // }
@@ -179,7 +183,7 @@ class TricksController extends AbstractController
                 // // $getMediaAfter = $trick->getMedia();
                 // $trick->setMedia($getMedia);
                 // dd($getMedia);
-                $file = [];
+                $file = $getMedia;
                 foreach ($medias as $media) {               
                     $newFilename = uniqid().'.'.$media->guessExtension();
                     try {
