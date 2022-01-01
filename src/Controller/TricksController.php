@@ -92,7 +92,7 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="tricks_show", methods={"GET"})
+     * @Route("/{id}", name="tricks_show")
      */
     public function show(Tricks $trick, Request $request)
     {
@@ -133,11 +133,14 @@ class TricksController extends AbstractController
             $data['currentMedia'] = $currentMedia;
             $key = array_search($currentMedia, $getMedia);
             unset($getMedia[$key]);
+            unlink($this->getParameter('upload_directory').'/'.$currentMedia);
         }
         if($currentMediaDel != null){
             $data['currentMediaDel'] = $currentMediaDel;
+            // dd($currentMediaDel);
             $keyDel = array_search($currentMediaDel, $getMedia);
-           unset($getMedia[$keyDel]);
+            unset($getMedia[$keyDel]);
+            unlink($this->getParameter('upload_directory').'/'.$currentMediaDel);
         }
         
         $resp = new JsonResponse();

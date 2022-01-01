@@ -71,6 +71,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="ok-btn btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                        <input type="hidden" id="inputHidden1">
+                        <input type="hidden" id="inputHidden2">
                     </div>
                 </div>
             </div>
@@ -200,13 +202,18 @@
             currentVal = undefined;
             console.log(currentVal+"first");
             var currentVal = $(this).attr('data-img-val');
-            var trickId = $(this).attr('data-trick-id');
-            $('.test-edit').click(function(){
+            console.log(currentVal+"test");
+            $('#inputHidden1').val(currentVal);
+        });
+        $('.ok-btn').click(function(){
+            let currentVal = $('#inputHidden1').val();
                 console.log(currentVal);
-                fileVal = $('#tricks_media').val();
-                if(fileVal != null){
-                    console.log("input rempli");
+                fileVal = $('#tricks_media').prop('files');
+                console.log(fileVal);
+                if(fileVal.length > 0){
+                    alert('les changements seront éffectué à la validation du formulaire');
                     if(!testAjax){
+                        console.log(currentVal+"testAjax");
                         testAjax = true;
                         $.ajax({
                             url: "{{ path('ajax', {'id': trick.id}) }}",
@@ -226,7 +233,6 @@
                     console.log("vide");
                 }
             });
-        });
         var testAjax = false;
         $('.delete-media-btn').click(function(){
             currentValDel = undefined;
