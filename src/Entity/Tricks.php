@@ -69,6 +69,11 @@ class Tricks
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="blob", nullable=true)
+     */
+    private $mainImage;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -203,6 +208,18 @@ class Tricks
     public function setCategory(?string $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getMainImage()
+    {
+        return $this->mainImage;
+    }
+
+    public function setMainImage($mainImage): self
+    {
+        $this->mainImage = $mainImage;
 
         return $this;
     }

@@ -92,7 +92,7 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="tricks_show")
+     * @Route("/{id}", name="tricks_show", methods={"GET"})
      */
     public function show(Tricks $trick, Request $request)
     {
@@ -211,11 +211,20 @@ class TricksController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
+        $mainImage = $form->get('mainImage')->getData();
+        $binary = stream_get_contents($mainImage);
+        $mainImageEncode = base64_encode($binary);
+        dd($mainImage);
 
         return $this->renderForm('tricks/edit.html.twig', [
             'trick' => $trick,
             'form' => $form,
+            'mainImageEncode' => $mainImageEncode
         ]);
+
+        // return $this->render('tricks/edit.html.twig', [
+            
+        // ]);
     }
 
 

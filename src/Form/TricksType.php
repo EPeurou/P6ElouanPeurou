@@ -14,6 +14,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Image;
+
 
 
 class TricksType extends AbstractType
@@ -66,6 +68,20 @@ class TricksType extends AbstractType
                             ]),
                         ],
                     ]),
+                ]
+            ])
+
+            ->add('mainImage', FileType::class, [
+                'multiple' => false,
+                'label'=>'rechercher une image:',
+                'data_class'=>null,
+                'attr'=>[
+                    'class'=>'btn'
+                ],
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '20M'
+                    ])
                 ]
             ])
             ->add('valider', SubmitType::class,[

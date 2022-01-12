@@ -55,7 +55,7 @@
                                     {# <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a> #}
                                     <div class="row">
                                         <div class="col-xl-6 col-md-6">
-                                            <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a>
+                                            <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name|length > 6 ? list.name|slice(0, 6) ~ '...' : list.name  }}</a>
                                         </div>
                                         <div class="col-xl-3 col-md-3">
                                             <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': list.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
