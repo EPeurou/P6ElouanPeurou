@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\TricksRepository;
+use DateInterval;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -31,7 +32,7 @@ class Tricks
     private $idType;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $name;
     
@@ -70,14 +71,21 @@ class Tricks
     private $category;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="simple_array", nullable=true)
      */
-    private $mainImage;
+    private $mainImage = [];
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $update_date;
 
     public function __construct()
     {
         $this->media = new ArrayCollection();
-        $this->creation_date = new \DateTime('now');
+        $timeNow = new \DateTime('now');
+        $timeNow->add(new DateInterval('PT1H'));
+        $this->creation_date = $timeNow;
         $this->comments = new ArrayCollection();
     }
 
@@ -220,6 +228,18 @@ class Tricks
     public function setMainImage($mainImage): self
     {
         $this->mainImage = $mainImage;
+
+        return $this;
+    }
+
+    public function getUpdateDate(): ?\DateTimeInterface
+    {
+        return $this->update_date;
+    }
+
+    public function setUpdateDate(?\DateTimeInterface $update_date): self
+    {
+        $this->update_date = $update_date;
 
         return $this;
     }

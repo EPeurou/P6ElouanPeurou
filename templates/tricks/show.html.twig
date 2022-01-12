@@ -117,21 +117,28 @@
         <!-- Masthead-->
         <header>
             <div class="container-show">
-                {% set break = false %}
-                {% for key,value in trick.media %}
-                    {% if break == false %}
-                        {% if 'image' in value %}
-                            <img class="main-img-show" src="{{ asset('upload/' ~ trick.media[0])}}" class="card-img-top" alt="...">
+                {# {% set break = false %}
+                {% for key,value in trick.media %} #}
+                    {# {% if break == false %} #}
+                        {% if trick.mainImage != null %}
+                            <img class="main-img-show" src="{{ asset('upload/' ~ trick.mainImage[0])}}" class="card-img-top" alt="...">
                         {% else %}
                             <img class="main-img-show" src="../../public/assets/img/frontflip.jpg" class="card-img-top" alt="...">
                         {% endif %}
-                    {% endif %}
+                    {# {% endif %}
                     {% set break = true %}
-                {% endfor %}
+                {% endfor %} #}
                 <div>
-                    <div class="icon-show text-switch">
-                        <a href="" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
-                        <a href="" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                    <div class="row icon-show text-switch">
+                        <div class="col-xl-5 col-md-5">
+                            <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': trick.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}"/>
+                                <button class="btn-del-2" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </div>
+                        <div class="col-xl-3 col-md-3 ">
+                            <a href="{{ path('tricks_edit', {id: trick.id}) }}" style="margin-right:1em;margin-left:0.5em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                        </div>
                     </div>
                     <div class="centered-show">
                         <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
@@ -191,7 +198,7 @@
                     <h6 class="btn ">Categorie: {{ trick.category }}</h6>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xl-4">
-                    <h6 class="btn ">Modifié le: </h6>
+                    <h6 class="btn ">Modifié le: {{ trick.updateDate ? trick.updateDate|date('d-m-Y H:i:s') : '' }}</h6>
                 </div>
             </div>
         </section>

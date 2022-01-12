@@ -8,6 +8,7 @@ use App\Entity\Tricks;
 use App\Form\CommentType;
 use App\Form\TricksType;
 use App\Repository\TricksRepository;
+use DateInterval;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -42,7 +43,7 @@ class TricksController extends AbstractController
         $trick = new Tricks();
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
-
+        $error = false;
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $medias */
             $medias = $form->get('media')->getData();
@@ -77,10 +78,40 @@ class TricksController extends AbstractController
                 // instead of its contents
                 
             }
-            
+
+            $mainImageGet = $form->get('mainImage')->getData();
+            // dd($mainImageGet);
+            if ($mainImageGet != null) {
+                // dd($mainImageGet);
+                $fileMainImage = [];
+                // dd($mainImageGet);              
+                $newFilenameMain = uniqid().'.'.$mainImageGet->guessExtension();
+                try {
+                    $mainImageGet->move(
+                        $this->getParameter('upload_directory'), $newFilenameMain
+                    );
+                } catch (FileException $e) {
+                }
+                $mime_typeMain = mime_content_type('upload/'.$newFilenameMain);
+                $testTypeMain = strtok($mime_typeMain, '/');
+                $addTypeNameMain = $testTypeMain . $newFilenameMain;
+                rename ("upload/" . $newFilenameMain, "upload/" . $addTypeNameMain );
+                array_push($fileMainImage, $addTypeNameMain);
+                $trick->setMainImage($fileMainImage);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
-            $entityManager->flush();
+            try {
+                $entityManager->flush();
+            } catch (\Exception $e) {
+                $error = true;
+                return $this->renderForm('tricks/new.html.twig', [
+                    'trick' => $trick,
+                    'form' => $form,
+                    'error'=> $error
+                ]);
+            }
 
             return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
@@ -88,6 +119,7 @@ class TricksController extends AbstractController
         return $this->renderForm('tricks/new.html.twig', [
             'trick' => $trick,
             'form' => $form,
+            'error'=> $error
         ]);
     }
 
@@ -118,6 +150,40 @@ class TricksController extends AbstractController
             'commentForm' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/{id}/ajaxsupprmainimage", name="ajaxMainImage")
+     */
+    public function ajaxSupprMainImage(Request $request, Tricks $trick, $id, TricksRepository $tricksRepository)
+    {
+        $trickTest = $tricksRepository->findOneBy(['id'=>$id]);
+        $getMedia = $trickTest->getMainImage();
+        unset($getMedia[0]);
+        // $getMediaAfter = $trick->getMainImage();
+        $trickTest->setMainImage($getMedia);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($trickTest);
+        $entityManager->flush();
+        // if($currentMedia != null){
+        //     $data['currentMedia'] = $currentMedia;
+        //     $key = array_search($currentMedia, $getMedia);
+        //     unset($getMedia[$key]);
+        //     unlink($this->getParameter('upload_directory').'/'.$currentMedia);
+        // }
+        // if($currentMediaDel != null){
+        //     $data['currentMediaDel'] = $currentMediaDel;
+        //     // dd($currentMediaDel);
+        //     $keyDel = array_search($currentMediaDel, $getMedia);
+        //     unset($getMedia[$keyDel]);
+        //     unlink($this->getParameter('upload_directory').'/'.$currentMediaDel);
+        // }
+        
+        $respMain = new JsonResponse();
+        
+        // // $this->edit($request,$trick);
+        return $respMain;
+    }
+
 
     /**
      * @Route("/{id}/ajaxsupprmedia", name="ajax")
@@ -168,24 +234,11 @@ class TricksController extends AbstractController
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
         $getMedia = $trick->getMedia();
-        // if($currentMedia != null) {
-        //     dd($currentMedia);
-        // }
+        $getMainImage = $trick->getMainImage();
+        
         if ($form->isSubmitted() && $form->isValid()) {
-            // $mediaArray = $trick->getMedia();
-            // dd($getMedia);
-            // dd($resp);
-            // $currentMedia = get('currentMedia')->getData();
             $medias = $form->get('media')->getData();
-            // dd($medias);
             if ($medias) {
-                // $getMedia = $trick->getMedia();
-                // $key = array_search($resp, $getMedia);
-                // // dd($getMedia[$key]);
-                // unset($getMedia[$key]);
-                // // $getMediaAfter = $trick->getMedia();
-                // $trick->setMedia($getMedia);
-                // dd($getMedia);
                 $file = $getMedia;
                 foreach ($medias as $media) {               
                     $newFilename = uniqid().'.'.$media->guessExtension();
@@ -195,7 +248,6 @@ class TricksController extends AbstractController
                             $newFilename
                         );
                     } catch (FileException $e) {
-                        // ... handle exception if something happens during file upload
                     }
                     
                     $mime_type = mime_content_type('upload/'.$newFilename);
@@ -206,20 +258,43 @@ class TricksController extends AbstractController
                     $trick->setMedia($file);
                 }
             }
+            $mainImageGet = $form->get('mainImage')->getData();
+            // dd($mainImageGet);
+            if ($mainImageGet != null) {
+                // dd($mainImageGet);
+                $fileMainImage = [];
+                // dd($mainImageGet);              
+                $newFilenameMain = uniqid().'.'.$mainImageGet->guessExtension();
+                try {
+                    $mainImageGet->move(
+                        $this->getParameter('upload_directory'), $newFilenameMain
+                    );
+                } catch (FileException $e) {
+                }
+                $mime_typeMain = mime_content_type('upload/'.$newFilenameMain);
+                $testTypeMain = strtok($mime_typeMain, '/');
+                $addTypeNameMain = $testTypeMain . $newFilenameMain;
+                rename ("upload/" . $newFilenameMain, "upload/" . $addTypeNameMain );
+                array_push($fileMainImage, $addTypeNameMain);
+                $trick->setMainImage($fileMainImage);
+            }
+            $timeNow = new \DateTime('now');
+            $timeNow->add(new DateInterval('PT1H'));
+            $trick->setUpdateDate($timeNow);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
             $entityManager->flush();
             return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
-        $mainImage = $form->get('mainImage')->getData();
-        $binary = stream_get_contents($mainImage);
-        $mainImageEncode = base64_encode($binary);
-        dd($mainImage);
+        // $mainImage = $form->get('mainImage')->getData();
+        // $binary = stream_get_contents($mainImage);
+        // $mainImageEncode = base64_encode($binary);
+        // dd($mainImage);
 
         return $this->renderForm('tricks/edit.html.twig', [
             'trick' => $trick,
             'form' => $form,
-            'mainImageEncode' => $mainImageEncode
+            // 'mainImageEncode' => $mainImageEncode
         ]);
 
         // return $this->render('tricks/edit.html.twig', [

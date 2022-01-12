@@ -53,7 +53,7 @@ class TricksType extends AbstractType
             // ->add('author', )
             ->add('media', FileType::class, [
                 'multiple' => true,
-                'label'=>'rechercher un fichier:',
+                'label'=>'sélectionner un ou des fichier(s):',
                 'mapped' => false,
                 'required' => false,
                 'attr'=>[
@@ -73,8 +73,9 @@ class TricksType extends AbstractType
 
             ->add('mainImage', FileType::class, [
                 'multiple' => false,
-                'label'=>'rechercher une image:',
-                'data_class'=>null,
+                'label'=>'sélectionner une image principale:',
+                'required' => false,
+                'mapped' => false,
                 'attr'=>[
                     'class'=>'btn'
                 ],

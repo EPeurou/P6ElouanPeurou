@@ -36,24 +36,26 @@
         {{ form_start(form) }}
         <header>
             <div class="container-show">
-                {% set break = false %}
+                {# {% set break = false %}
                 {% for key,value in trick.media %}
-                    {% if break == false %}
-                        {% if trick.mainImage != null %}
-                            <img class="main-img-show" src="data:image/png;base64,{{mainImageEncode}}" class="card-img-top" alt="...">
-                        {% else  %}
-                            {% if 'image' in value %}
-                                <img class="main-img-show" src="{{ asset('upload/' ~ trick.media[0])}}" class="card-img-top" alt="...">
+                    {% if break == false %} #}
+                        {# {% if trick.mainImage != null %}
+                            <img class="main-img-show" src="{{ asset('upload/' ~ trick.mainImage[0])}}" class="card-img-top" alt="...">
+                        {% else  %} #}
+                            {% if trick.mainImage != null %}
+                                <img class="main-img-show" src="{{ asset('upload/' ~ trick.mainImage[0])}}" class="card-img-top" alt="...">
                             {% else %}
                                 <img class="main-img-show" src="{{ asset('assets/img/frontflip.jpg')}}" class="card-img-top" alt="...">
                             {% endif %}
-                        {% endif %}
-                    {% endif %}
+                        {# {% endif %} #}
+                    {# {% endif %}
                     {% set break = true %}
-                {% endfor %}
+                {% endfor %} #}
                 <div>
                     <div class="icon-show text-switch">
-                        <a href="" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
+                        {% if trick.mainImage != null %}
+                            <a href="" class="del-main-img" data-bs-toggle="modal" data-bs-target="#mainImageModalDel" style="margin-left:1em;color:white;"><i class="fas fa-trash-alt"></i></a>
+                        {% endif %}
                         <a href="" data-bs-toggle="modal" data-bs-target="#mainImageModal"  style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
                     </div>
                     <div class="centered-show">
@@ -91,10 +93,25 @@
                         {{ form_row(form.mainImage) }}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="ok-btn btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                        <button type="button" class="ok-main btn btn-secondary" data-bs-dismiss="modal">Ok</button>
                     </div>
                 </div>
-            </div>
+            </div> 
+        </div>
+        <div class="modal fade" id="mainImageModalDel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fas fa-2x fa-exclamation-triangle"></i><h5>Souhaitez vous vraiment supprimer l'image principale?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="ok-del-main-img btn btn-secondary" data-bs-dismiss="modal">Oui</button>
+                    </div>
+                </div>
+            </div> 
         </div>
         <!-- About-->
         <section class=" mt-5" id="tricks">
@@ -252,6 +269,13 @@
                     console.log("vide");
                 }
             });
+        $('.ok-main').click(function(){
+            fileValMain = $('#tricks_mainImage').prop('files');
+            console.log(fileValMain);
+            if(fileValMain.length > 0){
+                alert('les changements seront éffectué à la validation du formulaire');
+            }
+        });
         var testAjax = false;
         $('.delete-media-btn').click(function(){
             currentValDel = undefined;
@@ -278,6 +302,19 @@
                             console.log('Ajax crashed');
                         }
                     });
+                }
+            });
+        });
+        $('.ok-del-main-img ').click(function(){
+            $.ajax({
+                url: "{{ path('ajaxMainImage', {'id': trick.id}) }}",
+                type: 'POST',
+                success: function(r){
+                    {# console.log(r); #}
+                    location.reload();
+                },
+                error: function(){
+                    console.log('Ajax crashed');
                 }
             });
         });

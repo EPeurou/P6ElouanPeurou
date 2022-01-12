@@ -39,17 +39,21 @@
                         {% endif %}
                         <div class="col-sm-12 col-md-2 col-xl-2 mr-2">
                             <div class="card" style="width: 12rem;">
-                                {% set break = false %}
+                                {# {% set break = false %}
                                 {% for key,value in list.Media %}
-                                    {% if break == false %}
-                                        {% if 'image' in value and value != "" %}
-                                            <img src="{{ asset('upload/' ~ list.Media[0])}}" class="card-img-top" alt="...">
-                                        {% else %}
-                                            <img class="card-img-top" src="../public/assets/img/frontflip.jpg" class="card-img-top" alt="...">
-                                        {% endif %}
-                                    {% endif %}
+                                    {% if break == false %} #}
+                                        {# {% if list.mainImage != null %}
+                                            <img class="main-img-show" src="{{ asset('upload/' ~ list.mainImage[0])}}" class="card-img-top" alt="...">
+                                        {% else  %} #}
+                                            {% if list.mainImage != null %}
+                                                <img class="card-img-top" src="{{ asset('upload/' ~ list.mainImage[0])}}" alt="...">
+                                            {% else %}
+                                                <img class="card-img-top" src="../public/assets/img/frontflip.jpg" alt="...">
+                                            {% endif %}
+                                        {# {% endif %} #}
+                                    {# {% endif %}
                                     {% set break = true %}
-                                {% endfor %}
+                                {% endfor %} #}
                                 
                                 <div class="card-body">
                                     {# <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a> #}
@@ -60,12 +64,12 @@
                                         <div class="col-xl-3 col-md-3">
                                             <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': list.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
                                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ list.id) }}"/>
-                                                <button class="btn-del" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></button>
+                                                <button class="btn-del"><i class="fas fa-trash-alt"></i></button>
                                             </form>
                                         </div>
                                         <div class="col-xl-3 col-md-3">
                                             {# <a href="{{ path('tricks_delete', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a> #}
-                                            <a href="{{ path('tricks_edit', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="{{ path('tricks_edit', {id: list.id}) }}" style="margin-left:0em;"><i class="fas fa-pencil-alt"></i></a>
                                         </div>
                                     </div>
                                 </div>
