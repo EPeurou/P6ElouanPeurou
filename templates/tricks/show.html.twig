@@ -178,6 +178,7 @@
                                 </div>
                             </div>
                         {% endfor %}
+                        {{ trick.embedsingle|raw }}
                     </div>
                 </div>
             </div>
@@ -197,9 +198,11 @@
                 <div class="col-md-4 col-sm-4 col-xl-4">
                     <h6 class="btn ">Categorie: {{ trick.category }}</h6>
                 </div>
-                <div class="col-md-4 col-sm-4 col-xl-4">
-                    <h6 class="btn ">Modifié le: {{ trick.updateDate ? trick.updateDate|date('d-m-Y H:i:s') : '' }}</h6>
-                </div>
+                {% if trick.updateDate != null %}
+                    <div class="col-md-4 col-sm-4 col-xl-4">
+                        <h6 class="btn ">Modifié le: {{ trick.updateDate ? trick.updateDate|date('d-m-Y H:i:s') : '' }}</h6>
+                    </div>
+                {% endif %}
             </div>
         </section>
         <section class="text-center mt-3" style="padding-left:20em;padding-right:20em;">

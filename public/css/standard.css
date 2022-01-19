@@ -137,3 +137,10 @@
   background-color: transparent;
   border:none;
 }
+
+iframe {
+  max-height: 8em !important;
+  max-width: 11.9em !important;
+  margin-right: 2em;
+  position: relative !important;
+}

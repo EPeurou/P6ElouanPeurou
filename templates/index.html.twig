@@ -90,6 +90,36 @@
         </section>
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
+        {% for message in app.flashes('success') %}
+        <div class="modal fade" id="modalSuccess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Succès</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-8 col-md-8">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ message }}</h5>
+                            </div>
+                            <div class="col-xl-3 col-md-3">
+                            <i style="color:green;" class="far fa-3x fa-check-circle mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        $( document ).ready(function() {
+            $('#modalSuccess').modal('show')
+        });
+        </script>
+        {% endfor %}
         <script>
             $( ".row-more:lt(10)" ).css( "display", "block" );
             const list = document.querySelector(".grid");

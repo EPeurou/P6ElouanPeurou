@@ -157,9 +157,14 @@
                                 {# {{ form_row(form.mediaName,{value: value }) }} #}
                             {# {% endif %} #}
                         {% endfor %}
+                        {{ trick.embedsingle|raw }}
                     </div>
                 </div>
             </div>
+
+            {# <embed type="video/webm" src="https://www.dailymotion.com/embed/video/x1extfv" width="250" height="200">
+            <embed type="video/webm" src="https://www.youtube.com/embed/_OMar04NRZw" width="250" height="200"> #}
+            {# <iframe width="250" height="200" src="https://www.youtube.com/embed/_OMar04NRZw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> #}
         </section>
         <section class="text-center form-edit">
             <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Modification d'un trick</h2>
@@ -178,9 +183,19 @@
                     {{ form_row(form.category) }}
                 </div>
             </div>
+            <div class="row" style="padding-left:5em;padding-right:5em;">
+                <div class="col-sm-11 col-md-11 col-xl-11">
+                    {{ form_row(form.embedsingle) }}
+                </div>
+                <div class="col-sm-1 col-md-1 col-xl-1 mt-4">
+                    <a class="clear btn btn-primary" style="color:white;"><i class="fas fa-2x fa-trash-alt"></i></a>
+                </div>
+            </div>
             {# <div class="row mt-3 mb-5" style="padding-left:5em;padding-right:5em;">
                 <div class="col-sm-12 col-md-12 col-xl-12">
-                    {{ form_row(form.media) }}
+                {% for embedfield in form.embed %}
+                    {{ form_row(embedfield) }}
+                {% endfor %}
                 </div>
             </div> #}
             <div class="row mt-5" style="padding-left:5em;padding-right:5em;">
@@ -232,6 +247,9 @@
                     console.log("cassé:", index);
                 }
             });    
+        });
+        $('.clear').click(function(){
+            $('#tricks_embedsingle').val('');
         });
         var testAjaxEdit = false;
         $('.edit-media-btn').click(function(){

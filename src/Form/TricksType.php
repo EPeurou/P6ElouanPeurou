@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Tricks;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -40,6 +41,23 @@ class TricksType extends AbstractType
             ])
             ->add('name', TextType::class,[
                 'label'=>'Nom du trick',
+                'attr'=>[
+                    'class'=>'form-control'
+                ]
+            ])
+            // ->add('embed', CollectionType::class,[
+            //     'entry_type' => TextType::class,
+            //     'allow_add' => true,
+            //     'prototype' => true,
+            //     'allow_delete' => true,
+            //     'label'=>'Lien integré via youtube ou dailymotion',
+            //     'attr'=>[
+            //         'class'=>'form-control'
+            //     ]
+            // ])
+            ->add('embedsingle', TextAreaType::class,[
+                'label'=>'Lien integré via youtube ou dailymotion',
+                'required' => false,
                 'attr'=>[
                     'class'=>'form-control'
                 ]

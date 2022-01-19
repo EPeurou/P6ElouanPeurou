@@ -20,6 +20,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
+function string_between_two_string($str, $starting_word, $ending_word)
+{
+    $subtring_start = strpos($str, $starting_word);
+    $subtring_start += strlen($starting_word);  
+    $size = strpos($str, $ending_word, $subtring_start) - $subtring_start;  
+    return substr($str, $subtring_start, $size);  
+}
+
 /**
  * @Route("/tricks")
  */
@@ -104,6 +112,7 @@ class TricksController extends AbstractController
             $entityManager->persist($trick);
             try {
                 $entityManager->flush();
+                $this->addFlash('success', 'Le trick à été modifié/ajouté avec succès!');
             } catch (\Exception $e) {
                 $error = true;
                 return $this->renderForm('tricks/new.html.twig', [
@@ -278,14 +287,23 @@ class TricksController extends AbstractController
                 array_push($fileMainImage, $addTypeNameMain);
                 $trick->setMainImage($fileMainImage);
             }
+            $embed = $form->get('embedsingle')->getData();
+            if ($embed != null){
+                $str = $embed;
+                $substring = string_between_two_string($str, '<iframe', '</iframe>');
+                $trick->setEmbedsingle("<iframe".$substring."</iframe>");
+            }
+
             $timeNow = new \DateTime('now');
             $timeNow->add(new DateInterval('PT1H'));
             $trick->setUpdateDate($timeNow);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
             $entityManager->flush();
+            $this->addFlash('success', 'Le trick à été modifié/ajouté avec succès!');
             return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
+
         // $mainImage = $form->get('mainImage')->getData();
         // $binary = stream_get_contents($mainImage);
         // $mainImageEncode = base64_encode($binary);

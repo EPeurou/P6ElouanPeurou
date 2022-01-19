@@ -80,6 +80,16 @@ class Tricks
      */
     private $update_date;
 
+    // /**
+    //  * @ORM\Column(type="simple_array", nullable=true)
+    //  */
+    // private $embed = [];
+
+    /**
+     * @ORM\Column(type="string", length=1000, nullable=true)
+     */
+    private $embedsingle;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -240,6 +250,30 @@ class Tricks
     public function setUpdateDate(?\DateTimeInterface $update_date): self
     {
         $this->update_date = $update_date;
+
+        return $this;
+    }
+
+    // public function getEmbed(): ?array
+    // {
+    //     return $this->embed;
+    // }
+
+    // public function setEmbed(?array $embed): self
+    // {
+    //     $this->embed = $embed;
+
+    //     return $this;
+    // }
+
+    public function getEmbedsingle(): ?string
+    {
+        return $this->embedsingle;
+    }
+
+    public function setEmbedsingle(?string $embedsingle): self
+    {
+        $this->embedsingle = $embedsingle;
 
         return $this;
     }
