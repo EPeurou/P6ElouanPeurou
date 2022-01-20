@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Tricks;
 
 /**
  * @ORM\Entity(repositoryClass=CommentRepository::class)
@@ -33,7 +34,8 @@ class Comment
     private $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity=tricks::class, inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity=tricks::class, inversedBy="comments", cascade={"remove"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $trick;
 

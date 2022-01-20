@@ -51,9 +51,12 @@ class __TwigTemplate_edb2830da6b427e9dbb069391a5171e2cba18d81cea188ec97540c789c4
             <ul class=\"navbar-nav ms-auto\">
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_index");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("main");
         echo "\">Accueil</a></li>
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#projects\">Projects</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+        // line 11
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_new");
+        echo "\">Ajouter un trick</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
             </ul>
         </div>
@@ -79,7 +82,7 @@ class __TwigTemplate_edb2830da6b427e9dbb069391a5171e2cba18d81cea188ec97540c789c4
 
     public function getDebugInfo()
     {
-        return array (  54 => 10,  43 => 1,);
+        return array (  58 => 11,  54 => 10,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -93,8 +96,8 @@ class __TwigTemplate_edb2830da6b427e9dbb069391a5171e2cba18d81cea188ec97540c789c4
         <i class=\"fas fa-3x fa-snowboarding\" style=\"color:white;margin-left:0em;\"></i>
         <div class=\"collapse navbar-collapse\" style=\"margin-right:1em;\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ms-auto\">
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('tricks_index')}}\">Accueil</a></li>
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#projects\">Projects</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('main')}}\">Accueil</a></li>
+                <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('tricks_new') }}\">Ajouter un trick</a></li>
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
             </ul>
         </div>

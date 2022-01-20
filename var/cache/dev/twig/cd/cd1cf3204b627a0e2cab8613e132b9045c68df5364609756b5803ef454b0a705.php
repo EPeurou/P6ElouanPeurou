@@ -47,6 +47,7 @@ class __TwigTemplate_6f7135d3e82c07b310e3573a758f2c47fa5e020a0d6340eec6ad7ceeddc
     <meta name=\"author\" content=\"\" />
     <title>SnowTricks</title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
+    <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script>
     <script src=\"https://use.fontawesome.com/releases/v5.15.3/js/all.js\" crossorigin=\"anonymous\"></script>
     <link href=\"https://fonts.googleapis.com/css?family=Varela+Round\" rel=\"stylesheet\" />
     <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\" />
@@ -80,6 +81,7 @@ class __TwigTemplate_6f7135d3e82c07b310e3573a758f2c47fa5e020a0d6340eec6ad7ceeddc
     <meta name=\"author\" content=\"\" />
     <title>SnowTricks</title>
     <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />
+    <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script>
     <script src=\"https://use.fontawesome.com/releases/v5.15.3/js/all.js\" crossorigin=\"anonymous\"></script>
     <link href=\"https://fonts.googleapis.com/css?family=Varela+Round\" rel=\"stylesheet\" />
     <link href=\"https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i\" rel=\"stylesheet\" />

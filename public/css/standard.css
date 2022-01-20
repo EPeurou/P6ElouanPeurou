@@ -37,6 +37,15 @@
   transform: translate(-50%, -50%);
 }
 
+.icon-media {
+  border: 2px solid;
+  border-radius: 0.5em;
+  position: absolute;
+  top: 100%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+}
+
 .main-img-show {
     width: 90%;
     height: 35em;
@@ -92,11 +101,20 @@
   margin-top: 10em;
   padding-left:10em;
   padding-right:10em;
-  background-color: rgba(51, 51, 51, 0.2);;
+  background-color: rgba(51, 51, 51, 0.2);
   border: 1px solid;
   border-color: rgb(219, 219, 219);
   border-radius: 1em;
   color: white;
+}
+
+.form-edit {
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-bottom: 2em;
+  margin-top: 10em;
+  padding-left:10em;
+  padding-right:10em;
 }
 
 .body-new {
@@ -106,4 +124,23 @@
 
 #mainNav {
   background-color: #1fc4f7 !important;
+}
+
+.btn-del{
+  color: #64a19d;
+  background-color: transparent;
+  border:none;
+}
+
+.btn-del-2{
+  color: white;
+  background-color: transparent;
+  border:none;
+}
+
+iframe {
+  max-height: 8em !important;
+  max-width: 11.9em !important;
+  margin-right: 2em;
+  position: relative !important;
 }
