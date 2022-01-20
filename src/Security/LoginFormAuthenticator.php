@@ -51,7 +51,9 @@ class LoginFormAuthenticator extends AbstractAuthenticator
                 return $user;
             }),
             new CustomCredentials(function($credentials, User $user) {
-                return $credentials === 'tada';
+                
+                $getPassword = $user->getPassword();
+                return password_verify($credentials, $getPassword);
             }, $password)
         );
     }
