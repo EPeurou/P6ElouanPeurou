@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 /**
  * @Route("/user")
@@ -29,7 +31,7 @@ class UserController extends AbstractController
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(MailerInterface $mailer, Request $request): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -39,17 +41,40 @@ class UserController extends AbstractController
             $password = $form->get('password')->getData();
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             $user->setPassword($passwordHash);
-            
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('main', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user/register.html.twig', [
             'user' => $user,
             'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/emailCheck", name="emailCheck", methods={"GET","POST"})
+     */
+    public function emailCheck(MailerInterface $mailer, Request $request): Response
+    {
+        $getEmail = $request->request->get('email');
+        $success = false;
+        if($getEmail){
+            $email = (new Email())
+                ->from('contact.peurou@gmail.com')
+                ->to($getEmail)
+                ->subject('Inscription Snowtricks')
+                ->html('<h4>Vous souhaitez vous inscrire sur Snowtricks?</h4><a href="http://127.0.0.1/P6ElouanPeurou/P6ElouanPeurou/public/user/new">Cliqué ici!</a> ');
+
+            $mailer->send($email);
+            $success = true;
+        }
+
+        return $this->render('user/email.html.twig',[
+            'success'=>$success
         ]);
     }
 

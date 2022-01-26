@@ -15,8 +15,15 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/comment' => [[['_route' => 'comment_index', '_controller' => 'App\\Controller\\CommentController::index'], null, ['GET' => 0], null, true, false, null]],
         '/comment/new' => [[['_route' => 'comment_new', '_controller' => 'App\\Controller\\CommentController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/reset' => [[['_route' => 'reset', '_controller' => 'App\\Controller\\ResetController::resetPassword'], null, ['GET' => 0, 'POST' => 1], null, true, false, null]],
+        '/reset/resetemail' => [[['_route' => 'resetemail', '_controller' => 'App\\Controller\\ResetController::resetemail'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
+        '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/tricks' => [[['_route' => 'tricks_index', '_controller' => 'App\\Controller\\TricksController::index'], null, ['GET' => 0], null, true, false, null]],
         '/tricks/new' => [[['_route' => 'tricks_new', '_controller' => 'App\\Controller\\TricksController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/user' => [[['_route' => 'user_index', '_controller' => 'App\\Controller\\UserController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/user/new' => [[['_route' => 'user_new', '_controller' => 'App\\Controller\\UserController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/user/emailCheck' => [[['_route' => 'emailCheck', '_controller' => 'App\\Controller\\UserController::emailCheck'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/' => [
             [['_route' => 'main', '_controller' => 'App\\Controller\\homeController::homepage'], null, null, null, false, false, null],
             [['_route' => 'index', '_controller' => 'App\\Controller\\homeController::homepage'], null, null, null, false, false, null],
@@ -47,12 +54,18 @@ return [
                 .'|/tricks/([^/]++)(?'
                     .'|(*:237)'
                     .'|/(?'
-                        .'|ajaxsupprmedia(*:263)'
-                        .'|edit(*:275)'
+                        .'|ajaxsupprm(?'
+                            .'|ainimage(*:270)'
+                            .'|edia(*:282)'
+                        .')'
+                        .'|edit(*:295)'
                     .')'
-                    .'|(*:284)'
+                    .'|(*:304)'
                 .')'
-                .'|/js/routing(?:\\.(js|json))?(*:320)'
+                .'|/user/([^/]++)(?'
+                    .'|(*:330)'
+                .')'
+                .'|/js/routing(?:\\.(js|json))?(*:366)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -67,10 +80,15 @@ return [
         201 => [[['_route' => 'comment_edit', '_controller' => 'App\\Controller\\CommentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         209 => [[['_route' => 'comment_delete', '_controller' => 'App\\Controller\\CommentController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
         237 => [[['_route' => 'tricks_show', '_controller' => 'App\\Controller\\TricksController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        263 => [[['_route' => 'ajax', '_controller' => 'App\\Controller\\TricksController::ajaxSupprMedia'], ['id'], null, null, false, false, null]],
-        275 => [[['_route' => 'tricks_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        284 => [[['_route' => 'tricks_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        320 => [
+        270 => [[['_route' => 'ajaxMainImage', '_controller' => 'App\\Controller\\TricksController::ajaxSupprMainImage'], ['id'], null, null, false, false, null]],
+        282 => [[['_route' => 'ajax', '_controller' => 'App\\Controller\\TricksController::ajaxSupprMedia'], ['id'], null, null, false, false, null]],
+        295 => [[['_route' => 'tricks_edit', '_controller' => 'App\\Controller\\TricksController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        304 => [[['_route' => 'tricks_delete', '_controller' => 'App\\Controller\\TricksController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        330 => [
+            [['_route' => 'user_show', '_controller' => 'App\\Controller\\UserController::show'], ['id'], ['GET' => 0], null, false, true, null],
+            [['_route' => 'user_delete', '_controller' => 'App\\Controller\\UserController::delete'], ['id'], ['POST' => 0], null, false, true, null],
+        ],
+        366 => [
             [['_route' => 'fos_js_routing_js', '_controller' => 'fos_js_routing.controller::indexAction', '_format' => 'js'], ['_format'], ['GET' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

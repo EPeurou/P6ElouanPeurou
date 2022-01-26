@@ -20,8 +20,8 @@ use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 
 class LoginFormAuthenticator extends AbstractAuthenticator
 {
-    private UserRepository $userRepository;
-    private RouterInterface $router;
+    // private UserRepository $userRepository;
+    // private RouterInterface $router;
 
     public function __construct(UserRepository $userRepository, RouterInterface $router)
     {

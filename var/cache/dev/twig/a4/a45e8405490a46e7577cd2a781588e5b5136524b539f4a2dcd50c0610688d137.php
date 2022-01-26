@@ -66,87 +66,102 @@ class __TwigTemplate_33a024be0cf448309a3a1c553a04cad8799156e99811e2c006948477eec
         <header>
             <div class=\"container-show\">
                 ";
-        // line 120
-        $context["break"] = false;
-        // line 121
-        echo "                ";
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 121, $this->source); })()), "media", [], "any", false, false, false, 121));
-        foreach ($context['_seq'] as $context["key"] => $context["value"]) {
-            // line 122
-            echo "                    ";
-            if ((0 === twig_compare((isset($context["break"]) || array_key_exists("break", $context) ? $context["break"] : (function () { throw new RuntimeError('Variable "break" does not exist.', 122, $this->source); })()), false))) {
-                // line 123
-                echo "                        ";
-                if (twig_in_filter("image", $context["value"])) {
-                    // line 124
-                    echo "                            <img class=\"main-img-show\" src=\"";
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 124, $this->source); })()), "media", [], "any", false, false, false, 124), 0, [], "array", false, false, false, 124))), "html", null, true);
-                    echo "\" class=\"card-img-top\" alt=\"...\">
+        // line 122
+        echo "                    ";
+        // line 123
+        echo "                        ";
+        if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 123, $this->source); })()), "mainImage", [], "any", false, false, false, 123), null))) {
+            // line 124
+            echo "                            <img class=\"main-img-show\" src=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 124, $this->source); })()), "mainImage", [], "any", false, false, false, 124), 0, [], "array", false, false, false, 124))), "html", null, true);
+            echo "\" class=\"card-img-top\" alt=\"...\">
                         ";
-                } else {
-                    // line 126
-                    echo "                            <img class=\"main-img-show\" src=\"../../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
+        } else {
+            // line 126
+            echo "                            <img class=\"main-img-show\" src=\"../../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
                         ";
-                }
-                // line 128
-                echo "                    ";
-            }
-            // line 129
-            echo "                    ";
-            $context["break"] = true;
-            // line 130
-            echo "                ";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 128
+        echo "                    ";
         // line 131
         echo "                <div>
-                    <div class=\"icon-show text-switch\">
-                        <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                        <a href=\"\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                    <div class=\"row icon-show text-switch\">
+                        <div class=\"col-xl-5 col-md-5\">
+                            <form method=\"post\" style=\"max-width:1em;\" action=\"";
+        // line 134
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 134, $this->source); })()), "id", [], "any", false, false, false, 134)]), "html", null, true);
+        echo "\" onsubmit=\"return confirm('Le trick va être supprimé');\">
+                                <input type=\"hidden\" name=\"_token\" value=\"";
+        // line 135
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 135, $this->source); })()), "id", [], "any", false, false, false, 135))), "html", null, true);
+        echo "\"/>
+                                <button class=\"btn-del-2\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></button>
+                            </form>
+                        </div>
+                        <div class=\"col-xl-3 col-md-3 \">
+                            <a href=\"";
+        // line 140
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 140, $this->source); })()), "id", [], "any", false, false, false, 140)]), "html", null, true);
+        echo "\" style=\"margin-right:1em;margin-left:0.5em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        </div>
                     </div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">";
-        // line 137
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 137, $this->source); })()), "name", [], "any", false, false, false, 137), "html", null, true);
+        // line 144
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 144, $this->source); })()), "name", [], "any", false, false, false, 144), "html", null, true);
         echo "</h1>
                     </div>
                 </div>
             </div>
         </header>
+        <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+            <div class=\"modal-dialog\" style=\"width:650px !important;max-width:none !important;\">
+                <div class=\"modal-content\">
+                    <div class=\"modal-body\">
+                        <img class=\"card-img-top inModal\" src=\"\" class=\"card-img-top\" alt=\"...\" style=\"width:100%\">
+                    </div>
+                    <div class=\"modal-footer\">
+                        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- About-->
         <section class=\" mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
                 <div style=\"overflow: auto !important\">
                     <div class=\"row-show mb-4 mb-lg-5 align-items-center horizontal-scrollable\">
                         ";
-        // line 147
+        // line 166
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 147, $this->source); })()), "media", [], "any", false, false, false, 147));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 166, $this->source); })()), "media", [], "any", false, false, false, 166));
         foreach ($context['_seq'] as $context["key"] => $context["value"]) {
-            // line 148
+            // line 167
             echo "                            <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2 mycol\">
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
                                         ";
-            // line 151
+            // line 170
             if (twig_in_filter("image", $context["value"])) {
-                // line 152
-                echo "                                            <img class=\"card-img-top\" src=\"";
+                // line 171
+                echo "                                            <a href=\"\" class=\"a-img\" id=\"0\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" data-img=\"";
+                echo twig_escape_filter($this->env, $context["value"], "html", null, true);
+                echo "\">
+                                                <img class=\"card-img-top\" src=\"";
+                // line 172
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+                                            </a>
                                         ";
-            } elseif (twig_in_filter("video",             // line 153
+            } elseif (twig_in_filter("video",             // line 174
 $context["value"])) {
-                // line 154
+                // line 175
                 echo "                                            <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . $context["value"])), "html", null, true);
                 echo "\"></video>
                                         ";
             }
-            // line 156
+            // line 177
             echo "                                    </div>
                                 </div>
                             </div>
@@ -155,8 +170,11 @@ $context["value"])) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 160
-        echo "                    </div>
+        // line 181
+        echo "                        ";
+        echo twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 181, $this->source); })()), "embedsingle", [], "any", false, false, false, 181);
+        echo "
+                    </div>
                 </div>
             </div>
         </section>
@@ -164,8 +182,8 @@ $context["value"])) {
             <div class=\"container des-show px-4 px-lg-5\">
                 <div class=\"text-center\">
                     <h5>";
-        // line 167
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 167, $this->source); })()), "description", [], "any", false, false, false, 167), "html", null, true);
+        // line 189
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 189, $this->source); })()), "description", [], "any", false, false, false, 189), "html", null, true);
         echo "</h5>
                 </div>
             </div>
@@ -174,53 +192,70 @@ $context["value"])) {
             <div class=\"row\" style=\"border-bottom: 2px solid black\">
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
                     <h6 class=\"btn \">Date de création: ";
-        // line 174
-        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 174, $this->source); })()), "creationDate", [], "any", false, false, false, 174)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 174, $this->source); })()), "creationDate", [], "any", false, false, false, 174), "d-m-Y H:i:s"), "html", null, true))) : (print ("")));
+        // line 196
+        ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 196, $this->source); })()), "creationDate", [], "any", false, false, false, 196)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 196, $this->source); })()), "creationDate", [], "any", false, false, false, 196), "d-m-Y H:i:s"), "html", null, true))) : (print ("")));
         echo "</h6>
                 </div>
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
                     <h6 class=\"btn \">Categorie: ";
-        // line 177
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 177, $this->source); })()), "category", [], "any", false, false, false, 177), "html", null, true);
+        // line 199
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 199, $this->source); })()), "category", [], "any", false, false, false, 199), "html", null, true);
         echo "</h6>
                 </div>
-                <div class=\"col-md-4 col-sm-4 col-xl-4\">
-                    <h6 class=\"btn \">Modifié le: </h6>
-                </div>
-            </div>
-        </section>
-        <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
-            ";
-        // line 185
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 185, $this->source); })()), 'form_start');
-        echo "
-                <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
-                    <div class=\"col-sm-8 col-md-8 col-xl-8\">
-                        ";
-        // line 188
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 188, $this->source); })()), "content", [], "any", false, false, false, 188), 'row');
-        echo "
+                ";
+        // line 201
+        if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 201, $this->source); })()), "updateDate", [], "any", false, false, false, 201), null))) {
+            // line 202
+            echo "                    <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                        <h6 class=\"btn \">Modifié le: ";
+            // line 203
+            ((twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 203, $this->source); })()), "updateDate", [], "any", false, false, false, 203)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 203, $this->source); })()), "updateDate", [], "any", false, false, false, 203), "d-m-Y H:i:s"), "html", null, true))) : (print ("")));
+            echo "</h6>
                     </div>
-                    <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
-                        ";
-        // line 191
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 191, $this->source); })()), "envoyer", [], "any", false, false, false, 191), 'row');
-        echo "
-                    </div>
-                </div>
-            ";
-        // line 194
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 194, $this->source); })()), 'form_end');
-        echo "
+                ";
+        }
+        // line 206
+        echo "            </div>
         </section>
-        <section class=\"text-center mt-5 grid\" style=\"padding-left:20em;padding-right:20em;\">
+        ";
+        // line 208
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 209
+            echo "            <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
+                ";
+            // line 210
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 210, $this->source); })()), 'form_start');
+            echo "
+                    <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
+                        <div class=\"col-sm-8 col-md-8 col-xl-8\">
+                            ";
+            // line 213
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 213, $this->source); })()), "content", [], "any", false, false, false, 213), 'row');
+            echo "
+                        </div>
+                        <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
+                            ";
+            // line 216
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 216, $this->source); })()), "envoyer", [], "any", false, false, false, 216), 'row');
+            echo "
+                        </div>
+                    </div>
+                ";
+            // line 219
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentForm"]) || array_key_exists("commentForm", $context) ? $context["commentForm"] : (function () { throw new RuntimeError('Variable "commentForm" does not exist.', 219, $this->source); })()), 'form_end');
+            echo "
+            </section>
+        ";
+        }
+        // line 222
+        echo "        <section class=\"text-center mt-5 grid\" style=\"padding-left:20em;padding-right:20em;\">
             ";
-        // line 197
+        // line 223
         $context["commentVar"] = false;
-        // line 198
+        // line 224
         echo "            ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 198, $this->source); })()), "comments", [], "any", false, false, false, 198));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["trick"]) || array_key_exists("trick", $context) ? $context["trick"] : (function () { throw new RuntimeError('Variable "trick" does not exist.', 224, $this->source); })()), "comments", [], "any", false, false, false, 224));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -235,16 +270,16 @@ $context["value"])) {
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 199
+            // line 225
             echo "                ";
-            if ((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 199) % 5)) {
-                // line 200
+            if ((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 225) % 5)) {
+                // line 226
                 echo "                    ";
                 $context["commentVar"] = true;
-                // line 201
+                // line 227
                 echo "                ";
             }
-            // line 202
+            // line 228
             echo "                <div class=\"row-more\">
                     <div class=\"row\">
                         <div class=\"col-md-2 col-sm-2 col-xl-2 mb-3\">
@@ -253,8 +288,8 @@ $context["value"])) {
                         <div class=\"col-md-8 col-sm-8 col-xl-8 mt-3\">
                             <div class=\"container px-4 px-lg-5\" style=\"background-color: rgb(245, 245, 245);border-radius: 0.2em;\">
                                 <h5>";
-            // line 209
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", [], "any", false, false, false, 209), "html", null, true);
+            // line 235
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", [], "any", false, false, false, 235), "html", null, true);
             echo "</h5>
                             </div>
                         </div>
@@ -273,19 +308,28 @@ $context["value"])) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 215
+        // line 241
         echo "            ";
-        if ((0 === twig_compare((isset($context["commentVar"]) || array_key_exists("commentVar", $context) ? $context["commentVar"] : (function () { throw new RuntimeError('Variable "commentVar" does not exist.', 215, $this->source); })()), true))) {
-            // line 216
+        if ((0 === twig_compare((isset($context["commentVar"]) || array_key_exists("commentVar", $context) ? $context["commentVar"] : (function () { throw new RuntimeError('Variable "commentVar" does not exist.', 241, $this->source); })()), true))) {
+            // line 242
             echo "                <button class=\"btn btn-primary ajax-load-more mb-5\">Charger plus</button>
             ";
         }
-        // line 218
+        // line 244
         echo "        </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
         <!-- Bootstrap core JS-->
         <script>
+            \$( document ).ready(function() {
+                ";
+        // line 266
+        echo "            });
+            \$(\".a-img\").click(function(){
+                console.log(\"yep\");
+                let valImg = \$(this).attr('data-img');
+                \$(\".inModal\").attr('src','/P6ElouanPeurou/P6ElouanPeurou/public/upload/'+ valImg);
+            });   
             \$( \".row-more:lt(4)\" ).css( \"display\", \"block\" );
             const list = document.querySelector(\".grid\");
             const listItems = list.querySelectorAll(\".row-more\");
@@ -363,7 +407,7 @@ $context["value"])) {
 
     public function getDebugInfo()
     {
-        return array (  345 => 116,  342 => 115,  332 => 114,  284 => 218,  280 => 216,  277 => 215,  257 => 209,  248 => 202,  245 => 201,  242 => 200,  239 => 199,  221 => 198,  219 => 197,  213 => 194,  207 => 191,  201 => 188,  195 => 185,  184 => 177,  178 => 174,  168 => 167,  159 => 160,  150 => 156,  144 => 154,  142 => 153,  137 => 152,  135 => 151,  130 => 148,  126 => 147,  113 => 137,  105 => 131,  99 => 130,  96 => 129,  93 => 128,  89 => 126,  83 => 124,  80 => 123,  77 => 122,  72 => 121,  70 => 120,  65 => 117,  63 => 114,  44 => 97,);
+        return array (  389 => 116,  386 => 115,  376 => 114,  327 => 266,  319 => 244,  315 => 242,  312 => 241,  292 => 235,  283 => 228,  280 => 227,  277 => 226,  274 => 225,  256 => 224,  254 => 223,  251 => 222,  245 => 219,  239 => 216,  233 => 213,  227 => 210,  224 => 209,  222 => 208,  218 => 206,  212 => 203,  209 => 202,  207 => 201,  202 => 199,  196 => 196,  186 => 189,  174 => 181,  165 => 177,  159 => 175,  157 => 174,  152 => 172,  147 => 171,  145 => 170,  140 => 167,  136 => 166,  111 => 144,  104 => 140,  96 => 135,  92 => 134,  87 => 131,  85 => 128,  81 => 126,  75 => 124,  72 => 123,  70 => 122,  65 => 117,  63 => 114,  44 => 97,);
     }
 
     public function getSourceContext()
@@ -487,21 +531,28 @@ $context["value"])) {
         <!-- Masthead-->
         <header>
             <div class=\"container-show\">
-                {% set break = false %}
-                {% for key,value in trick.media %}
-                    {% if break == false %}
-                        {% if 'image' in value %}
-                            <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ trick.media[0])}}\" class=\"card-img-top\" alt=\"...\">
+                {# {% set break = false %}
+                {% for key,value in trick.media %} #}
+                    {# {% if break == false %} #}
+                        {% if trick.mainImage != null %}
+                            <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ trick.mainImage[0])}}\" class=\"card-img-top\" alt=\"...\">
                         {% else %}
                             <img class=\"main-img-show\" src=\"../../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
                         {% endif %}
-                    {% endif %}
+                    {# {% endif %}
                     {% set break = true %}
-                {% endfor %}
+                {% endfor %} #}
                 <div>
-                    <div class=\"icon-show text-switch\">
-                        <a href=\"\" style=\"margin-left:1em;color:white;\"><i class=\"fas fa-trash-alt\"></i></a>
-                        <a href=\"\" style=\"margin-right:1em;margin-left:1em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                    <div class=\"row icon-show text-switch\">
+                        <div class=\"col-xl-5 col-md-5\">
+                            <form method=\"post\" style=\"max-width:1em;\" action=\"{{ path('tricks_delete', {'id': trick.id}) }}\" onsubmit=\"return confirm('Le trick va être supprimé');\">
+                                <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ trick.id) }}\"/>
+                                <button class=\"btn-del-2\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></button>
+                            </form>
+                        </div>
+                        <div class=\"col-xl-3 col-md-3 \">
+                            <a href=\"{{ path('tricks_edit', {id: trick.id}) }}\" style=\"margin-right:1em;margin-left:0.5em;color:white;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                        </div>
                     </div>
                     <div class=\"centered-show\">
                         <h1 class=\"mx-auto my-0 text-uppercase text-switch\">{{ trick.name }}</h1>
@@ -509,6 +560,18 @@ $context["value"])) {
                 </div>
             </div>
         </header>
+        <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+            <div class=\"modal-dialog\" style=\"width:650px !important;max-width:none !important;\">
+                <div class=\"modal-content\">
+                    <div class=\"modal-body\">
+                        <img class=\"card-img-top inModal\" src=\"\" class=\"card-img-top\" alt=\"...\" style=\"width:100%\">
+                    </div>
+                    <div class=\"modal-footer\">
+                        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- About-->
         <section class=\" mt-5\" id=\"tricks\">
             <div class=\"container px-4 px-lg-5\">
@@ -519,7 +582,9 @@ $context["value"])) {
                                 <div class=\"card\" style=\"width:12rem;border:none;\">
                                     <div style=\"margin-right:1em;\">
                                         {% if 'image' in value %}
-                                            <img class=\"card-img-top\" src=\"{{ asset('upload/' ~ value)}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+                                            <a href=\"\" class=\"a-img\" id=\"0\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\" data-img=\"{{ value }}\">
+                                                <img class=\"card-img-top\" src=\"{{ asset('upload/' ~ value)}}\" class=\"card-img-top\" alt=\"...\" style=\"width:11.9em;height:8em;\">
+                                            </a>
                                         {% elseif 'video' in value %}
                                             <video controls class=\"card-img-top\" style=\"width:11.9em;height:9.3em;padding:0em;margin-top:2em !important;\"><source src=\"{{ asset('upload/' ~ value)}}\"></video>
                                         {% endif %}
@@ -527,6 +592,7 @@ $context["value"])) {
                                 </div>
                             </div>
                         {% endfor %}
+                        {{ trick.embedsingle|raw }}
                     </div>
                 </div>
             </div>
@@ -546,23 +612,27 @@ $context["value"])) {
                 <div class=\"col-md-4 col-sm-4 col-xl-4\">
                     <h6 class=\"btn \">Categorie: {{ trick.category }}</h6>
                 </div>
-                <div class=\"col-md-4 col-sm-4 col-xl-4\">
-                    <h6 class=\"btn \">Modifié le: </h6>
-                </div>
+                {% if trick.updateDate != null %}
+                    <div class=\"col-md-4 col-sm-4 col-xl-4\">
+                        <h6 class=\"btn \">Modifié le: {{ trick.updateDate ? trick.updateDate|date('d-m-Y H:i:s') : '' }}</h6>
+                    </div>
+                {% endif %}
             </div>
         </section>
-        <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
-            {{ form_start(commentForm) }}
-                <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
-                    <div class=\"col-sm-8 col-md-8 col-xl-8\">
-                        {{ form_row(commentForm.content) }}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <section class=\"text-center mt-3\" style=\"padding-left:20em;padding-right:20em;\">
+                {{ form_start(commentForm) }}
+                    <div class=\"row\" style=\"border-bottom: 2px solid black;padding-left:10em;padding-right:20em;\">
+                        <div class=\"col-sm-8 col-md-8 col-xl-8\">
+                            {{ form_row(commentForm.content) }}
+                        </div>
+                        <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
+                            {{ form_row(commentForm.envoyer) }}
+                        </div>
                     </div>
-                    <div class=\"col-sm-2 col-md-2 col-xl-2 mt-4 mb-5\">
-                        {{ form_row(commentForm.envoyer) }}
-                    </div>
-                </div>
-            {{ form_end(commentForm) }}
-        </section>
+                {{ form_end(commentForm) }}
+            </section>
+        {% endif %}
         <section class=\"text-center mt-5 grid\" style=\"padding-left:20em;padding-right:20em;\">
             {% set commentVar = false %}
             {% for comment in trick.comments %}
@@ -590,6 +660,29 @@ $context["value"])) {
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
         <!-- Bootstrap core JS-->
         <script>
+            \$( document ).ready(function() {
+                {# \$( \".a-img\" ).each(function( index ) {
+                    let testId = \$(this).attr('id');
+                    if(testId == 0){
+                        \$(this).attr('id', index);
+                    } else {
+                        console.log(\"cassé:\", index);
+                    }
+                });
+                \$( \".modal\" ).each(function( index ) {
+                    let testId = \$(this).attr('id');
+                    if(testId == 0){
+                        \$(this).attr('id', index);
+                    } else {
+                        console.log(\"cassé:\", index);
+                    }
+                }); #}
+            });
+            \$(\".a-img\").click(function(){
+                console.log(\"yep\");
+                let valImg = \$(this).attr('data-img');
+                \$(\".inModal\").attr('src','/P6ElouanPeurou/P6ElouanPeurou/public/upload/'+ valImg);
+            });   
             \$( \".row-more:lt(4)\" ).css( \"display\", \"block\" );
             const list = document.querySelector(\".grid\");
             const listItems = list.querySelectorAll(\".row-more\");
