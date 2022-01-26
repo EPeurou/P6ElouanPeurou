@@ -198,7 +198,7 @@
                 <div class="col-md-4 col-sm-4 col-xl-4">
                     <h6 class="btn ">Categorie: {{ trick.category }}</h6>
                 </div>
-                {% if trick.updateDate != null %}
+                {% if trick.updateDate != null %} 
                     <div class="col-md-4 col-sm-4 col-xl-4">
                         <h6 class="btn ">Modifié le: {{ trick.updateDate ? trick.updateDate|date('d-m-Y H:i:s') : '' }}</h6>
                     </div>
@@ -211,6 +211,9 @@
                     <div class="row" style="border-bottom: 2px solid black;padding-left:10em;padding-right:20em;">
                         <div class="col-sm-8 col-md-8 col-xl-8">
                             {{ form_row(commentForm.content) }}
+                            {# {{ form_row(commentForm.author) }} #}
+                            {# {{ app.user.username }} #}
+                            {{ form_widget(commentForm.author, {'attr': {'value': app.user.username}}) }}
                         </div>
                         <div class="col-sm-2 col-md-2 col-xl-2 mt-4 mb-5">
                             {{ form_row(commentForm.envoyer) }}
@@ -227,10 +230,12 @@
                 {% endif %}
                 <div class="row-more">
                     <div class="row">
-                        <div class="col-md-2 col-sm-2 col-xl-2 mb-3">
-                            <i class="fas fa-3x fa-user-circle"></i>
+                        <div class="col-md-4 col-sm-3 col-xl-4 mt-0">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="be-ava-comment">
+                            <p>{{comment.author}}</p>
                         </div>
-                        <div class="col-md-8 col-sm-8 col-xl-8 mt-3">
+                        <div class="col-md-8 col-sm-8 col-xl-8" style="margin-top:1.7em;">
+                            <p style="text-align:left;">{{ comment.creationDate ? comment.creationDate|date('d-m-Y H:i:s') : '' }}</p>
                             <div class="container px-4 px-lg-5" style="background-color: rgb(245, 245, 245);border-radius: 0.2em;">
                                 <h5>{{ comment.content }}</h5>
                             </div>
@@ -269,12 +274,12 @@
                 let valImg = $(this).attr('data-img');
                 $(".inModal").attr('src','/P6ElouanPeurou/P6ElouanPeurou/public/upload/'+ valImg);
             });   
-            $( ".row-more:lt(4)" ).css( "display", "block" );
+            $( ".row-more:lt(10)" ).css( "display", "block" );
             const list = document.querySelector(".grid");
             const listItems = list.querySelectorAll(".row-more");
             const ajaxLoadMoreBtn = document.querySelector(".ajax-load-more");
 
-            let k = 4;
+            let k = 5;
             let j = 10;
 
             ajaxLoadMoreBtn.addEventListener("click", function () {

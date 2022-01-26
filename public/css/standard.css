@@ -176,3 +176,9 @@ iframe {
   margin-right: 2em;
   position: relative !important;
 }
+
+.be-ava-comment {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
