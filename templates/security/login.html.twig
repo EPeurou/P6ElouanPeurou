@@ -50,7 +50,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/standard.css" rel="stylesheet" />
 </head>
-    <body class="body-new">
+    <body class="body-login">
         {% block navbar %}
             {% include "navbar.html.twig" %}
         {% endblock %}
@@ -61,27 +61,26 @@
                 {% if error %}
                     <input type="hidden" id="inputHiddenError" value="{{ error.messageKey }}">
                 {% endif %}
-                <div class="row">
-                    <div class="login-form bg-light mt-4 p-4">
-                        <form method="post" class="row g-3">
-                            <div class="col-12">
-                                <label for="inputEmail">Nom D'utilisateur</label>
-                                <input type="text" name="userName" id="userName" class="form-control" required autofocus>
-                            </div>
-                            <div class="col-12">
-                                <label for="inputPassword">Mot de passe</label>
-                                <input type="password" name="password" id="inputPassword" class="form-control" required>
-                                <a href="{{ path('resetemail') }}">Mot de passe oublié</a>
-                            </div>
-
-                            <div class="col-12">
-                                <button class="btn btn-lg btn-primary float-end" type="submit">
-                                    Sign in
-                                </button>
-                            </div>
-                        </form>
+                <form method="post" class="row g-3">
+                    <div class="row">
+                        <div class="offset-3 col-sm-12 col-md-6 col-xl-6">
+                            <label for="inputEmail">Nom d'utilisateur</label>
+                            <input type="text" name="userName" id="userName" class="form-control" required autofocus>
+                        </div>
                     </div>
-                </div>
+                    <div class="row mt-3">
+                        <div class="offset-3 col-sm-12 col-md-6 col-xl-6">
+                            <label for="inputPassword">Mot de passe</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" required>
+                            <a href="{{ path('resetemail') }}" style="color:white;">Mot de passe oublié</a>
+                        </div>
+                    </div>
+                    <div class="row mt-3 mb-3">
+                        <div class="offset-3 col-sm-12 col-md-6 col-xl-6">
+                            <button class="btn btn-lg btn-primary" type="submit">Valider</button>
+                        </div>
+                    </div>
+                </form>
             </section>
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>

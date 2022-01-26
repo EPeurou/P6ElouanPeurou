@@ -42,7 +42,7 @@
     <link href="../css/styles.css" rel="stylesheet" />
     <link href="../css/standard.css" rel="stylesheet" />
 </head>
-    <body class="body-new">
+    <body class="body-email">
         {% block navbar %}
             {% include "navbar.html.twig" %}
         {% endblock %}
@@ -51,15 +51,15 @@
         {% if success == true %}
             <input type="hidden" id="inputHiddenError" value="{{ success }}">
         {% endif %}
-            <section class="text-center form-new">
+            <section class="text-center form-email">
                 <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Vérification Email</h2>
                 <form method="post" class="row g-3">
-                    <div class="col-12">
+                    <div class="offset-md-3 offset-xl-3 col-sm-12 col-md-6 col-xl-6">
                         <label for="Email">Email</label>
                         <input type="email" name="email" id="email" class="form-control" required autofocus>
                     </div>
-                    <div class="col-12">
-                        <button class="btn btn-lg btn-primary float-end" type="submit">
+                    <div class="offset-md-3 offset-xl-3 col-sm-12 col-md-6 col-xl-6">
+                        <button class="btn btn-lg btn-primary mb-3" type="submit">
                             Vérifier
                         </button>
                     </div>

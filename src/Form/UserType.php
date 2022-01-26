@@ -6,7 +6,10 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,12 +18,16 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('email', EmailType::class,[
+                'attr'=>[
+                    'class'=>'form-control'
+                ]
+            ])
             ->add('roles', CollectionType::class, [
                 'entry_type'   => ChoiceType::class,
                 'entry_options'  => [
                     'label' => false,
-                    'choices' => [
+                    'choices' => [ 
                         'User' => 'ROLE_USER',
                     ],
                     'attr'=>[
@@ -28,8 +35,16 @@ class UserType extends AbstractType
                     ]
                 ],
             ])
-            ->add('userName')
-            ->add('password')
+            ->add('userName', TextType::class,[
+                'attr'=>[
+                    'class'=>'form-control'
+                ]
+            ])
+            ->add('password', PasswordType::class,[
+                'attr'=>[
+                    'class'=>'form-control'
+                ]
+            ])
             ->add('valider', SubmitType::class,[
                 'attr'=>[
                     'class'=>'btn btn-primary mb-3'
