@@ -61,16 +61,18 @@
                                         <div class="col-xl-6 col-md-6">
                                             <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name|length > 6 ? list.name|slice(0, 6) ~ '...' : list.name  }}</a>
                                         </div>
-                                        <div class="col-xl-3 col-md-3">
-                                            <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': list.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
-                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ list.id) }}"/>
-                                                <button class="btn-del"><i class="fas fa-trash-alt"></i></button>
-                                            </form>
-                                        </div>
-                                        <div class="col-xl-3 col-md-3">
-                                            {# <a href="{{ path('tricks_delete', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a> #}
-                                            <a href="{{ path('tricks_edit', {id: list.id}) }}" style="margin-left:0em;"><i class="fas fa-pencil-alt"></i></a>
-                                        </div>
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                            <div class="col-xl-3 col-md-3">
+                                                <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': list.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ list.id) }}"/>
+                                                    <button class="btn-del"><i class="fas fa-trash-alt"></i></button>
+                                                </form>
+                                            </div>
+                                            <div class="col-xl-3 col-md-3">
+                                                {# <a href="{{ path('tricks_delete', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a> #}
+                                                <a href="{{ path('tricks_edit', {id: list.id}) }}" style="margin-left:0em;"><i class="fas fa-pencil-alt"></i></a>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

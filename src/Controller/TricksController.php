@@ -173,19 +173,6 @@ class TricksController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($trickTest);
         $entityManager->flush();
-        // if($currentMedia != null){
-        //     $data['currentMedia'] = $currentMedia;
-        //     $key = array_search($currentMedia, $getMedia);
-        //     unset($getMedia[$key]);
-        //     unlink($this->getParameter('upload_directory').'/'.$currentMedia);
-        // }
-        // if($currentMediaDel != null){
-        //     $data['currentMediaDel'] = $currentMediaDel;
-        //     // dd($currentMediaDel);
-        //     $keyDel = array_search($currentMediaDel, $getMedia);
-        //     unset($getMedia[$keyDel]);
-        //     unlink($this->getParameter('upload_directory').'/'.$currentMediaDel);
-        // }
         
         $respMain = new JsonResponse();
         

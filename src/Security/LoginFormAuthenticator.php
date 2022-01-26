@@ -36,13 +36,13 @@ class LoginFormAuthenticator extends AbstractAuthenticator
 
     public function authenticate(Request $request): PassportInterface
     {
-        $email = $request->request->get('email');
+        $userName = $request->request->get('userName');
         $password = $request->request->get('password');
 
         return new Passport(
-            new UserBadge($email, function($userIdentifier) {
+            new UserBadge($userName, function($userIdentifier) {
                 // optionally pass a callback to load the User manually
-                $user = $this->userRepository->findOneBy(['email' => $userIdentifier]);
+                $user = $this->userRepository->findOneBy(['userName' => $userIdentifier]);
 
                 if (!$user) {
                     throw new UserNotFoundException();
