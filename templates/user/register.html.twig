@@ -48,6 +48,13 @@
         {% endblock %}
         <!-- Masthead-->
         <!-- About-->
+        {% if success == true %}
+            <input type="hidden" id="inputHiddenSuccess" value="{{ success }}">
+        {% endif %}
+
+        {% if error == true %}
+            <input type="hidden" id="inputHiddenError" value="{{ error }}">
+        {% endif %}
             <section class="text-center form-new">
                 <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Inscription</h2>
                 {{ form_start(form) }}
@@ -83,5 +90,19 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            $( document ).ready(function() {
+                valSuccess = $('#inputHiddenSuccess').val();
+                console.log(valSuccess);
+                if(valSuccess == true){
+                    alert('Un mail de validation vous attend dans votre boite mail!');
+                }
+                valError = $('#inputHiddenError').val();
+                console.log(valError);
+                if(valError == true){
+                    alert('l\'adresse mail ou le nom d\'utilisateur éxiste déjà!');
+                }
+            });
+        </script>
     </body>
 </html>

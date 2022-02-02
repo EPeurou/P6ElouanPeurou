@@ -18,30 +18,38 @@ use Symfony\Component\Mime\Email;
 class ResetController extends AbstractController
 {
     /**
-     * @Route("/", name="reset", methods={"GET","POST"})
+     * @Route("/resetpassword/{email}", name="resetpassword", methods={"GET","POST"})
      */
     public function resetPassword(Request $request, UserRepository $userRepository): Response
-    {
+    {   
+        $getEmailUrl = $request->get('email');
         $userName = $request->request->get('userName');
         $password = $request->request->get('password');
         $error = false;
+        $errorCtrl = false;
 
         if($userName != null){
-            $user = $userRepository->findOneBy(['userName' => $userName]);
+            $user = $userRepository->findOneBy(['email' => $getEmailUrl]);
+            $getUserIdentifier = $user->getUserIdentifier();
             if (!$user) {
                 $error = true;
             } else {
-                $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-                $user->setPassword($passwordHash);
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($user);
-                $entityManager->flush();
-                return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+                if($getUserIdentifier == $userName){
+                    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                    $user->setPassword($passwordHash);
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager->persist($user);
+                    $entityManager->flush();
+                    return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+                } else {
+                    $errorCtrl = true;
+                }
             }
         }
 
         return $this->render('user/edit.html.twig',[
-            'error'=>$error
+            'error'=>$error,
+            'errorCtrl'=> $errorCtrl
         ]);
     }
 
@@ -57,7 +65,7 @@ class ResetController extends AbstractController
                 ->from('contact.peurou@gmail.com')
                 ->to($getEmail)
                 ->subject('Réinitialisation mot de passe Snowtricks')
-                ->html('<h4>Vous souhaitez réinitialiser votre mot de passe Snowtricks?</h4><a href="http://127.0.0.1/P6ElouanPeurou/P6ElouanPeurou/public/reset/">Cliqué ici!</a> ');
+                ->html('<h4>Vous souhaitez réinitialiser votre mot de passe Snowtricks?</h4><a href="http://127.0.0.1/P6ElouanPeurou/P6ElouanPeurou/public/reset/resetpassword/'.$getEmail.'">Cliqué ici!</a> ');
 
             $mailer->send($email);
             $success = true;

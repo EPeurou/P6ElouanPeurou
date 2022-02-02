@@ -43,12 +43,14 @@ class LoginFormAuthenticator extends AbstractAuthenticator
             new UserBadge($userName, function($userIdentifier) {
                 // optionally pass a callback to load the User manually
                 $user = $this->userRepository->findOneBy(['userName' => $userIdentifier]);
-
+                
                 if (!$user) {
                     throw new UserNotFoundException();
                 }
-
-                return $user;
+                $getValidate = $user->getValidate();
+                if($getValidate != 0){
+                    return $user;
+                }
             }),
             new CustomCredentials(function($credentials, User $user) {
                 

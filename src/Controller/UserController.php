@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,55 +28,79 @@ class UserController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
-
+ 
     /**
      * @Route("/new", name="user_new", methods={"GET","POST"})
      */
-    public function new(MailerInterface $mailer, Request $request): Response
+    public function new(MailerInterface $mailer, Request $request, UserRepository $userRepository): Response
     {
+        $this->userRepository = $userRepository;
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-
+        $success = false;
+        $error = false;
         if ($form->isSubmitted() && $form->isValid()) {
+            $getEmail = $form->get('email')->getData();
+            $getUserName = $form->get('userName')->getData();
             $password = $form->get('password')->getData();
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-            $user->setPassword($passwordHash);
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_login', [], Response::HTTP_SEE_OTHER);
+            $findEmail = $this->userRepository->findOneBy(['email' => $getEmail]);
+            $findUserName = $this->userRepository->findOneBy(['userName' => $getUserName]);
+            if (!$findEmail && !$findUserName){
+                $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                $user->setPassword($passwordHash);
+                $user->setValidate(0);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+                $getUserId = $user->getId();
+                
+                if($getEmail){
+                    $email = (new Email())
+                        ->from('contact.peurou@gmail.com')
+                        ->to($getEmail)
+                        ->subject('Inscription Snowtricks')
+                        ->html('<h4>Vous souhaitez vous inscrire sur Snowtricks?</h4><a href="http://127.0.0.1/P6ElouanPeurou/P6ElouanPeurou/public/user/emailCheck/'.$getUserId.'">Cliqué ici!</a> ');
+        
+                    $mailer->send($email);
+                    $success = true;
+                }
+            } else {
+                $error = true;
+            }
         }
 
         return $this->renderForm('user/register.html.twig', [
             'user' => $user,
             'form' => $form,
+            'success' => $success,
+            'error' => $error
         ]);
     }
 
     /**
-     * @Route("/emailCheck", name="emailCheck", methods={"GET","POST"})
+     * @Route("/emailCheck/{id}", name="emailCheck", methods={"GET"})
      */
-    public function emailCheck(MailerInterface $mailer, Request $request): Response
+    public function emailCheck(Request $request,UserRepository $userRepository): Response
     {
-        $getEmail = $request->request->get('email');
-        $success = false;
-        if($getEmail){
-            $email = (new Email())
-                ->from('contact.peurou@gmail.com')
-                ->to($getEmail)
-                ->subject('Inscription Snowtricks')
-                ->html('<h4>Vous souhaitez vous inscrire sur Snowtricks?</h4><a href="http://127.0.0.1/P6ElouanPeurou/P6ElouanPeurou/public/user/new">Cliqué ici!</a> ');
+        $this->userRepository = $userRepository;
+        $id = (int)$request->get('id');
+        // dd($id);
+        $user = $this->userRepository->findOneBy(['id' => $id]);
+        $user->setValidate(1);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
 
-            $mailer->send($email);
-            $success = true;
-        }
+        return $this->redirectToRoute('confirm', [], Response::HTTP_SEE_OTHER);
+    }
 
-        return $this->render('user/email.html.twig',[
-            'success'=>$success
-        ]);
+    /**
+     * @Route("/confirm", name="confirm", methods={"GET"})
+     */
+    public function confirm(): Response
+    {
+        return $this->render('user/confirm.html.twig');
     }
 
     /**
@@ -87,6 +112,7 @@ class UserController extends AbstractController
             'user' => $user,
         ]);
     }
+
 
     // /**
     //  * @Route("{id}/edit", name="user_edit", methods={"GET","POST"})
