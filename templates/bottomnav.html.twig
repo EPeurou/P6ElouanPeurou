@@ -2,21 +2,41 @@
     <div class="container px-4 px-lg-5">        
         <ul class="navbar-nav">
             <div class="row mb-3" style="margin-left:4.5em;">
+            {% if is_tablet_view() %}
+                <div class="col-md-4 w-auto" style="margin-left:6em;margin-right:4.5em;">
+            {% else %}
                 <div class="col-sm-4 w-auto">
+            {% endif %}
                     <li><a href="{{ path('main')}}" style="color:white;"><i class="fas fa-2x fa-home"></i></a></li>
                 </div>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <div class="col-sm-4 w-auto">
+                    {% if is_tablet_view() %}
+                        <div class="col-md-4 w-auto" style="margin-right:4.5em;">
+                    {% else %}
+                        <div class="col-sm-4 w-auto">
+                    {% endif %}
                     <li><a href="{{ path('tricks_new') }}" style="color:white;"><i class="fas fa-2x fa-pen-square"></i></a></li>
                 </div>
-                <div class="col-sm-4 w-auto">
+                {% if is_tablet_view() %}
+                    <div class="col-md-4 w-auto">
+                {% else %}
+                    <div class="col-sm-4 w-auto ">
+                {% endif %}
                     <li><a href="{{ path('app_logout') }}" style="color:white;"><i class="fas fa-2x fa-door-open"></i></a></li>
                 </div>
                 {% else %}
-                <div class="col-sm-4 w-auto">
+                {% if is_tablet_view() %}
+                    <div class="col-md-4 w-auto">
+                {% else %}
+                    <div class="col-sm-4 w-auto">
+                {% endif %}
                     <li><a href="{{ path('app_login') }}" style="color:white;"><i class="fas fa-2x fa-sign-out-alt"></i></a></li>
                 </div>
-                <div class="col-sm-4 w-auto">
+                {% if is_tablet_view() %}
+                    <div class="col-md-4 w-auto">
+                {% else %}
+                    <div class="col-sm-4 w-auto">
+                {% endif %}
                     <li><a href="{{ path('user_new') }}" style="color:white;">Inscription</a></li>
                 </div>
               {% endif %}
