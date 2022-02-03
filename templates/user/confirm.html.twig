@@ -1,0 +1,82 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <h1>Create new User</h1>
+
+    {{ include('user/_form.html.twig') }}
+
+    <a href="{{ path('user_index') }}">back to list</a>
+{% endblock %} #}
+
+{# {% extends 'base.html.twig' %}
+
+{% block title %}New Tricks{% endblock %}
+
+{% block body %}
+    <h1>Create new Tricks</h1>
+
+    {{ include('tricks/_form.html.twig') }}
+
+    <a href="{{ path('tricks_index') }}">back to list</a>
+{% endblock %} #}
+
+    
+    
+    
+    
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SnowTricks</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/standard.css" rel="stylesheet" />
+</head>
+    <body class="body-email">
+        {% block navbar %}
+            {% include "navbar.html.twig" %}
+        {% endblock %}
+        <!-- Masthead-->
+        <!-- About-->
+        
+            <section class="text-center" style="margin-top:15em;margin-bottom:8em;">
+                <h1 class="mb-4 mt-1" style="font-family:Varela Round; color:#00f870;">Vérification du compte réussi!</h1>
+                <i class="fas fa-7x fa-user-check" style="color:#00f870;text-align:center;"></i>
+                <div class="row mt-3">
+                    <div  style="text-align:center;">
+                        <a href="{{ path('app_login') }}" class="btn btn-success">Connexion</a>
+                    </div>
+                </div>
+            </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            $( document ).ready(function() {
+                valError = $('#inputHiddenError').val();
+                console.log(valError);
+                if(valError == true){
+                    alert('Un mail vous attend dans votre boite mail!');
+                }
+            });
+        </script>
+    </body>
+</html>

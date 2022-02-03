@@ -70,48 +70,74 @@ class __TwigTemplate_a720025d750bf06f217c5341f0bd8350589c554002c84ef99198ebdd2f7
         echo "        <!-- Masthead-->
         <!-- About-->
             <section class=\"text-center form-new\">
-                <h2 class=\"mb-4 mt-1\" style=\"font-family:Varela Round;\">Nouveau trick</h2>
                 ";
-        // line 41
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 41, $this->source); })()), 'form_start');
+        // line 40
+        if ((0 === twig_compare((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 40, $this->source); })()), true))) {
+            // line 41
+            echo "                    <input type=\"hidden\" id=\"inputHiddenError\" value=\"";
+            echo twig_escape_filter($this->env, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 41, $this->source); })()), "html", null, true);
+            echo "\">
+                ";
+        }
+        // line 43
+        echo "                <h2 class=\"mb-4 mt-1\" style=\"font-family:Varela Round;\">Nouveau trick</h2>
+                ";
+        // line 44
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 44, $this->source); })()), 'form_start');
         echo "
                     <div class=\"row mb-3\" style=\"padding-left:5em;padding-right:5em;\">
                         <div class=\"col-sm-6 col-md-6 col-xl-6\">
                             ";
-        // line 44
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 44, $this->source); })()), "name", [], "any", false, false, false, 44), 'row');
+        // line 47
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 47, $this->source); })()), "name", [], "any", false, false, false, 47), 'row');
         echo "
                         </div>
                         <div class=\"col-sm-6 col-md-6 col-xl-6\">
                             ";
-        // line 47
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 47, $this->source); })()), "category", [], "any", false, false, false, 47), 'row');
+        // line 50
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 50, $this->source); })()), "category", [], "any", false, false, false, 50), 'row');
         echo "
                         </div>
                     </div>
                     <div class=\"row\" style=\"padding-left:5em;padding-right:5em;\">
                         <div class=\"col-sm-12 col-md-12 col-xl-12\">
                             ";
-        // line 52
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 52, $this->source); })()), "description", [], "any", false, false, false, 52), 'row');
+        // line 55
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 55, $this->source); })()), "description", [], "any", false, false, false, 55), 'row');
         echo "
                         </div>
                     </div>
                     <div class=\"row mt-3 mb-5\" style=\"padding-left:5em;padding-right:5em;\">
                         <div class=\"col-sm-12 col-md-12 col-xl-12\">
                             ";
-        // line 57
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 57, $this->source); })()), "media", [], "any", false, false, false, 57), 'row');
+        // line 60
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 60, $this->source); })()), "media", [], "any", false, false, false, 60), 'row');
+        echo "
+                        </div>
+                    </div>
+                    <div class=\"row mt-3 mb-5\" style=\"padding-left:5em;padding-right:5em;\">
+                        <div class=\"col-sm-12 col-md-12 col-xl-12\">
+                            ";
+        // line 65
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 65, $this->source); })()), "mainImage", [], "any", false, false, false, 65), 'row');
+        echo "
+                        </div>
+                    </div>
+                    <div class=\"row mt-3 mb-5\" style=\"padding-left:5em;padding-right:5em;\">
+                        <div class=\"col-sm-12 col-md-12 col-xl-12\">
+                            ";
+        // line 70
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 70, $this->source); })()), "embedsingle", [], "any", false, false, false, 70), 'row');
         echo "
                         </div>
                     </div>
                     ";
-        // line 60
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 60, $this->source); })()), "valider", [], "any", false, false, false, 60), 'row');
+        // line 73
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 73, $this->source); })()), "valider", [], "any", false, false, false, 73), 'row');
         echo "
                 ";
-        // line 61
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 61, $this->source); })()), 'form_end');
+        // line 74
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 74, $this->source); })()), 'form_end');
         echo "
             </section>
         <!-- Footer-->
@@ -120,6 +146,15 @@ class __TwigTemplate_a720025d750bf06f217c5341f0bd8350589c554002c84ef99198ebdd2f7
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
         <!-- Core theme JS-->
         <script src=\"js/scripts.js\"></script>
+        <script>
+            \$( document ).ready(function() {
+                valError = \$('#inputHiddenError').val();
+                console.log(valError);
+                if(valError == true){
+                    alert('Le nom du trick éxiste déjà');
+                }
+            });
+        </script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
@@ -171,7 +206,7 @@ class __TwigTemplate_a720025d750bf06f217c5341f0bd8350589c554002c84ef99198ebdd2f7
 
     public function getDebugInfo()
     {
-        return array (  153 => 36,  150 => 35,  140 => 34,  114 => 61,  110 => 60,  104 => 57,  96 => 52,  88 => 47,  82 => 44,  76 => 41,  70 => 37,  68 => 34,  44 => 12,);
+        return array (  188 => 36,  185 => 35,  175 => 34,  140 => 74,  136 => 73,  130 => 70,  122 => 65,  114 => 60,  106 => 55,  98 => 50,  92 => 47,  86 => 44,  83 => 43,  77 => 41,  75 => 40,  70 => 37,  68 => 34,  44 => 12,);
     }
 
     public function getSourceContext()
@@ -215,6 +250,9 @@ class __TwigTemplate_a720025d750bf06f217c5341f0bd8350589c554002c84ef99198ebdd2f7
         <!-- Masthead-->
         <!-- About-->
             <section class=\"text-center form-new\">
+                {% if error == true %}
+                    <input type=\"hidden\" id=\"inputHiddenError\" value=\"{{ error }}\">
+                {% endif %}
                 <h2 class=\"mb-4 mt-1\" style=\"font-family:Varela Round;\">Nouveau trick</h2>
                 {{ form_start(form) }}
                     <div class=\"row mb-3\" style=\"padding-left:5em;padding-right:5em;\">
@@ -235,6 +273,16 @@ class __TwigTemplate_a720025d750bf06f217c5341f0bd8350589c554002c84ef99198ebdd2f7
                             {{ form_row(form.media) }}
                         </div>
                     </div>
+                    <div class=\"row mt-3 mb-5\" style=\"padding-left:5em;padding-right:5em;\">
+                        <div class=\"col-sm-12 col-md-12 col-xl-12\">
+                            {{ form_row(form.mainImage) }}
+                        </div>
+                    </div>
+                    <div class=\"row mt-3 mb-5\" style=\"padding-left:5em;padding-right:5em;\">
+                        <div class=\"col-sm-12 col-md-12 col-xl-12\">
+                            {{ form_row(form.embedsingle) }}
+                        </div>
+                    </div>
                     {{ form_row(form.valider) }}
                 {{ form_end(form) }}
             </section>
@@ -244,6 +292,15 @@ class __TwigTemplate_a720025d750bf06f217c5341f0bd8350589c554002c84ef99198ebdd2f7
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js\"></script>
         <!-- Core theme JS-->
         <script src=\"js/scripts.js\"></script>
+        <script>
+            \$( document ).ready(function() {
+                valError = \$('#inputHiddenError').val();
+                console.log(valError);
+                if(valError == true){
+                    alert('Le nom du trick éxiste déjà');
+                }
+            });
+        </script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

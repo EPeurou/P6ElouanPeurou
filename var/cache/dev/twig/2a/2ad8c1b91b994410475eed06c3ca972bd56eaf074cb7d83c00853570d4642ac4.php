@@ -53,12 +53,31 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
         // line 10
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("main");
         echo "\">Accueil</a></li>
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+                ";
         // line 11
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_new");
-        echo "\">Ajouter un trick</a></li>
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
-            </ul>
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 12
+            echo "                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_new");
+            echo "\">Ajouter un trick</a></li>
+                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+            // line 13
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Déconnexion</a></li>
+                ";
+        } else {
+            // line 15
+            echo "                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">Connexion</a></li>
+                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+            // line 16
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("emailCheck");
+            echo "\">Inscription</a></li>
+                ";
+        }
+        // line 18
+        echo "            </ul>
         </div>
     </div>
 </nav>";
@@ -82,7 +101,7 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
 
     public function getDebugInfo()
     {
-        return array (  58 => 11,  54 => 10,  43 => 1,);
+        return array (  80 => 18,  75 => 16,  70 => 15,  65 => 13,  60 => 12,  58 => 11,  54 => 10,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -97,8 +116,13 @@ class __TwigTemplate_79b744456fb459733732b01efc01eb7dfb475fa2199828d36ba991e885c
         <div class=\"collapse navbar-collapse\" style=\"margin-right:1em;\" id=\"navbarResponsive\">
             <ul class=\"navbar-nav ms-auto\">
                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('main')}}\">Accueil</a></li>
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('tricks_new') }}\">Ajouter un trick</a></li>
-                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#signup\">Contact</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('tricks_new') }}\">Ajouter un trick</a></li>
+                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('app_logout') }}\">Déconnexion</a></li>
+                {% else %}
+                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('app_login') }}\">Connexion</a></li>
+                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('emailCheck') }}\">Inscription</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

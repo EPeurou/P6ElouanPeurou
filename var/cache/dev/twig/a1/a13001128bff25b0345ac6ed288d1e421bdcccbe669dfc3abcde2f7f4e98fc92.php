@@ -112,86 +112,77 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
             echo "                        <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
                             <div class=\"card\" style=\"width: 12rem;\">
                                 ";
-            // line 42
-            $context["break"] = false;
-            // line 43
-            echo "                                ";
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 43));
-            foreach ($context['_seq'] as $context["key"] => $context["value"]) {
-                // line 44
-                echo "                                    ";
-                if ((0 === twig_compare((isset($context["break"]) || array_key_exists("break", $context) ? $context["break"] : (function () { throw new RuntimeError('Variable "break" does not exist.', 44, $this->source); })()), false))) {
-                    // line 45
-                    echo "                                        ";
-                    if (twig_in_filter("image", $context["value"])) {
-                        // line 46
-                        echo "                                            <img src=\"";
-                        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["list"], "Media", [], "any", false, false, false, 46), 0, [], "array", false, false, false, 46))), "html", null, true);
-                        echo "\" class=\"card-img-top\" alt=\"...\">
-                                        ";
-                    } else {
-                        // line 48
-                        echo "                                            <img class=\"card-img-top\" src=\"../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
-                                        ";
-                    }
-                    // line 50
-                    echo "                                    ";
-                }
+            // line 45
+            echo "                                        ";
+            // line 48
+            echo "                                            ";
+            if ((0 !== twig_compare(twig_get_attribute($this->env, $this->source, $context["list"], "mainImage", [], "any", false, false, false, 48), null))) {
+                // line 49
+                echo "                                                <img class=\"card-img-top\" src=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("upload/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["list"], "mainImage", [], "any", false, false, false, 49), 0, [], "array", false, false, false, 49))), "html", null, true);
+                echo "\" alt=\"...\">
+                                            ";
+            } else {
                 // line 51
-                echo "                                    ";
-                $context["break"] = true;
-                // line 52
-                echo "                                ";
+                echo "                                                <img class=\"card-img-top\" src=\"../public/assets/img/frontflip.jpg\" alt=\"...\">
+                                            ";
             }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['key'], $context['value'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 53
+            echo "                                        ";
+            // line 54
+            echo "                                    ";
+            // line 57
             echo "                                
                                 <div class=\"card-body\">
                                     ";
-            // line 56
+            // line 60
             echo "                                    <div class=\"row\">
                                         <div class=\"col-xl-6 col-md-6\">
                                             <a href=\"";
-            // line 58
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_show", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 58)]), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_show", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 62)]), "html", null, true);
             echo "\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 58), "html", null, true);
+            echo twig_escape_filter($this->env, (((1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 62)), 6))) ? ((twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 62), 0, 6) . "...")) : (twig_get_attribute($this->env, $this->source, $context["list"], "name", [], "any", false, false, false, 62))), "html", null, true);
             echo "</a>
                                         </div>
-                                        <div class=\"col-xl-1 col-md-1\">
-                                            <form method=\"post\" action=\"";
-            // line 61
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 61)]), "html", null, true);
-            echo "\" onsubmit=\"return confirm('Le trick va être supprimé');\">
-                                                <input type=\"hidden\" name=\"_token\" value=\"";
-            // line 62
-            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 62))), "html", null, true);
-            echo "\">
-                                                <button class=\"btn-del\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></button>
-                                            </form>
-                                        </div>
-                                        <div class=\"col-xl-1 col-md-1\">
-                                            ";
-            // line 68
-            echo "                                            <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 68)]), "html", null, true);
-            echo "\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
-                                        </div>
-                                    </div>
+                                        ";
+            // line 64
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
+                // line 65
+                echo "                                            <div class=\"col-xl-3 col-md-3\">
+                                                <form method=\"post\" style=\"max-width:1em;\" action=\"";
+                // line 66
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 66)]), "html", null, true);
+                echo "\" onsubmit=\"return confirm('Le trick va être supprimé');\">
+                                                    <input type=\"hidden\" name=\"_token\" value=\"";
+                // line 67
+                echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 67))), "html", null, true);
+                echo "\"/>
+                                                    <button class=\"btn-del\"><i class=\"fas fa-trash-alt\"></i></button>
+                                                </form>
+                                            </div>
+                                            <div class=\"col-xl-3 col-md-3\">
+                                                ";
+                // line 73
+                echo "                                                <a href=\"";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tricks_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["list"], "id", [], "any", false, false, false, 73)]), "html", null, true);
+                echo "\" style=\"margin-left:0em;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                            </div>
+                                        ";
+            }
+            // line 76
+            echo "                                    </div>
                                 </div>
                             </div>
                         </div>
                         ";
-            // line 74
-            if (((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 74) % 5) || twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 74))) {
-                // line 75
+            // line 80
+            if (((0 == twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 80) % 5) || twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 80))) {
+                // line 81
                 echo "                            </div>
                         ";
             }
-            // line 77
+            // line 83
             echo "                    ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -205,14 +196,14 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['list'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 78
+        // line 84
         echo "                    ";
-        if ((0 === twig_compare((isset($context["commentVar"]) || array_key_exists("commentVar", $context) ? $context["commentVar"] : (function () { throw new RuntimeError('Variable "commentVar" does not exist.', 78, $this->source); })()), true))) {
-            // line 79
+        if ((0 === twig_compare((isset($context["commentVar"]) || array_key_exists("commentVar", $context) ? $context["commentVar"] : (function () { throw new RuntimeError('Variable "commentVar" does not exist.', 84, $this->source); })()), true))) {
+            // line 85
             echo "                        <button class=\"btn btn-primary ajax-load-more mb-5\">Charger plus</button>
                     ";
         }
-        // line 81
+        // line 87
         echo "                    <div class=\"btn-top\">
                         <a class=\"btn\" href=\"#home\"><i class=\"fas fa-3x fa-arrow-circle-up\"></i></a>
                     </div>
@@ -221,7 +212,50 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
+        ";
+        // line 95
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 95, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 95));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 96
+            echo "        <div class=\"modal fade\" id=\"modalSuccess\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+            <div class=\"modal-dialog\">
+                <div class=\"modal-content\">
+                    <div class=\"modal-header\">
+                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Succès</h5>
+                        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+                    </div>
+                    <div class=\"modal-body\">
+                        <div class=\"row\">
+                            <div class=\"col-xl-8 col-md-8\">
+                                <h5 class=\"modal-title\" id=\"exampleModalLabel\">";
+            // line 106
+            echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+            echo "</h5>
+                            </div>
+                            <div class=\"col-xl-3 col-md-3\">
+                            <i style=\"color:green;\" class=\"far fa-3x fa-check-circle mt-2\"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"modal-footer\">
+                        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Retour</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
+        \$( document ).ready(function() {
+            \$('#modalSuccess').modal('show')
+        });
+        </script>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 125
+        echo "        <script>
             \$( \".row-more:lt(10)\" ).css( \"display\", \"block\" );
             const list = document.querySelector(\".grid\");
             const listItems = list.querySelectorAll(\".row-more\");
@@ -322,7 +356,7 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
 
     public function getDebugInfo()
     {
-        return array (  304 => 10,  301 => 9,  291 => 8,  281 => 5,  278 => 4,  268 => 3,  216 => 81,  212 => 79,  209 => 78,  195 => 77,  191 => 75,  189 => 74,  179 => 68,  171 => 62,  167 => 61,  159 => 58,  155 => 56,  151 => 53,  145 => 52,  142 => 51,  139 => 50,  135 => 48,  129 => 46,  126 => 45,  123 => 44,  118 => 43,  116 => 42,  112 => 40,  107 => 37,  104 => 36,  101 => 35,  83 => 34,  81 => 33,  57 => 11,  55 => 8,  51 => 6,  49 => 3,  45 => 1,);
+        return array (  338 => 10,  335 => 9,  325 => 8,  315 => 5,  312 => 4,  302 => 3,  258 => 125,  233 => 106,  221 => 96,  217 => 95,  207 => 87,  203 => 85,  200 => 84,  186 => 83,  182 => 81,  180 => 80,  174 => 76,  167 => 73,  159 => 67,  155 => 66,  152 => 65,  150 => 64,  143 => 62,  139 => 60,  135 => 57,  133 => 54,  131 => 53,  127 => 51,  121 => 49,  118 => 48,  116 => 45,  112 => 40,  107 => 37,  104 => 36,  101 => 35,  83 => 34,  81 => 33,  57 => 11,  55 => 8,  51 => 6,  49 => 3,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -368,34 +402,40 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
                         {% endif %}
                         <div class=\"col-sm-12 col-md-2 col-xl-2 mr-2\">
                             <div class=\"card\" style=\"width: 12rem;\">
-                                {% set break = false %}
+                                {# {% set break = false %}
                                 {% for key,value in list.Media %}
-                                    {% if break == false %}
-                                        {% if 'image' in value %}
-                                            <img src=\"{{ asset('upload/' ~ list.Media[0])}}\" class=\"card-img-top\" alt=\"...\">
-                                        {% else %}
-                                            <img class=\"card-img-top\" src=\"../public/assets/img/frontflip.jpg\" class=\"card-img-top\" alt=\"...\">
-                                        {% endif %}
-                                    {% endif %}
+                                    {% if break == false %} #}
+                                        {# {% if list.mainImage != null %}
+                                            <img class=\"main-img-show\" src=\"{{ asset('upload/' ~ list.mainImage[0])}}\" class=\"card-img-top\" alt=\"...\">
+                                        {% else  %} #}
+                                            {% if list.mainImage != null %}
+                                                <img class=\"card-img-top\" src=\"{{ asset('upload/' ~ list.mainImage[0])}}\" alt=\"...\">
+                                            {% else %}
+                                                <img class=\"card-img-top\" src=\"../public/assets/img/frontflip.jpg\" alt=\"...\">
+                                            {% endif %}
+                                        {# {% endif %} #}
+                                    {# {% endif %}
                                     {% set break = true %}
-                                {% endfor %}
+                                {% endfor %} #}
                                 
                                 <div class=\"card-body\">
                                     {# <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name }}</a> #}
                                     <div class=\"row\">
                                         <div class=\"col-xl-6 col-md-6\">
-                                            <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name }}</a>
+                                            <a href=\"{{ path('tricks_show', {id: list.id}) }}\">{{ list.name|length > 6 ? list.name|slice(0, 6) ~ '...' : list.name  }}</a>
                                         </div>
-                                        <div class=\"col-xl-1 col-md-1\">
-                                            <form method=\"post\" action=\"{{ path('tricks_delete', {'id': list.id}) }}\" onsubmit=\"return confirm('Le trick va être supprimé');\">
-                                                <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ list.id) }}\">
-                                                <button class=\"btn-del\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></button>
-                                            </form>
-                                        </div>
-                                        <div class=\"col-xl-1 col-md-1\">
-                                            {# <a href=\"{{ path('tricks_delete', {id: list.id}) }}\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a> #}
-                                            <a href=\"{{ path('tricks_edit', {id: list.id}) }}\" style=\"margin-left:1em;\"><i class=\"fas fa-pencil-alt\"></i></a>
-                                        </div>
+                                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                            <div class=\"col-xl-3 col-md-3\">
+                                                <form method=\"post\" style=\"max-width:1em;\" action=\"{{ path('tricks_delete', {'id': list.id}) }}\" onsubmit=\"return confirm('Le trick va être supprimé');\">
+                                                    <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ list.id) }}\"/>
+                                                    <button class=\"btn-del\"><i class=\"fas fa-trash-alt\"></i></button>
+                                                </form>
+                                            </div>
+                                            <div class=\"col-xl-3 col-md-3\">
+                                                {# <a href=\"{{ path('tricks_delete', {id: list.id}) }}\" style=\"margin-left:1em;\"><i class=\"fas fa-trash-alt\"></i></a> #}
+                                                <a href=\"{{ path('tricks_edit', {id: list.id}) }}\" style=\"margin-left:0em;\"><i class=\"fas fa-pencil-alt\"></i></a>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -415,6 +455,36 @@ class __TwigTemplate_03a809b7e803f1e37b01e1041cffbc525c682b4013386899fb720d30d7c
         </section>
         <!-- Footer-->
         <footer class=\"footer bg-black small text-center text-white-50\"><div class=\"container px-4 px-lg-5\">Copyright &copy; Your Website 2021</div></footer>
+        {% for message in app.flashes('success') %}
+        <div class=\"modal fade\" id=\"modalSuccess\" tabindex=\"-1\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
+            <div class=\"modal-dialog\">
+                <div class=\"modal-content\">
+                    <div class=\"modal-header\">
+                        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Succès</h5>
+                        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+                    </div>
+                    <div class=\"modal-body\">
+                        <div class=\"row\">
+                            <div class=\"col-xl-8 col-md-8\">
+                                <h5 class=\"modal-title\" id=\"exampleModalLabel\">{{ message }}</h5>
+                            </div>
+                            <div class=\"col-xl-3 col-md-3\">
+                            <i style=\"color:green;\" class=\"far fa-3x fa-check-circle mt-2\"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"modal-footer\">
+                        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Retour</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        \$( document ).ready(function() {
+            \$('#modalSuccess').modal('show')
+        });
+        </script>
+        {% endfor %}
         <script>
             \$( \".row-more:lt(10)\" ).css( \"display\", \"block\" );
             const list = document.querySelector(\".grid\");

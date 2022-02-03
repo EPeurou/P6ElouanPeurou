@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateInterval;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Tricks;
@@ -29,7 +30,7 @@ class Comment
     private $creation_date;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $author;
 
@@ -45,7 +46,7 @@ class Comment
     }
 
     public function getContent(): ?string
-    {
+    { 
         return $this->content;
     }
 
@@ -62,18 +63,20 @@ class Comment
     }
 
     public function setCreationDate(\DateTimeInterface $creation_date): self
-    {
-        $this->creation_date = $creation_date;
+    {   
+        $timeNow = new \DateTime('now');
+        $timeNow->add(new DateInterval('PT1H'));
+        $this->creation_date = $timeNow;
 
         return $this;
     }
 
-    public function getAuthor(): ?int
+    public function getAuthor(): ?string
     {
         return $this->author;
     }
 
-    public function setAuthor(?int $author): self
+    public function setAuthor(?string $author): self
     {
         $this->author = $author;
 

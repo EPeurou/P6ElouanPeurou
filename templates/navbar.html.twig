@@ -4,12 +4,18 @@
             Menu
             <i class="fas fa-bars"></i>
         </button>
-        <i class="fas fa-3x fa-snowboarding" style="color:white;margin-left:0em;"></i>
+        <h3 class="text-uppercase title-nav">SnowTricks</h3>
+        <i class="fas fa-3x fa-snowflake mb-2" style="color:white;margin-left:0em;"></i>
         <div class="collapse navbar-collapse" style="margin-right:1em;" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ path('main')}}">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ path('tricks_new') }}">Ajouter un trick</a></li>
-                <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item"><a class="nav-link" href="{{ path('tricks_new') }}">Ajouter un trick</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('user_new') }}">Inscription</a></li>
+              {% endif %}
             </ul>
         </div>
     </div>

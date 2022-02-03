@@ -1,12 +1,17 @@
+body {
+  width: auto;
+}
+
 .btn-bottom {
     margin-top:10em;
-    margin-left:5em;
+    /* margin-left:5em; */
     text-align:right;
+    
 }
 
 .btn-top {
     margin-top: 0em;
-    margin-left: 5em;
+    /* margin-left: 5em; */
     text-align: right;
 }
 
@@ -85,11 +90,6 @@
   padding: 5px;
   color: var(--white);
 }
-
-.grid .row-more{
-  display:none;
-
-}
 /* .grid .row-more:nth-child(4n) {
   display:block;
 } */
@@ -104,7 +104,21 @@
   background-color: rgba(51, 51, 51, 0.2);
   border: 1px solid;
   border-color: rgb(219, 219, 219);
-  border-radius: 1em;
+  border-radius: 0.5em;
+  color: white;
+}
+
+.form-email {
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-bottom: 10em;
+  margin-top: 10em;
+  padding-left:10em;
+  padding-right:10em;
+  background-color: rgba(51, 51, 51, 0.2);
+  border: 1px solid;
+  border-color: rgb(219, 219, 219);
+  border-radius: 0.5em;
   color: white;
 }
 
@@ -121,6 +135,30 @@
   background-image: url("../assets/img/home.jpg");
   /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/home.jpg"); */
 }
+
+.body-register {
+  background-image: url("../assets/img/register2.jpg");
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/home.jpg"); */
+}
+
+.body-email {
+  background-image: url("../assets/img/mountains.jpg");
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/home.jpg"); */
+}
+
+.body-login {
+  background-image: url("../assets/img/login2.jpg");
+  
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/login2.jpg"); */
+}
+
+.body-edit {
+  background-image: url("../assets/img/mountain2.jpg");
+  
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../assets/img/login2.jpg"); */
+}
+
+
 
 #mainNav {
   background-color: #1fc4f7 !important;
@@ -143,4 +181,21 @@ iframe {
   max-width: 11.9em !important;
   margin-right: 2em;
   position: relative !important;
+}
+
+.be-ava-comment {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.title-nav {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
 }
