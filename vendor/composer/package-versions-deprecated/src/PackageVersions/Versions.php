@@ -58,6 +58,7 @@ final class Versions
   'laminas/laminas-code' => '3.4.1@1cb8f203389ab1482bf89c0e70a04849bacd7766',
   'laminas/laminas-eventmanager' => '3.4.0@a93fd278c97b2d41ebbce5ba048a24e3e6f580ba',
   'laminas/laminas-zendframework-bridge' => '1.4.0@bf180a382393e7db5c1e8d0f2ec0c4af9c724baf',
+  'mobiledetect/mobiledetectlib' => '2.8.37@9841e3c46f5bd0739b53aed8ac677fa712943df7',
   'monolog/monolog' => '2.3.5@fd4380d6fc37626e2f799f29d91195040137eba9',
   'phpdocumentor/reflection-common' => '2.2.0@1d01c49d4ed62f25aa84a747ad35d5a16924662b',
   'phpdocumentor/reflection-docblock' => '5.2.2@069a785b2141f5bcf49f3e353548dc1cce6df556',
@@ -133,6 +134,7 @@ final class Versions
   'symfony/var-exporter' => 'v5.3.8@a7604de14bcf472fe8e33f758e9e5b7bf07d3b91',
   'symfony/web-link' => 'v5.3.4@0075c9949c30a61d9b9e7483686d72d261480ef1',
   'symfony/yaml' => 'v5.3.6@4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7',
+  'tattali/mobile-detect-bundle' => 'v2.1.1@f6b7b8b9dfb057b549982bfc95e9bfc47575609c',
   'twig/extra-bundle' => 'v3.3.3@fa92b8301ff8878e45fe9f54ab7ad99872e080f3',
   'twig/twig' => 'v3.3.3@a27fa056df8a6384316288ca8b0fa3a35fdeb569',
   'webmozart/assert' => '1.10.0@6964c76c7804814a842473e0c8fd15bab0f18e25',
@@ -174,10 +176,10 @@ final class Versions
   'symfony/phpunit-bridge' => 'v5.3.8@e9c0548d8d7abcd257f18f0adc0517895996a9c1',
   'symfony/web-profiler-bundle' => 'v5.3.8@9ba1e05fdc7a46979047ba6c8949bd35e3a386a5',
   'theseer/tokenizer' => '1.2.1@34a41e998c2183e22995f158c581e7b5e755ab9e',
-  'symfony/polyfill-ctype' => '*@bf6eb66c3e2e012246310b05b2dbc6239cb8d65e',
-  'symfony/polyfill-iconv' => '*@bf6eb66c3e2e012246310b05b2dbc6239cb8d65e',
-  'symfony/polyfill-php72' => '*@bf6eb66c3e2e012246310b05b2dbc6239cb8d65e',
-  '__root__' => 'dev-main@bf6eb66c3e2e012246310b05b2dbc6239cb8d65e',
+  'symfony/polyfill-ctype' => '*@fdb6d48e45126124e5666c9a76ec9fb9e0ba159e',
+  'symfony/polyfill-iconv' => '*@fdb6d48e45126124e5666c9a76ec9fb9e0ba159e',
+  'symfony/polyfill-php72' => '*@fdb6d48e45126124e5666c9a76ec9fb9e0ba159e',
+  '__root__' => 'dev-main@fdb6d48e45126124e5666c9a76ec9fb9e0ba159e',
 );
 
     private function __construct()
