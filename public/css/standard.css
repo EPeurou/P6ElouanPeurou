@@ -1,12 +1,17 @@
+body {
+  width: auto;
+}
+
 .btn-bottom {
     margin-top:10em;
-    margin-left:5em;
+    /* margin-left:5em; */
     text-align:right;
+    
 }
 
 .btn-top {
     margin-top: 0em;
-    margin-left: 5em;
+    /* margin-left: 5em; */
     text-align: right;
 }
 
@@ -84,11 +89,6 @@
   min-width: 200px;
   padding: 5px;
   color: var(--white);
-}
-
-.grid .row-more{
-  display:none;
-
 }
 /* .grid .row-more:nth-child(4n) {
   display:block;

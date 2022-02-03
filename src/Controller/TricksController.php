@@ -108,6 +108,17 @@ class TricksController extends AbstractController
                 $trick->setMainImage($fileMainImage);
             }
 
+            $embed = $form->get('embedsingle')->getData();
+            $subStr = substr($embed, 0, 7);
+            // dd($subStr);
+            if ($embed != null && $subStr == "<iframe"){
+                $str = $embed;
+                $substring = string_between_two_string($str, '<iframe', '</iframe>');
+                $trick->setEmbedsingle("<iframe".$substring."</iframe>");
+            } else {
+                $trick->setEmbedsingle(null);
+            }
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
             try {
@@ -144,7 +155,6 @@ class TricksController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $comment->setTrick($trick);
             $comment->setCreationDate(new \DateTime('now'));
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
@@ -275,10 +285,14 @@ class TricksController extends AbstractController
                 $trick->setMainImage($fileMainImage);
             }
             $embed = $form->get('embedsingle')->getData();
-            if ($embed != null){
+            $subStr = substr($embed, 0, 7);
+            // dd($subStr);
+            if ($embed != null && $subStr == "<iframe"){
                 $str = $embed;
                 $substring = string_between_two_string($str, '<iframe', '</iframe>');
                 $trick->setEmbedsingle("<iframe".$substring."</iframe>");
+            } else {
+                $trick->setEmbedsingle(null);
             }
 
             $timeNow = new \DateTime('now');
