@@ -1,19 +1,4 @@
-{# {% extends 'base.html.twig' %}
-
-{% block title %}New Tricks{% endblock %}
-
-{% block body %}
-    <h1>Create new Tricks</h1>
-
-    {{ include('tricks/_form.html.twig') }}
-
-    <a href="{{ path('tricks_index') }}">back to list</a>
-{% endblock %} #}
-
-    
-    
-    
-    
+   
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,15 +16,44 @@
     <link href="../css/standard.css" rel="stylesheet" />
 </head>
     <body class="body-new">
-        {% if is_mobile() %}
+    <script>
+        $( document ).ready(function() {
+            if(window.matchMedia("(max-width: 450px)").matches){
+                $(".masthead").css("margin-top","0em");
+                $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                $(".remove-title-nav" ).addClass( "d-none" );
+                $(".navbar" ).removeClass( "fixed-top" );
+                $(".navbar" ).addClass( "fixed-bottom" );
+                $(".form-new" ).addClass( "section-new-mobile" );
+            } else if(window.matchMedia("(max-width: 800px)").matches){
+                $(".masthead").css("margin-top","0em");
+                $(".div-size" ).addClass( "div-size-tablet" );
+                $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                $(".remove-title-nav" ).addClass( "d-none" );
+                $(".row-nav").css("margin-left","16em");
+                $(".navbar" ).removeClass( "fixed-top" );
+                $(".navbar" ).addClass( "fixed-bottom" );
+                $(".form-new" ).addClass( "section-new-tablet" );
+            }
+        });
+    </script>
+        {# {% if is_mobile() %}
             {% block bottomnav %}
                 {% include "bottomnav.html.twig" %}
             {% endblock %}
-        {% else %}
+        {% else %} #}
             {% block navbar %}
                 {% include "navbar.html.twig" %}
             {% endblock %}
-        {% endif %}
+        {# {% endif %} #}
         <!-- Masthead-->
         <!-- About-->
             
@@ -48,20 +62,20 @@
                 {% endif %}
                 
                 {{ form_start(form) }}
-                {% if is_mobile_view() %}
-                <section class="text-center form-new mt-4" style="margin-left:0em !important;margin-right:0em !important; padding-left:2em !important; padding-right:2em !important;">
+                {# {% if is_mobile_view() %}
+                <section class="text-center form-new mt-4">
                     <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
                     <div class="row mb-3" style="">    
                 {% elseif is_tablet_view() %}
-                    <section class="text-center form-new mt-4" style="margin-left:0em !important;margin-bottom:5em !important;margin-right:0em !important; padding-left:2em !important; padding-right:2em !important;">
+                    <section class="text-center form-new mt-4" style="">
                         <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
                         <div class="row mb-3" style="">
                     
-                {% else %}
+                {% else %} #}
                 <section class="text-center form-new">
                     <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
                     <div class="row mb-3" style="padding-left:5em;padding-right:5em;">
-                {% endif %}
+                {# {% endif %} #}
                     
                         <div class="col-sm-12 col-md-6 col-xl-6">
                             {{ form_row(form.name) }}
