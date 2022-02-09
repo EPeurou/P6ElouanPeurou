@@ -1,99 +1,3 @@
-{# {% extends 'base.html.twig' %}
-
-{% block title %}Tricks{% endblock %}
-
-{% block body %}
-    <h1>Tricks</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ trick.id }}</td>
-            </tr>
-            <tr>
-                <th>IdUser</th>
-                <td>{{ trick.idUser }}</td>
-            </tr>
-            <tr>
-                <th>IdType</th>
-                <td>{{ trick.idType }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ trick.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ trick.description }}</td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td>{{ trick.author }}</td>
-            </tr>
-            <tr>
-                <th>Creation_date</th>
-                <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('tricks_index') }}">back to list</a>
-
-    <a href="{{ path('tricks_edit', {'id': trick.id}) }}">edit</a>
-
-    {{ include('tricks/_delete_form.html.twig') }}
-{% endblock %} #}
-{# {% extends 'base.html.twig' %}
-
-{% block title %}Tricks{% endblock %}
-
-{% block body %}
-    <h1>Tricks</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ trick.id }}</td>
-            </tr>
-            <tr>
-                <th>IdUser</th>
-                <td>{{ trick.idUser }}</td>
-            </tr>
-            <tr>
-                <th>IdType</th>
-                <td>{{ trick.idType }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ trick.name }}</td>
-            </tr>
-            <tr>
-                <th>Media</th>
-                <td><img src="{{ asset('upload/' ~ trick.media)}}" class="card-img-top" alt="..." style="width:11.9em;height:8em;"></td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ trick.description }}</td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td>{{ trick.author }}</td>
-            </tr>
-            <tr>
-                <th>Creation_date</th>
-                <td>{{ trick.creationDate ? trick.creationDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('tricks_index') }}">back to list</a>
-
-    <a href="{{ path('tricks_edit', {'id': trick.id}) }}">edit</a>
-
-    {{ include('tricks/_delete_form.html.twig') }}
-{% endblock %} #}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -111,6 +15,38 @@
     <link href="../css/standard.css" rel="stylesheet" />
 </head>
     <body id="page-top">
+    <script>
+        $( document ).ready(function() {
+            if(window.matchMedia("(max-width: 450px)").matches){
+                $(".container-show").css("margin-top","0em");
+                $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                $(".remove-title-nav" ).addClass( "d-none" );
+                $(".navbar" ).removeClass( "fixed-top" );
+                $(".navbar" ).addClass( "fixed-bottom" );
+                $(".section-show-1").removeAttr("style");
+                $(".section-show-2").removeAttr("style");
+                $(".section-show-3").removeAttr("style");
+                $(".row-show").removeAttr("style");
+                $(".row-show").css("border-bottom","2px solid black");
+                $(".icon-show").css("left","85%");
+            } else if(window.matchMedia("(max-width: 800px)").matches){
+                $(".container-show").css("margin-top","0em");
+                $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                $(".remove-title-nav" ).addClass( "d-none" );
+                $(".row-nav").css("margin-left","16em");
+                $(".navbar" ).removeClass( "fixed-top" );
+                $(".navbar" ).addClass( "fixed-bottom" );
+            }
+        });
+    </script>
         {% block navbar %}
             {% include "navbar.html.twig" %}
         {% endblock %}
@@ -129,7 +65,7 @@
                 {% endfor %} #}
                 <div>
                     <div class="row icon-show text-switch">
-                        <div class="col-sm-5 col-xl-5 col-md-5">
+                        <div class="col-sm-8 col-xl-5 col-md-5">
                             <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': trick.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
                                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}"/>
                                 <button class="btn-del-2" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></button>
@@ -189,11 +125,11 @@
                 </div>
             </div>
         </section>
-        {% if is_mobile_view() %}
+        {# {% if is_mobile_view() %}
             <section class="text-center mt-5" style="">
-        {% else %}
-        <section class="text-center mt-5" style="padding-left:20em;padding-right:20em;">
-        {% endif %}
+        {% else %} #}
+        <section class="text-center mt-5 section-show-1" style="padding-left:20em;padding-right:20em;">
+        {# {% endif %} #}
             <div class="row" style="border-bottom: 2px solid black">
                 <div class="col-md-4 col-sm-4 col-xl-4">
                     <h6 class="btn ">Date de création: {{ trick.creationDate ? trick.creationDate|date('d-m-Y H:i:s') : '' }}</h6>
@@ -209,18 +145,18 @@
             </div>
         </section>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {% if is_mobile_view() %}
-            <section class="text-center mt-3" style="">
-        {% else %}
-            <section class="text-center mt-3" style="padding-left:20em;padding-right:20em;">
-        {% endif %}
+        {# {% if is_mobile_view() %}
+            <section class="text-center mt-3 section-show-2" style="">
+        {% else %} #}
+            <section class="text-center mt-3 section-show-2" style="padding-left:20em;padding-right:20em;">
+        {# {% endif %} #}
             
                 {{ form_start(commentForm) }}
-                {% if is_mobile_view() %}
+                {# {% if is_mobile_view() %}
                     <div class="row" style="border-bottom: 2px solid black;">
-                {% else %}
-                    <div class="row" style="border-bottom: 2px solid black;padding-left:10em;padding-right:20em;">
-                {% endif %}
+                {% else %} #}
+                    <div class="row row-show" style="border-bottom: 2px solid black;padding-left:10em;padding-right:20em;">
+                {# {% endif %} #}
                     
                         <div class="col-sm-8 col-md-8 col-xl-8">
                             {{ form_row(commentForm.content) }}
@@ -238,7 +174,7 @@
         {% if is_mobile_view() %}
             <section class="text-center mt-5 grid" style="">
         {% else %}
-            <section class="text-center mt-5 grid" style="padding-left:20em;padding-right:20em;">
+            <section class="text-center mt-5 grid section-show-3" style="padding-left:20em;padding-right:20em;">
         {% endif %}
         
             {% set commentVar = false %}
