@@ -31,41 +31,61 @@
     <link href="../css/standard.css" rel="stylesheet" />
 </head>
     <body class="body-new">
-        {% block navbar %}
-            {% include "navbar.html.twig" %}
-        {% endblock %}
+        {% if is_mobile() %}
+            {% block bottomnav %}
+                {% include "bottomnav.html.twig" %}
+            {% endblock %}
+        {% else %}
+            {% block navbar %}
+                {% include "navbar.html.twig" %}
+            {% endblock %}
+        {% endif %}
         <!-- Masthead-->
         <!-- About-->
-            <section class="text-center form-new">
+            
                 {% if error == true %}
                     <input type="hidden" id="inputHiddenError" value="{{ error }}">
                 {% endif %}
-                <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
+                
                 {{ form_start(form) }}
+                {% if is_mobile_view() %}
+                <section class="text-center form-new mt-4" style="margin-left:0em !important;margin-right:0em !important; padding-left:2em !important; padding-right:2em !important;">
+                    <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
+                    <div class="row mb-3" style="">    
+                {% elseif is_tablet_view() %}
+                    <section class="text-center form-new mt-4" style="margin-left:0em !important;margin-bottom:5em !important;margin-right:0em !important; padding-left:2em !important; padding-right:2em !important;">
+                        <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
+                        <div class="row mb-3" style="">
+                    
+                {% else %}
+                <section class="text-center form-new">
+                    <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
                     <div class="row mb-3" style="padding-left:5em;padding-right:5em;">
-                        <div class="col-sm-6 col-md-6 col-xl-6">
+                {% endif %}
+                    
+                        <div class="col-sm-12 col-md-6 col-xl-6">
                             {{ form_row(form.name) }}
                         </div>
-                        <div class="col-sm-6 col-md-6 col-xl-6">
+                        <div class="col-sm-12 col-md-6 col-xl-6">
                             {{ form_row(form.category) }}
                         </div>
                     </div>
-                    <div class="row" style="padding-left:5em;padding-right:5em;">
+                    <div class="row" style="">
                         <div class="col-sm-12 col-md-12 col-xl-12">
                             {{ form_row(form.description) }}
                         </div>
                     </div>
-                    <div class="row mt-3 mb-5" style="padding-left:5em;padding-right:5em;">
-                        <div class="col-sm-12 col-md-12 col-xl-12">
+                    <div class="row mt-3 mb-5" style="">
+                        <div class="col-sm-6 col-md-12 col-xl-12">
                             {{ form_row(form.media) }}
                         </div>
                     </div>
-                    <div class="row mt-3 mb-5" style="padding-left:5em;padding-right:5em;">
-                        <div class="col-sm-12 col-md-12 col-xl-12">
+                    <div class="row mt-3 mb-5" style="">
+                        <div class="col-sm-6 col-md-12 col-xl-12">
                             {{ form_row(form.mainImage) }}
                         </div>
                     </div>
-                    <div class="row mt-3 mb-5" style="padding-left:5em;padding-right:5em;">
+                    <div class="row mt-3 mb-5" style="padding-left:0em;">
                         <div class="col-sm-12 col-md-12 col-xl-12">
                             {{ form_row(form.embedsingle) }}
                         </div>
@@ -76,9 +96,9 @@
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        {# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script> #}
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        {# <script src="../js/scripts.js"></script> #}
         <script>
             $( document ).ready(function() {
                 valError = $('#inputHiddenError').val();
@@ -92,6 +112,6 @@
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        {# <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> #}
     </body>
 </html>

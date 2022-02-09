@@ -3,7 +3,7 @@
         <ul class="navbar-nav">
             <div class="row mb-3" style="margin-left:4.5em;">
             {% if is_tablet_view() %}
-                <div class="col-md-4 w-auto" style="margin-left:6em;margin-right:4.5em;">
+                <div class="col-md-4 w-auto" style="margin-left:8em;margin-right:4.5em;">
             {% else %}
                 <div class="col-sm-4 w-auto">
             {% endif %}
@@ -33,11 +33,11 @@
                     <li><a href="{{ path('app_login') }}" style="color:white;"><i class="fas fa-2x fa-sign-out-alt"></i></a></li>
                 </div>
                 {% if is_tablet_view() %}
-                    <div class="col-md-4 w-auto">
+                    <div class="col-md-4 w-auto" style="margin-left:3em;">
                 {% else %}
                     <div class="col-sm-4 w-auto">
                 {% endif %}
-                    <li><a href="{{ path('user_new') }}" style="color:white;">Inscription</a></li>
+                    <li><a href="{{ path('user_new') }}" style="color:white;"><i class="fas fa-2x fa-user-check"></i></a></li>
                 </div>
               {% endif %}
             </div>
