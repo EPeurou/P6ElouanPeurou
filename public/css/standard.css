@@ -210,8 +210,21 @@ iframe {
   max-width: 12em;
 }
 
-@media (min-width: 360px) {
-  .masthead {
-    margin-top: 0em !important;
-  }
+
+
+
+.col-list-trick-mobile{
+  margin-left:4.1em;
+  margin-left: 22.5%;
+  width:auto;
 }
+
+.div-size-tablet{
+  width: 30rem !important;
+  margin-left: 6.5em;
+}
+
+/* .col-list-trick{
+  margin-left:0em !important;
+  
+} */
