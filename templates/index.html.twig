@@ -10,22 +10,39 @@
                 if(window.matchMedia("(max-width: 450px)").matches){
                     $(".masthead").css("margin-top","0em");
                     $( ".col-list" ).addClass( "col-list-trick-mobile" );
+                    $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                    $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                    $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                    $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                    $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                    $(".remove-title-nav" ).addClass( "d-none" );
+                    $(".navbar" ).removeClass( "fixed-top" );
+                    $(".navbar" ).addClass( "fixed-bottom" );
                 } else if(window.matchMedia("(max-width: 800px)").matches){
                     $(".masthead").css("margin-top","0em");
-                    $( ".div-size" ).addClass( "div-size-tablet" );
+                    $(".div-size" ).addClass( "div-size-tablet" );
+                    $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                    $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                    $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                    $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                    $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                    $(".remove-title-nav" ).addClass( "d-none" );
+                    $(".row-nav").css("margin-left","16em");
+                    $(".navbar" ).removeClass( "fixed-top" );
+                    $(".navbar" ).addClass( "fixed-bottom" );
                 }
             });
         </script>
         <!-- Navigation-->
-        {% if is_mobile() %}
-            {% block bottomnav %}
+        {# {% if is_mobile() %} #}
+            {# {% block bottomnav %}
                 {% include "bottomnav.html.twig" %}
-            {% endblock %}
-        {% else %}
+            {% endblock %} #}
+        {# {% else %} #}
             {% block navbar %}
                 {% include "navbar.html.twig" %}
             {% endblock %}
-        {% endif %}
+        {# {% endif %} #}
         <!-- Masthead-->
         {# {% if is_mobile() %}
             <header class="masthead mt-0">
