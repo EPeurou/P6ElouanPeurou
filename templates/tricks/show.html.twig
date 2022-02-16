@@ -38,8 +38,10 @@
                 $(".row-media" ).removeClass( "d-none" );
                 $(".row-comment" ).removeClass( "row" );
                 $(".row-comment" ).addClass( "row-spe" );
+                $(".form-comment" ).addClass( "row-more-comment" );
+                $(".form-comment" ).removeClass( "row" );
                 $(".row-more-comment").css("margin-left","5em");
-                $(".row-form-comment").removeAttr("style");
+                $(".form-comment").removeAttr("style");
             } else if(window.matchMedia("(max-width: 800px)").matches){
                 $(".container-show").css("margin-top","0em");
                 $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
@@ -62,8 +64,10 @@
                 $(".row-media" ).removeClass( "d-none" );
                 $(".row-comment" ).removeClass( "row" );
                 $(".row-comment" ).addClass( "row-spe" );
+                $(".form-comment" ).addClass( "row-more-comment" );
+                $(".form-comment" ).removeClass( "row" );
                 $(".row-more-comment").css("margin-left","5em");
-                $(".row-form-comment").removeAttr("style");
+                $(".form-comment").removeAttr("style");
                 $(".col-input-form" ).addClass( "offset-2" );
                 $(".col-button-form" ).addClass( "offset-4" );
                 $(".row-media").css("margin-left","5em");
@@ -184,7 +188,7 @@
                 {# {% if is_mobile_view() %}
                     <div class="row-spe" style="border-bottom: 2px solid black;">
                 {% else %} #}
-                    <div class="row-form-comment" style="border-bottom: 2px solid black;padding-left:10em;padding-right:20em;">
+                    <div class="row form-comment" style="border-bottom: 2px solid black;padding-left:10em;padding-right:20em;">
                 {# {% endif %} #}
                     
                         <div class="col-sm-8 col-md-8 col-xl-8 col-input-form">
