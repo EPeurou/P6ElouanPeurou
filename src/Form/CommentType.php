@@ -30,7 +30,7 @@ class CommentType extends AbstractType
             ])
             // ->add('trick')
             ->add('envoyer', SubmitType::class,[
-                'label'=>'Laisser un commentaire!',
+                'label'=>'Laissé un commentaire!',
                 'attr' => [
                     'class'=>'btn btn-primary'
                 ]
