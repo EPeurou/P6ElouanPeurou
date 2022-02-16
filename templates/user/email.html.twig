@@ -93,6 +93,29 @@
         {% endblock %}
         <!-- Masthead-->
         <!-- About-->
+        <div class="modal fade" id="modalSuccess" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Succès</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-8 col-md-8">
+                                <h5 class="modal-title" id="exampleModalLabel">Un mail vous attend dans votre boite mail!</h5>
+                            </div>
+                            <div class="col-xl-3 col-md-3">
+                            <i style="color:green;" class="far fa-3x fa-check-circle mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% if success == true %}
             <input type="hidden" id="inputHiddenError" value="{{ success }}">
         {% endif %}
@@ -104,7 +127,7 @@
                         <input type="email" name="email" id="email" class="form-control" required autofocus>
                     </div>
                     <div class="offset-md-3 offset-xl-3 col-sm-12 col-md-6 col-xl-6">
-                        <button class="btn btn-lg btn-primary mb-3" type="submit">
+                        <button class="btn btn-lg btn-primary mb-3 btn-valide" type="submit">
                             Vérifier
                         </button>
                     </div>
@@ -122,11 +145,11 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script>
-            $( document ).ready(function() {
+            $( document).ready(function() {
                 valError = $('#inputHiddenError').val();
                 console.log(valError);
                 if(valError == true){
-                    alert('Un mail vous attend dans votre boite mail!');
+                    $('#modalSuccess').modal('show');
                 }
             });
         </script>
