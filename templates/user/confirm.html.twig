@@ -43,18 +43,56 @@
     <link href="../css/standard.css" rel="stylesheet" />
 </head>
     <body class="body-email">
+        <script>
+            $( document ).ready(function() {
+                if(window.matchMedia("(max-width: 450px)").matches){
+                    $(".section-confirm").css("margin-top","5em");
+                    $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                    $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                    $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                    $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                    $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                    $(".remove-title-nav" ).addClass( "d-none" );
+                    $(".navbar" ).removeClass( "fixed-top" );
+                    $(".col-user" ).removeClass( "offset-3" );
+                    $(".col-password" ).removeClass( "offset-3" );
+                    $(".col-valide" ).removeClass( "offset-3" );
+                    $(".navbar" ).addClass( "fixed-bottom" );
+                    $(".form-new" ).addClass( "section-new-mobile" );
+                    $(".form-new" ).css( "margin-top", "5em" );
+                    $(".btn-login").css("margin-left","2em");
+                } else if(window.matchMedia("(max-width: 800px)").matches){
+                    $(".masthead").css("margin-top","0em");
+                    $(".div-size" ).addClass( "div-size-tablet" );
+                    $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                    $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                    $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                    $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                    $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                    $(".remove-title-nav" ).addClass( "d-none" );
+                    $(".row-nav").css("margin-left","16em");
+                    $(".navbar" ).removeClass( "fixed-top" );
+                    $(".navbar" ).addClass( "fixed-bottom" );
+                    $(".form-new" ).addClass( "section-new-tablet" );
+                    $(".form-new" ).css( "margin-top", "5em" );
+                    $(".footer").css("padding","7rem");
+                    $(".footer").css("margin-top","17em");
+                    $(".btn-login").css("margin-left","9em");
+                }
+            });
+        </script>
         {% block navbar %}
             {% include "navbar.html.twig" %}
         {% endblock %}
         <!-- Masthead-->
         <!-- About-->
         
-            <section class="text-center" style="margin-top:15em;margin-bottom:8em;">
+            <section class="text-center section-confirm" style="margin-top:15em;margin-bottom:8em;">
                 <h1 class="mb-4 mt-1" style="font-family:Varela Round; color:#00f870;">Vérification du compte réussi!</h1>
-                <i class="fas fa-7x fa-user-check" style="color:#00f870;text-align:center;"></i>
-                <div class="row mt-3">
-                    <div  style="text-align:center;">
-                        <a href="{{ path('app_login') }}" class="btn btn-success">Connexion</a>
+                <i class="fas fa-7x fa-user-check" style="color:#00f870;text-align:center;margin-left:0.5em;"></i>
+                <div class="row-spe mt-3">
+                    <div  class="offset-3 col-xl-5" >
+                        <a href="{{ path('app_login') }}" class="btn btn-success btn-login" style="margin-left:11.5em;">Connexion</a>
                     </div>
                 </div>
             </section>

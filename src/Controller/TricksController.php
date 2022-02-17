@@ -118,6 +118,12 @@ class TricksController extends AbstractController
             } else {
                 $trick->setEmbedsingle(null);
             }
+            $name = $form->get('name')->getData();
+            $nameUrl = str_replace(" ", "-", $name);
+            $nameUrl = str_replace("é", "e", $nameUrl);
+            $nameUrl = str_replace("è", "e", $nameUrl);
+            $nameUrl = str_replace("à", "a", $nameUrl);
+            $trick->setSlug($nameUrl);
             
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($trick);
@@ -144,7 +150,7 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{name}", name="tricks_show")
+     * @Route("/{slug}", name="tricks_show", methods={"GET","POST"})
      */
     public function show(Tricks $trick, Request $request)
     {
@@ -229,7 +235,7 @@ class TricksController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="tricks_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="tricks_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Tricks $trick): Response
     {
@@ -323,7 +329,7 @@ class TricksController extends AbstractController
 
 
     /**
-     * @Route("/{id}", name="tricks_delete", methods={"POST"})
+     * @Route("/delete/{id}", name="tricks_delete", methods={"POST"})
      */
     public function delete(Request $request, Tricks $trick): Response
     {   

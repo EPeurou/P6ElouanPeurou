@@ -75,7 +75,7 @@ class TricksType extends AbstractType
                 'mapped' => false,
                 'required' => false,
                 'attr'=>[
-                    'class'=>'btn'
+                    'class'=>'btn fileInput'
                 ],
                 'constraints' => [
                     new All([
@@ -95,7 +95,7 @@ class TricksType extends AbstractType
                 'required' => false,
                 'mapped' => false,
                 'attr'=>[
-                    'class'=>'btn'
+                    'class'=>'btn fileInputMain'
                 ],
                 'constraints' => [
                     new Image([

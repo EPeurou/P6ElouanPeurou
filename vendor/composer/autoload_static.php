@@ -130,6 +130,7 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'M' => 
         array (
             'Monolog\\' => 8,
+            'MobileDetectBundle\\' => 19,
         ),
         'L' => 
         array (
@@ -528,6 +529,10 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'MobileDetectBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src',
+        ),
         'Laminas\\ZendFrameworkBridge\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src',
@@ -648,6 +653,13 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
                 0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
             ),
         ),
+        'D' => 
+        array (
+            'Detection' => 
+            array (
+                0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -699,6 +711,7 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
         'Doctrine\\Bundle\\DoctrineBundle\\Attribute\\AsEntityListener' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/Attribute/AsEntityListener.php',
         'Doctrine\\Bundle\\DoctrineBundle\\CacheWarmer\\DoctrineMetadataCacheWarmer' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/CacheWarmer/DoctrineMetadataCacheWarmer.php',
         'Doctrine\\Bundle\\DoctrineBundle\\Command\\CreateDatabaseDoctrineCommand' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/Command/CreateDatabaseDoctrineCommand.php',
@@ -2333,6 +2346,16 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'Laminas\\ZendFrameworkBridge\\Replacements' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/Replacements.php',
         'Laminas\\ZendFrameworkBridge\\RewriteRules' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/RewriteRules.php',
         'Locale' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Locale.php',
+        'MobileDetectBundle\\DataCollector\\DeviceDataCollector' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DataCollector/DeviceDataCollector.php',
+        'MobileDetectBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DependencyInjection/Configuration.php',
+        'MobileDetectBundle\\DependencyInjection\\MobileDetectExtension' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DependencyInjection/MobileDetectExtension.php',
+        'MobileDetectBundle\\DeviceDetector\\MobileDetector' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DeviceDetector/MobileDetector.php',
+        'MobileDetectBundle\\EventListener\\RequestResponseListener' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/EventListener/RequestResponseListener.php',
+        'MobileDetectBundle\\Helper\\DeviceView' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/Helper/DeviceView.php',
+        'MobileDetectBundle\\Helper\\RedirectResponseWithCookie' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/Helper/RedirectResponseWithCookie.php',
+        'MobileDetectBundle\\MobileDetectBundle' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/MobileDetectBundle.php',
+        'MobileDetectBundle\\Twig\\Extension\\MobileDetectExtension' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/Twig/Extension/MobileDetectExtension.php',
+        'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',

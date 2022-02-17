@@ -643,6 +643,8 @@ progress {
   margin-left: auto;
 }
 
+
+
 @media (min-width: 576px) {
   .container-sm, .container {
     max-width: 540px;
@@ -677,6 +679,21 @@ progress {
   margin-right: calc(var(--bs-gutter-x) * -.5);
   margin-left: calc(var(--bs-gutter-x) * -.5);
 }
+
+.row-spe {
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -.5);
+  margin-left: calc(var(--bs-gutter-x) * -.5);
+}
+
+.row-form-comment {
+  --bs-gutter-y: 0;
+  
+}
+
 .row-show {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
@@ -904,6 +921,17 @@ progress {
 }
 
 @media (min-width: 576px) {
+  
+  /* .masthead {
+    margin-top: 0em ;
+  }
+
+  .col-list-trick{
+    
+    margin-left: 22.5%;
+    width:auto;
+  } */
+  
   .col-sm {
     flex: 1 0 0%;
   }
@@ -4059,7 +4087,7 @@ textarea.form-control-lg {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #64a19d;
+  color: white;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }

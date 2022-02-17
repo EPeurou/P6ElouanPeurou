@@ -64,6 +64,45 @@
     <link href="../../css/standard.css" rel="stylesheet" />
 </head>
     <body class="body-edit">
+        <script>
+            $( document ).ready(function() {
+                if(window.matchMedia("(max-width: 450px)").matches){
+                    $(".masthead").css("margin-top","0em");
+                    $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                    $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                    $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                    $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                    $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                    $(".remove-title-nav" ).addClass( "d-none" );
+                    $(".navbar" ).removeClass( "fixed-top" );
+                    $(".col-user" ).removeClass( "offset-3" );
+                    $(".col-password" ).removeClass( "offset-3" );
+                    $(".col-valide" ).removeClass( "offset-3" );
+                    $(".navbar" ).addClass( "fixed-bottom" );
+                    $(".form-new" ).addClass( "section-new-mobile" );
+                    $(".form-new" ).css( "margin-top", "5em" );
+                    $(".cols" ).removeClass( "offset-3" );
+                    $(".cols" ).css( "margin-left", "0.5em" );
+
+                } else if(window.matchMedia("(max-width: 800px)").matches){
+                    $(".masthead").css("margin-top","0em");
+                    $(".div-size" ).addClass( "div-size-tablet" );
+                    $(".link-add").html('<i class="fas fa-2x fa-pen-square"></i>')
+                    $(".link-logout").html('<i class="fas fa-2x fa-door-open"></i>')
+                    $(".link-login").html('<i class="fas fa-2x fa-sign-out-alt"></i>')
+                    $(".link-register").html('<i class="fas fa-2x fa-user-check"></i>')
+                    $(".link-home").html('<i class="fas fa-2x fa-home"></i>')
+                    $(".remove-title-nav" ).addClass( "d-none" );
+                    $(".row-nav").css("margin-left","16em");
+                    $(".navbar" ).removeClass( "fixed-top" );
+                    $(".navbar" ).addClass( "fixed-bottom" );
+                    $(".form-new" ).addClass( "section-new-tablet" );
+                    
+                    $(".footer").css("padding","7rem");
+                    $(".footer").css("margin-top","20em");
+                }
+            });
+        </script>
         {% block navbar %}
             {% include "navbar.html.twig" %}
         {% endblock %}
@@ -80,19 +119,19 @@
                     <div class="login-form  mt-4 p-4">
                         <form method="post" class="row g-3">
                         <div class="row">
-                            <div class="offset-3 col-sm-12 col-md-6 col-xl-6">
+                            <div class="offset-3 col-sm-12 col-md-6 col-xl-6 cols">
                                 <label for="inputEmail">Nom d'utilisateur</label>
                                 <input type="text" name="userName" id="userName" class="form-control" required autofocus>
                             </div> 
                         </div>
                         <div class="row mt-2">
-                            <div class="offset-3 col-sm-12 col-md-6 col-xl-6">
+                            <div class="offset-3 col-sm-12 col-md-6 col-xl-6 cols">
                                 <label for="inputPassword">Nouveau mot de passe</label>
                                 <input type="password" name="password" id="inputPassword" class="form-control" required>
                             </div>
                         </div>
                             <div class="row mt-3">
-                                <div class="offset-3 col-sm-12 col-md-6 col-xl-6">
+                                <div class="offset-3 col-sm-12 col-md-6 col-xl-6 cols">
                                     <button class="btn btn-lg btn-primary" type="submit">Valider</button>
                                 </div>
                             </div>
