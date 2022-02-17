@@ -91,6 +91,11 @@ class Tricks
      */
     private $embedsingle;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->media = new ArrayCollection();
@@ -132,6 +137,14 @@ class Tricks
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function getNameUrl(): ?string
+    {
+        $name = $this->name;
+        $nameUrl = str_replace(" ", "-", $name);
+        $this->slug = $nameUrl;
+        return $this->slug;
     }
 
     public function setName(string $name): self
@@ -255,17 +268,7 @@ class Tricks
         return $this;
     }
 
-    // public function getEmbed(): ?array
-    // {
-    //     return $this->embed;
-    // }
-
-    // public function setEmbed(?array $embed): self
-    // {
-    //     $this->embed = $embed;
-
-    //     return $this;
-    // }
+    
 
     public function getEmbedsingle(): ?string
     {
@@ -275,6 +278,18 @@ class Tricks
     public function setEmbedsingle(?string $embedsingle): self
     {
         $this->embedsingle = $embedsingle;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

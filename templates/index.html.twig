@@ -91,15 +91,15 @@
                                 <div class="div-size" style="width: 12rem;">
                         {# {% endif %} #}
                                     {% if list.mainImage != null %}
-                                        <img class="card-img-top" src="{{ asset('upload/' ~ list.mainImage[0])}}" alt="...">
+                                        <img class="card-img-top card-img-home" src="{{ asset('upload/' ~ list.mainImage[0])}}" alt="..." style="object-fit:cover;" >
                                     {% else %}
-                                        <img class="card-img-top" src="../public/assets/img/frontflip.jpg" alt="...">
+                                        <img class="card-img-top card-img-home" src="../public/assets/img/frontflip.jpg" alt="..." style="object-fit:cover;">
                                     {% endif %}
                                     <div class="card-body">
                                         {# <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a> #}
                                         <div class="row">
                                             <div class="col-sm-3 col-xl-6 col-md-6 w-auto">
-                                                <a href="{{ path('tricks_show', {name: list.name}) }}">{{ list.name|length > 4 ? list.name|slice(0, 4) ~ '...' : list.name  }}</a>
+                                                <a href="{{ path('tricks_show', {slug: list.slug}) }}">{{ list.name|length > 4 ? list.name|slice(0, 4) ~ '...' : list.name  }}</a>
                                             </div>
                                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                                 <div class="col-sm-2 col-xl-3 col-md-3 w-auto">
@@ -110,7 +110,7 @@
                                                 </div>
                                                 <div class="col-sm-2 col-xl-3 col-md-3 w-auto">
                                                     {# <a href="{{ path('tricks_delete', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a> #}
-                                                    <a href="{{ path('tricks_edit', {id: list.id}) }}" style="margin-left:0em;"><i class="fas fa-pencil-alt"></i></a>
+                                                    <a href="{{ path('tricks_edit', {slug: list.slug}) }}" style="margin-left:0em;"><i class="fas fa-pencil-alt"></i></a>
                                                 </div>
                                             {% endif %}
                                         </div>
@@ -171,7 +171,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

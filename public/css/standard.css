@@ -238,3 +238,8 @@ iframe {
   padding-left:2em !important;
   padding-right:2em !important;
 }
+
+.card-img-home {
+  width: 192px !important;
+  height: 126px !important;
+}
