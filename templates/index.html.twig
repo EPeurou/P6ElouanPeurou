@@ -29,11 +29,13 @@
                     $(".row-nav").css("margin-left","16em");
                     $(".navbar" ).removeClass( "fixed-top" );
                     $(".navbar" ).addClass( "fixed-bottom" );
+                    $(".col-name" ).addClass( "offset-4" );
+                    $(".card-img-top" ).removeClass( "card-img-home" );
                 }
             });
         </script>
         <!-- Navigation-->
-        {# {% if is_mobile() %} #}
+        
             {# {% block bottomnav %}
                 {% include "bottomnav.html.twig" %}
             {% endblock %} #}
@@ -43,18 +45,14 @@
             {% endblock %}
         {# {% endif %} #}
         <!-- Masthead-->
-        {# {% if is_mobile() %}
-            <header class="masthead mt-0">
-        {% else %} #}
+        
             <header class="masthead">
         {# {% endif %} #}
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center" id="home">
             
                 <div class="row">
                     <div class="text-center mt-5 col-sm-8 col-md-12 col-xl-12">
-                    {# {% if is_mobile() %}
-                        <h1 class="title-nav" style="width:auto;">SnowTricks</h1>
-                    {% else %} #}
+                    
                         <h1 class="title-nav">SnowTricks</h1>
                     {# {% endif %} #}
                     </div>
@@ -79,14 +77,7 @@
                             <div class="row mb-4 mb-lg-5 align-items-center row-more d-none">
                                 <div class="col-md-1"></div>
                         {% endif %}
-                        {# {% if is_mobile_view() %}
-                            <div class="col-sm-8 col-md-2 col-xl-2" style="margin-left:4.1em;width:auto !important;">
-                            <div style="width: 12rem;">
-                        {% elseif is_tablet_view() %}
-                        <div class="col-sm-8 col-md-12 col-xl-2" style="margin-left:5.7em;">
-                            <div style="width: 30rem;">
-                           
-                        {% else %} #}
+                        
                             <div class="col-sm-8 col-md-12 col-xl-2 mr-2 col-list">
                                 <div class="div-size" style="width: 12rem;">
                         {# {% endif %} #}
@@ -98,17 +89,17 @@
                                     <div class="card-body">
                                         {# <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a> #}
                                         <div class="row">
-                                            <div class="col-sm-3 col-xl-6 col-md-6 w-auto">
+                                            <div class="col-name col-sm-3 col-xl-6 col-md-2 w-auto">
                                                 <a href="{{ path('tricks_show', {slug: list.slug}) }}">{{ list.name|length > 4 ? list.name|slice(0, 4) ~ '...' : list.name  }}</a>
                                             </div>
                                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                                <div class="col-sm-2 col-xl-3 col-md-3 w-auto">
+                                                <div class="col-sm-2 col-xl-3 col-md-1 w-auto">
                                                     <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': list.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
                                                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ list.id) }}"/>
                                                         <button class="btn-del"><i class="fas fa-trash-alt"></i></button>
                                                     </form>
                                                 </div>
-                                                <div class="col-sm-2 col-xl-3 col-md-3 w-auto">
+                                                <div class="col-sm-2 col-xl-3 col-md-1 w-auto">
                                                     {# <a href="{{ path('tricks_delete', {id: list.id}) }}" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></a> #}
                                                     <a href="{{ path('tricks_edit', {slug: list.slug}) }}" style="margin-left:0em;"><i class="fas fa-pencil-alt"></i></a>
                                                 </div>

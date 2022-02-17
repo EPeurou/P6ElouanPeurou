@@ -158,9 +158,7 @@
                 </div>
             </div>
         </section>
-        {# {% if is_mobile_view() %}
-            <section class="text-center mt-5" style="">
-        {% else %} #}
+        
         <section class="text-center mt-5 section-show-1" style="padding-left:20em;padding-right:20em;">
         {# {% endif %} #}
             <div class="row-spe" style="border-bottom: 2px solid black">
@@ -178,16 +176,12 @@
             </div>
         </section>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {# {% if is_mobile_view() %}
-            <section class="text-center mt-3 section-show-2" style="">
-        {% else %} #}
+        
             <section class="text-center mt-3 section-show-2" style="padding-left:20em;padding-right:20em;">
         {# {% endif %} #}
             
                 {{ form_start(commentForm) }}
-                {# {% if is_mobile_view() %}
-                    <div class="row-spe" style="border-bottom: 2px solid black;">
-                {% else %} #}
+                
                     <div class="row form-comment" style="border-bottom: 2px solid black;padding-left:10em;padding-right:20em;">
                 {# {% endif %} #}
                     

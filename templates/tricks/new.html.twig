@@ -45,33 +45,17 @@
             }
         });
     </script>
-        {# {% if is_mobile() %}
-            {% block bottomnav %}
-                {% include "bottomnav.html.twig" %}
-            {% endblock %}
-        {% else %} #}
+        
             {% block navbar %}
                 {% include "navbar.html.twig" %}
             {% endblock %}
         {# {% endif %} #}
         <!-- Masthead-->
         <!-- About-->
-            
                 {% if error == true %}
                     <input type="hidden" id="inputHiddenError" value="{{ error }}">
                 {% endif %}
-                
                 {{ form_start(form) }}
-                {# {% if is_mobile_view() %}
-                <section class="text-center form-new mt-4">
-                    <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
-                    <div class="row mb-3" style="">    
-                {% elseif is_tablet_view() %}
-                    <section class="text-center form-new mt-4" style="">
-                        <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
-                        <div class="row mb-3" style="">
-                    
-                {% else %} #}
                 <section class="text-center form-new">
                     <h2 class="mb-4 mt-1" style="font-family:Varela Round;">Nouveau trick</h2>
                     <div class="row mb-3" style="padding-left:5em;padding-right:5em;">
