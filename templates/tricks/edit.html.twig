@@ -320,6 +320,7 @@
             $('#inputHidden1').val(currentVal);
         });
         $('.ok-btn').click(function(){
+            const routeEdit = "{{ path('ajax', {'id': trick.id})|escape('js') }}";
             let currentVal = $('#inputHidden1').val();
                 console.log(currentVal);
                 fileVal = $('#tricks_media').prop('files');
@@ -330,7 +331,7 @@
                         console.log(currentVal+"testAjax");
                         testAjax = true;
                         $.ajax({
-                            url: "{{ path('ajax', {'id': trick.id}) }}",
+                            url: routeEdit,
                             type: 'POST',
                             data: {'currentVal':currentVal}, 
                             success: function(r){
@@ -356,6 +357,7 @@
         });
         var testAjax = false;
         $('.delete-media-btn').click(function(){
+            const routeDel = "{{ path('ajax', {'id': trick.id})|escape('js') }}";
             currentValDel = undefined;
             currentValDel = $(this).attr('data-img-val');
             console.log("delete click");
@@ -365,7 +367,7 @@
                 if(!testAjax){
                     testAjax = true;
                     $.ajax({
-                        url: "{{ path('ajax', {'id': trick.id}) }}",
+                        url: routeDel,
                         type: 'POST',
                         data: {'currentValDel':currentValDel}, 
                         success: function(r){
@@ -384,8 +386,9 @@
             });
         });
         $('.ok-del-main-img ').click(function(){
+            const routeMainImage = "{{ path('ajaxMainImage', {'id': trick.id})|escape('js') }}";
             $.ajax({
-                url: "{{ path('ajaxMainImage', {'id': trick.id}) }}",
+                url: routeMainImage,
                 type: 'POST',
                 success: function(r){
                     {# console.log(r); #}
