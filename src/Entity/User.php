@@ -44,6 +44,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $validate;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Tricks::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $tricks;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -148,6 +153,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setValidate(?bool $validate): self
     {
         $this->validate = $validate;
+
+        return $this;
+    }
+
+    public function getTricks(): ?Tricks
+    {
+        return $this->tricks;
+    }
+
+    public function setTricks(?Tricks $tricks): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($tricks === null && $this->tricks !== null) {
+            $this->tricks->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($tricks !== null && $tricks->getUser() !== $this) {
+            $tricks->setUser($this);
+        }
+
+        $this->tricks = $tricks;
 
         return $this;
     }

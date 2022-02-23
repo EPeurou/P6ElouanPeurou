@@ -22,16 +22,6 @@ class Tricks
     private $id;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $idUser;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $idType;
-
-    /**
      * @ORM\Column(type="string", length=255, unique=true)
      */
     private $name;
@@ -44,11 +34,6 @@ class Tricks
      * @ORM\Column(type="string", length=255)
      */
     private $description;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $author;
 
     /**
      * @ORM\Column(type="datetime")
@@ -81,10 +66,6 @@ class Tricks
      */
     private $update_date;
 
-    // /**
-    //  * @ORM\Column(type="simple_array", nullable=true)
-    //  */
-    // private $embed = [];
 
     /**
      * @ORM\Column(type="string", length=1000, nullable=true)
@@ -95,6 +76,11 @@ class Tricks
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $slug;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="tricks", cascade={"persist", "remove"})
+     */
+    private $user;
 
     public function __construct()
     {
@@ -290,6 +276,18 @@ class Tricks
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

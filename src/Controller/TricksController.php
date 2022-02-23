@@ -8,6 +8,7 @@ use App\Entity\Tricks;
 use App\Form\CommentType;
 use App\Form\TricksType;
 use App\Repository\TricksRepository;
+use App\Repository\UserRepository;
 use DateInterval;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -46,13 +47,18 @@ class TricksController extends AbstractController
     /**
      * @Route("/new", name="tricks_new", methods={"GET","POST"})
      */
-    public function new(Request $request, SluggerInterface $slugger): Response
+    public function new(Request $request, SluggerInterface $slugger, UserRepository $userRepository): Response
     {
         $trick = new Tricks();
         $form = $this->createForm(TricksType::class, $trick);
         $form->handleRequest($request);
         $error = false;
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            $userName = $request->request->get('userName');
+            $user = $userRepository->findOneBy(['userName'=>$userName]);
+            $trick->setUser($user);
+           
             /** @var UploadedFile $medias */
             $medias = $form->get('media')->getData();
             // dd($medias);

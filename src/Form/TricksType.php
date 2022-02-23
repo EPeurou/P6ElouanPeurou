@@ -45,16 +45,13 @@ class TricksType extends AbstractType
                     'class'=>'form-control'
                 ]
             ])
-            // ->add('embed', CollectionType::class,[
-            //     'entry_type' => TextType::class,
-            //     'allow_add' => true,
-            //     'prototype' => true,
-            //     'allow_delete' => true,
-            //     'label'=>'Lien integré via youtube ou dailymotion',
+            
+            // ->add('user', TextType::class,[
             //     'attr'=>[
-            //         'class'=>'form-control'
+            //         'class'=>'d-none'
             //     ]
             // ])
+
             ->add('embedsingle', TextAreaType::class,[
                 'label'=>'Lien integré via youtube ou dailymotion',
                 'required' => false,
