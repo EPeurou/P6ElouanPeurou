@@ -91,18 +91,20 @@
                     {# {% endif %}
                     {% set break = true %}
                 {% endfor %} #}
-                <div>
-                    <div class="row icon-show text-switch">
-                        <div class="col-sm-8 col-xl-5 col-md-5">
-                            <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': trick.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}"/>
-                                <button class="btn-del-2" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></button>
-                            </form>
+                <div> 
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <div class="row icon-show text-switch">
+                            <div class="col-sm-8 col-xl-5 col-md-5">
+                                <form method="post" style="max-width:1em;" action="{{ path('tricks_delete', {'id': trick.id}) }}" onsubmit="return confirm('Le trick va être supprimé');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ trick.id) }}"/>
+                                    <button class="btn-del-2" style="margin-left:1em;"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                            <div class="col-sm-3 col-xl-3 col-md-3 ">
+                                <a href="{{ path('tricks_edit', {slug: trick.slug}) }}" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
+                            </div>
                         </div>
-                        <div class="col-sm-3 col-xl-3 col-md-3 ">
-                            <a href="{{ path('tricks_edit', {slug: trick.slug}) }}" style="margin-right:1em;margin-left:1em;color:white;"><i class="fas fa-pencil-alt"></i></a>
-                        </div>
-                    </div>
+                    {% endif %}
                     <div class="centered-show">
                         <h1 class="mx-auto my-0 text-uppercase text-switch">{{ trick.name }}</h1>
                     </div>
