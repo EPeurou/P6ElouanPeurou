@@ -155,9 +155,13 @@
         {% endfor %}
         <script>
             $( ".row-more:lt(3)" ).removeClass( "d-none" );
+            if (!$(".row-more").hasClass("d-none")) {
+                $(".ajax-load-more").addClass("d-none");
+            }
             $(".ajax-load-more").click(function(){
                 $( ".row-more:lt(10)" ).removeClass( "d-none" );
             });
+            
         </script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>

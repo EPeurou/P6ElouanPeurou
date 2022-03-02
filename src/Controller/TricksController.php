@@ -137,6 +137,7 @@ class TricksController extends AbstractController
                 $entityManager->flush();
                 $this->addFlash('success', 'Le trick à été modifié/ajouté avec succès!');
             } catch (\Exception $e) {
+                dd($e);
                 $error = true;
                 return $this->renderForm('tricks/new.html.twig', [
                     'trick' => $trick,

@@ -31,7 +31,7 @@ class Tricks
     }
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=1000)
      */
     private $description;
 
@@ -78,9 +78,14 @@ class Tricks
     private $slug;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="tricks", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="tricks")
      */
     private $user;
+
+    // /**
+    //  * @ORM\OneToMany(targetEntity=User::class, mappedBy="tricks")
+    //  */
+    // private $user;
 
     public function __construct()
     {
@@ -279,6 +284,18 @@ class Tricks
 
         return $this;
     }
+
+    // public function getUser(): ?User
+    // {
+    //     return $this->user;
+    // }
+
+    // public function setUser(?User $user): self
+    // {
+    //     $this->user = $user;
+
+    //     return $this;
+    // }
 
     public function getUser(): ?User
     {

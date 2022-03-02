@@ -28,6 +28,7 @@
                 $(".navbar" ).removeClass( "fixed-top" );
                 $(".navbar" ).addClass( "fixed-bottom" );
                 $(".section-show-1").removeAttr("style");
+                $(".modal-dialog").removeAttr("style");
                 $(".section-show-2").removeAttr("style");
                 $(".section-show-3").removeAttr("style");
                 $(".row-show").removeAttr("style");
@@ -206,7 +207,7 @@
         
             {% set commentVar = false %}
             {% for comment in trick.comments %}
-                {% if loop.index is divisible by(5) %}
+                {% if loop.index is divisible by(11) %}
                     {% set commentVar = true  %}
                 {% endif %}
                 <div class="row-more row-more-comment d-none mb-5" style="margin-left:5em;">
@@ -257,7 +258,6 @@
                 });
             });
             $(".a-img").click(function(){
-                console.log("yep");
                 let valImg = $(this).attr('data-img');
                 $(".inModal").attr('src','/P6ElouanPeurou/P6ElouanPeurou/public/upload/'+ valImg);
             });
@@ -266,7 +266,8 @@
                 $(".row-card" ).removeClass( "d-none" );
                 $(".row-media" ).addClass( "d-none" );
             });
-        </script>        
+        </script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>       
     </body>
 </html>
 

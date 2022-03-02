@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -45,9 +47,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $validate;
 
     /**
-     * @ORM\OneToOne(targetEntity=Tricks::class, mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity=Tricks::class, mappedBy="user")
      */
     private $tricks;
+
+    public function __construct()
+    {
+        $this->tricks = new ArrayCollection();
+    }
+
+    // /**
+    //  * @ORM\Column(type="integer", nullable=true)
+    //  */
+    // private $tricks;
 
     public function getId(): ?int
     {
@@ -157,24 +169,44 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getTricks(): ?Tricks
+    // public function getTricks(): ?Tricks
+    // {
+    //     return $this->tricks;
+    // }
+
+    // public function setTricks(?Tricks $tricks): self
+    // {
+    //     $this->tricks = $tricks;
+
+    //     return $this;
+    // }
+
+    /**
+     * @return Collection|Tricks[]
+     */
+    public function getTricks(): Collection
     {
         return $this->tricks;
     }
 
-    public function setTricks(?Tricks $tricks): self
+    public function addTrick(Tricks $trick): self
     {
-        // unset the owning side of the relation if necessary
-        if ($tricks === null && $this->tricks !== null) {
-            $this->tricks->setUser(null);
+        if (!$this->tricks->contains($trick)) {
+            $this->tricks[] = $trick;
+            $trick->setUser($this);
         }
 
-        // set the owning side of the relation if necessary
-        if ($tricks !== null && $tricks->getUser() !== $this) {
-            $tricks->setUser($this);
-        }
+        return $this;
+    }
 
-        $this->tricks = $tricks;
+    public function removeTrick(Tricks $trick): self
+    {
+        if ($this->tricks->removeElement($trick)) {
+            // set the owning side to null (unless already changed)
+            if ($trick->getUser() === $this) {
+                $trick->setUser(null);
+            }
+        }
 
         return $this;
     }
