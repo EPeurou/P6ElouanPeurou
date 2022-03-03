@@ -22,7 +22,7 @@ Le projet est maintenant fonctionnel.
 
 ### Identifiants de connexion
 
-Voici des identifiants qui vous permettront de tester le blog.
+Voici des identifiants qui vous permettront de tester le site.
 
 ##### nom d'utilisateur: elouan
 ##### mot de passe: test
