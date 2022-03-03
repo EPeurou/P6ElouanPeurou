@@ -6,9 +6,18 @@ Pour installer le projet sur un serveur local il faut placer le dossier contenan
 
 Une fois le projet installé sur le serveur il vous suffira d'ouvrir votre navigateur web et saisir l'url pointant sur le dossier de votre projet et ajouter /public. Exemple: 127.0.0.1/NomDuDossier/public
 
+### Dépendences
+
+Pour installer les bundles nécéssaire au bon fonctionement du site, éxecuté la commande suivante au niveau du projet dans votre terminale.
+    composer install
+
 ### Import de la base de données
 
 Pour récupérer la base de données il faudra importer le fichier 'p6bdd.sql' (à la racine du projet), dans votre système de base de données afin de récupérer les données de démo du projet.
+
+Si vous préféré chargé les données dans votre propre base de données, entré la commande suivante dans votre terminale au niveau du projet:
+    php bin/console doctrine:fixtures:load
+
 
 ### Modification du code nécessaire
 
@@ -24,5 +33,5 @@ Le projet est maintenant fonctionnel.
 
 Voici des identifiants qui vous permettront de tester le site.
 
-##### nom d'utilisateur: elouan
+##### nom d'utilisateur: test
 ##### mot de passe: test
