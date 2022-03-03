@@ -6,7 +6,7 @@ Pour installer le projet sur un serveur local il faut placer le dossier contenan
 
 Une fois le projet installé sur le serveur il vous suffira d'ouvrir votre navigateur web et saisir l'url pointant sur le dossier de votre projet et ajouter /public. Exemple: 127.0.0.1/NomDuDossier/public
 
-### Dépendences
+### Dépendances
 
 Pour installer les bundles nécéssaire au bon fonctionement du site, éxecuté la commande suivante au niveau du projet dans votre terminale.
     composer install
