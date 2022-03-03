@@ -9,6 +9,7 @@ Une fois le projet installé sur le serveur il vous suffira d'ouvrir votre navig
 ### Dépendances
 
 Pour installer les bundles nécéssaire au bon fonctionement du site, éxecuté la commande suivante au niveau du projet dans votre terminale.
+
     composer install
 
 ### Import de la base de données
@@ -16,6 +17,7 @@ Pour installer les bundles nécéssaire au bon fonctionement du site, éxecuté 
 Pour récupérer la base de données il faudra importer le fichier 'p6bdd.sql' (à la racine du projet), dans votre système de base de données afin de récupérer les données de démo du projet.
 
 Si vous préféré chargé les données dans votre propre base de données, entré la commande suivante dans votre terminale au niveau du projet:
+
     php bin/console doctrine:fixtures:load
 
 
@@ -33,5 +35,10 @@ Le projet est maintenant fonctionnel.
 
 Voici des identifiants qui vous permettront de tester le site.
 
+Si vous avez éxecuter la commande php bin/console doctrine:fixtures:load:
 ##### nom d'utilisateur: test
+##### mot de passe: test
+
+Si vous avez importé la base de données:
+##### nom d'utilisateur: elouan
 ##### mot de passe: test
