@@ -90,7 +90,7 @@
                                         {# <a href="{{ path('tricks_show', {id: list.id}) }}">{{ list.name }}</a> #}
                                         <div class="row">
                                             <div class="col-name col-sm-3 col-xl-6 col-md-2 w-auto">
-                                                <a href="{{ path('tricks_show', {slug: list.slug}) }}">{{ list.name|length > 4 ? list.name|slice(0, 4) ~ '...' : list.name  }}</a>
+                                                <a href="{{ path('tricks_show', {slug: list.slug}) }}" title="{{list.name}}">{{ list.name|length > 4 ? list.name|slice(0, 4) ~ '...' : list.name  }}</a>
                                             </div>
                                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                                 <div class="col-sm-2 col-xl-3 col-md-1 w-auto">

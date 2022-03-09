@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
     {
 
         $newuser = new User();
-        $newuser->setEmail('test@gmail.com');
+        $newuser->setEmail('test@gmail.com'); 
         $newuser->setUserName('test');
         $password = "test";
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
