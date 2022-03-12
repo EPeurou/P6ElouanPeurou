@@ -39,7 +39,7 @@ Le projet est maintenant fonctionnel.
 
 Voici des identifiants qui vous permettront de tester le site.
 
-Si vous avez éxecuter la commande php bin/console doctrine:fixtures:load:
+Si vous avez exécuter la commande php bin/console doctrine:fixtures:load:
 ##### nom d'utilisateur: test
 ##### mot de passe: test
 
