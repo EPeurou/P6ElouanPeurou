@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'fdb6d48e45126124e5666c9a76ec9fb9e0ba159e',
+        'reference' => 'd808deb7c42ab3ccf97ae9cde784759f35608a0e',
         'name' => '__root__',
         'dev' => true,
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'fdb6d48e45126124e5666c9a76ec9fb9e0ba159e',
+            'reference' => 'd808deb7c42ab3ccf97ae9cde784759f35608a0e',
             'dev_requirement' => false,
         ),
         'behat/transliterator' => array(
@@ -217,15 +217,6 @@
             'reference' => '006aa5d32f887a4db4353b13b5b5095613e0611f',
             'dev_requirement' => false,
         ),
-        'friendsofsymfony/jsrouting-bundle' => array(
-            'pretty_version' => '2.7.0',
-            'version' => '2.7.0.0',
-            'type' => 'symfony-bundle',
-            'install_path' => __DIR__ . '/../friendsofsymfony/jsrouting-bundle',
-            'aliases' => array(),
-            'reference' => 'd56600542504148bf2faa2b6bd7571a6adf6799e',
-            'dev_requirement' => false,
-        ),
         'gedmo/doctrine-extensions' => array(
             'pretty_version' => 'v3.1.0',
             'version' => '3.1.0.0',
@@ -260,15 +251,6 @@
             'install_path' => __DIR__ . '/../laminas/laminas-zendframework-bridge',
             'aliases' => array(),
             'reference' => 'bf180a382393e7db5c1e8d0f2ec0c4af9c724baf',
-            'dev_requirement' => false,
-        ),
-        'mobiledetect/mobiledetectlib' => array(
-            'pretty_version' => '2.8.37',
-            'version' => '2.8.37.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../mobiledetect/mobiledetectlib',
-            'aliases' => array(),
-            'reference' => '9841e3c46f5bd0739b53aed8ac677fa712943df7',
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
@@ -1370,15 +1352,6 @@
             'reference' => '4500fe63dc9c6ffc32d3b1cb0448c329f9c814b7',
             'dev_requirement' => false,
         ),
-        'tattali/mobile-detect-bundle' => array(
-            'pretty_version' => 'v2.1.1',
-            'version' => '2.1.1.0',
-            'type' => 'symfony-bundle',
-            'install_path' => __DIR__ . '/../tattali/mobile-detect-bundle',
-            'aliases' => array(),
-            'reference' => 'f6b7b8b9dfb057b549982bfc95e9bfc47575609c',
-            'dev_requirement' => false,
-        ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',
             'version' => '1.2.1.0',
@@ -1397,6 +1370,15 @@
             'reference' => 'fa92b8301ff8878e45fe9f54ab7ad99872e080f3',
             'dev_requirement' => false,
         ),
+        'twig/string-extra' => array(
+            'pretty_version' => 'v3.3.5',
+            'version' => '3.3.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twig/string-extra',
+            'aliases' => array(),
+            'reference' => '03608ae2e9c270a961e8cf1b75751e8635ad3e3c',
+            'dev_requirement' => false,
+        ),
         'twig/twig' => array(
             'pretty_version' => 'v3.3.3',
             'version' => '3.3.3.0',
@@ -1413,15 +1395,6 @@
             'install_path' => __DIR__ . '/../webmozart/assert',
             'aliases' => array(),
             'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
-            'dev_requirement' => false,
-        ),
-        'willdurand/jsonp-callback-validator' => array(
-            'pretty_version' => 'v1.1.0',
-            'version' => '1.1.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../willdurand/jsonp-callback-validator',
-            'aliases' => array(),
-            'reference' => '1a7d388bb521959e612ef50c5c7b1691b097e909',
             'dev_requirement' => false,
         ),
         'zendframework/zend-code' => array(

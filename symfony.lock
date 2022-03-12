@@ -672,8 +672,5 @@
     },
     "webmozart/assert": {
         "version": "1.10.0"
-    },
-    "willdurand/jsonp-callback-validator": {
-        "version": "v1.1.0"
     }
 }

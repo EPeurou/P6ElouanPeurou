@@ -38,6 +38,7 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'T' => 
         array (
             'Twig\\Extra\\TwigExtraBundle\\' => 27,
+            'Twig\\Extra\\String\\' => 18,
             'Twig\\' => 5,
         ),
         'S' => 
@@ -130,7 +131,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'M' => 
         array (
             'Monolog\\' => 8,
-            'MobileDetectBundle\\' => 19,
         ),
         'L' => 
         array (
@@ -141,10 +141,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'G' => 
         array (
             'Gedmo\\' => 6,
-        ),
-        'F' => 
-        array (
-            'FOS\\JsRoutingBundle\\' => 20,
         ),
         'E' => 
         array (
@@ -196,6 +192,10 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'Twig\\Extra\\TwigExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/extra-bundle',
+        ),
+        'Twig\\Extra\\String\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/string-extra',
         ),
         'Twig\\' => 
         array (
@@ -529,10 +529,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'MobileDetectBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src',
-        ),
         'Laminas\\ZendFrameworkBridge\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src',
@@ -548,10 +544,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'Gedmo\\' => 
         array (
             0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src',
-        ),
-        'FOS\\JsRoutingBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
@@ -645,23 +637,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'J' => 
-        array (
-            'JsonpCallbackValidator' => 
-            array (
-                0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
-            ),
-        ),
-        'D' => 
-        array (
-            'Detection' => 
-            array (
-                0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'App\\Controller\\CommentController' => __DIR__ . '/../..' . '/src/Controller/CommentController.php',
         'App\\Controller\\ResetController' => __DIR__ . '/../..' . '/src/Controller/ResetController.php',
@@ -711,7 +686,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
-        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
         'Doctrine\\Bundle\\DoctrineBundle\\Attribute\\AsEntityListener' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/Attribute/AsEntityListener.php',
         'Doctrine\\Bundle\\DoctrineBundle\\CacheWarmer\\DoctrineMetadataCacheWarmer' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/CacheWarmer/DoctrineMetadataCacheWarmer.php',
         'Doctrine\\Bundle\\DoctrineBundle\\Command\\CreateDatabaseDoctrineCommand' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/Command/CreateDatabaseDoctrineCommand.php',
@@ -1955,19 +1929,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/Warning.php',
-        'FOS\\JsRoutingBundle\\Command\\DumpCommand' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Command/DumpCommand.php',
-        'FOS\\JsRoutingBundle\\Command\\RouterDebugExposedCommand' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Command/RouterDebugExposedCommand.php',
-        'FOS\\JsRoutingBundle\\Controller\\Controller' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Controller/Controller.php',
-        'FOS\\JsRoutingBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/DependencyInjection/Configuration.php',
-        'FOS\\JsRoutingBundle\\DependencyInjection\\FOSJsRoutingExtension' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/DependencyInjection/FOSJsRoutingExtension.php',
-        'FOS\\JsRoutingBundle\\Extractor\\ExposedRoutesExtractor' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Extractor/ExposedRoutesExtractor.php',
-        'FOS\\JsRoutingBundle\\Extractor\\ExposedRoutesExtractorInterface' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Extractor/ExposedRoutesExtractorInterface.php',
-        'FOS\\JsRoutingBundle\\FOSJsRoutingBundle' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/FOSJsRoutingBundle.php',
-        'FOS\\JsRoutingBundle\\Response\\RoutesResponse' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Response/RoutesResponse.php',
-        'FOS\\JsRoutingBundle\\Serializer\\Denormalizer\\RouteCollectionDenormalizer' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Serializer/Denormalizer/RouteCollectionDenormalizer.php',
-        'FOS\\JsRoutingBundle\\Serializer\\Normalizer\\RouteCollectionNormalizer' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Serializer/Normalizer/RouteCollectionNormalizer.php',
-        'FOS\\JsRoutingBundle\\Serializer\\Normalizer\\RoutesResponseNormalizer' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Serializer/Normalizer/RoutesResponseNormalizer.php',
-        'FOS\\JsRoutingBundle\\Util\\CacheControlConfig' => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle/Util/CacheControlConfig.php',
         'Gedmo\\AbstractTrackingListener' => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src/AbstractTrackingListener.php',
         'Gedmo\\Blameable\\Blameable' => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src/Blameable/Blameable.php',
         'Gedmo\\Blameable\\BlameableListener' => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src/Blameable/BlameableListener.php',
@@ -2223,7 +2184,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'Gedmo\\Uploadable\\UploadableListener' => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src/Uploadable/UploadableListener.php',
         'IntlDateFormatter' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/IntlDateFormatter.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
-        'JsonpCallbackValidator' => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src/JsonpCallbackValidator.php',
         'Laminas\\Code\\Annotation\\AnnotationCollection' => __DIR__ . '/..' . '/laminas/laminas-code/src/Annotation/AnnotationCollection.php',
         'Laminas\\Code\\Annotation\\AnnotationInterface' => __DIR__ . '/..' . '/laminas/laminas-code/src/Annotation/AnnotationInterface.php',
         'Laminas\\Code\\Annotation\\AnnotationManager' => __DIR__ . '/..' . '/laminas/laminas-code/src/Annotation/AnnotationManager.php',
@@ -2346,16 +2306,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'Laminas\\ZendFrameworkBridge\\Replacements' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/Replacements.php',
         'Laminas\\ZendFrameworkBridge\\RewriteRules' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/RewriteRules.php',
         'Locale' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Locale.php',
-        'MobileDetectBundle\\DataCollector\\DeviceDataCollector' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DataCollector/DeviceDataCollector.php',
-        'MobileDetectBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DependencyInjection/Configuration.php',
-        'MobileDetectBundle\\DependencyInjection\\MobileDetectExtension' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DependencyInjection/MobileDetectExtension.php',
-        'MobileDetectBundle\\DeviceDetector\\MobileDetector' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/DeviceDetector/MobileDetector.php',
-        'MobileDetectBundle\\EventListener\\RequestResponseListener' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/EventListener/RequestResponseListener.php',
-        'MobileDetectBundle\\Helper\\DeviceView' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/Helper/DeviceView.php',
-        'MobileDetectBundle\\Helper\\RedirectResponseWithCookie' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/Helper/RedirectResponseWithCookie.php',
-        'MobileDetectBundle\\MobileDetectBundle' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/MobileDetectBundle.php',
-        'MobileDetectBundle\\Twig\\Extension\\MobileDetectExtension' => __DIR__ . '/..' . '/tattali/mobile-detect-bundle/src/Twig/Extension/MobileDetectExtension.php',
-        'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',
@@ -6480,6 +6430,7 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         'Twig\\Extension\\SandboxExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/SandboxExtension.php',
         'Twig\\Extension\\StagingExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/StagingExtension.php',
         'Twig\\Extension\\StringLoaderExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/StringLoaderExtension.php',
+        'Twig\\Extra\\String\\StringExtension' => __DIR__ . '/..' . '/twig/string-extra/StringExtension.php',
         'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\Compiler\\MissingExtensionSuggestorPass' => __DIR__ . '/..' . '/twig/extra-bundle/DependencyInjection/Compiler/MissingExtensionSuggestorPass.php',
         'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/twig/extra-bundle/DependencyInjection/Configuration.php',
         'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\TwigExtraExtension' => __DIR__ . '/..' . '/twig/extra-bundle/DependencyInjection/TwigExtraExtension.php',
@@ -6741,7 +6692,6 @@ class ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit50ba274fcc6f35d2238bb11e223236f2::$classMap;
 
         }, null, ClassLoader::class);
