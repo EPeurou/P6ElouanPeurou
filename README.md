@@ -29,6 +29,10 @@ Dans le fichier '.env' situé à la racine du projet vous devrez modifier l'hôt
 
     DATABASE_URL="mysql://utilisateurBase:motDePasseBase@127.0.0.1:3306/nomBase"
 
+Dans ce même fichier vous devrez également modifier la ligne suivante:
+
+    MAILER_DSN=smtp://utilisateur:motdepasse@smtp.exemple.com:port
+
 Le projet est maintenant fonctionnel.
 
 ### Identifiants de connexion

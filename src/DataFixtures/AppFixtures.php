@@ -116,9 +116,9 @@ class AppFixtures extends Fixture
         $product7 = new Tricks();
         $product7->setName('Rail To Switch');
         $product7->setDescription('Un « rail to switch » signifie que le rider est sorti de la barre avec un quart de tour qui l\'a amené de son côté non naturel. De même, le « switch to rail » consiste à entrer sur la barre en partant en arrière et en effectuant un quart de tour.');
-        $product7->setMedia(['image621f8aa58c2a6.png']);
+        $product7->setMedia(['image62285ca2c78f7.png']);
         $product7->setCategory('slides');
-        $product7->setMainImage(['image621f8aa58d96e.png']);
+        $product7->setMainImage(['image62285ca2c8a05.png']);
         $product7->setEmbedsingle('<iframe width="560" height="315" src="https://www.youtube.com/embed/slWCAZijWTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
         $product7->setSlug('rail-to-switch');
         $product7->setUser($user);
@@ -130,7 +130,7 @@ class AppFixtures extends Fixture
         $product8->setDescription('On désigne par le mot « rotation » uniquement des rotations horizontales ; les rotations verticales sont des flips. Le principe est d\'effectuer une rotation horizontale pendant le saut, puis d\'attérir en position switch ou normal');
         $product8->setMedia(['image621f8e6d9044d.jpg']);
         $product8->setCategory('rotation');
-        $product8->setMainImage(['image621f8e6d911c0.jpg']);
+        $product8->setMainImage(['image62285afa91f1e.jpg']);
         $product8->setEmbedsingle('<iframe width="560" height="315" src="https://www.youtube.com/embed/T59sdEX8PLU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
         $product8->setSlug('360');
         $product8->setUser($user);
@@ -140,9 +140,9 @@ class AppFixtures extends Fixture
         $product9 = new Tricks();
         $product9->setName('Hakon Flip');
         $product9->setDescription('rotation désaxée');
-        $product9->setMedia(['image621f8ddc57110.jpg']);
+        $product9->setMedia(['image62285c59d253a.jpg']);
         $product9->setCategory('rotation désaxées');
-        $product9->setMainImage(['image621f8ddc57b85.jpg']);
+        $product9->setMainImage(['image62285b93b138f.jpg']);
         $product9->setEmbedsingle('<iframe width="560" height="315" src="https://www.youtube.com/embed/vUf0ynXU7mo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
         $product9->setSlug('hakon-flip');
         $product9->setUser($user);
